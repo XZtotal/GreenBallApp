@@ -5,15 +5,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.mainController">
    <top>
-      <BorderPane prefHeight="111.0" prefWidth="898.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="111.0" prefWidth="898.0" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
          <center>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME to GreenBall" wrappingWidth="425.3098907470703" BorderPane.alignment="CENTER">
                <font>
@@ -24,24 +24,30 @@
       </BorderPane>
    </top>
    <center>
-      <VBox prefHeight="313.0" prefWidth="337.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" style="-fx-border-radius: 15; -fx-background-radius: 15;" styleClass="vbox-container" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
          <children>
-            <Label text="UserName">
+            <Label text="UserName" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="2.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
             </Label>
-            <TextField maxHeight="34.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="150.0" promptText="YourUserName">
+            <TextField fx:id="usernameField" maxHeight="34.0" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="150.0" promptText="YourUserName">
                <VBox.margin>
                   <Insets bottom="20.0" right="30.0" />
                </VBox.margin>
             </TextField>
-            <Label prefHeight="18.0" prefWidth="60.0" text="Pasword">
+            <Label prefHeight="18.0" prefWidth="60.0" text="Pasword" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="2.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
             </Label>
-            <PasswordField maxHeight="30.0" maxWidth="150.0" prefHeight="30.0" prefWidth="170.0" promptText="YourPassword">
+            <PasswordField fx:id="passwordField" maxHeight="30.0" maxWidth="150.0" prefHeight="30.0" prefWidth="170.0" promptText="YourPassword">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
@@ -54,6 +60,9 @@
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
+         <effect>
+            <Blend />
+         </effect>
       </VBox>
    </center>
 </BorderPane>

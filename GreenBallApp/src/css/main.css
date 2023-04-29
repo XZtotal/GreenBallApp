@@ -1,0 +1,7 @@
+.vbox-container {
+    -fx-background-color: linear-gradient(to right, rgb(0, 70, 71) 0%, rgb(0, 107, 109) 100%);
+    drop-shadow: 0 0 10px #000;
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
+    /*imnagen en backgraund que se repite    */
+    -fx-background-image: url("/images/Background.jpg");
+}
