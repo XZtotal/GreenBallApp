@@ -22,6 +22,7 @@
     -fx-border-radius: 0 0 0 0;
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
 
+
 }
 .enterBtn{
     -fx-background-color: white;
@@ -33,6 +34,13 @@
     -fx-text-fill: rgb(3, 104, 107);
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
     -fx-cursor: hand;
+
+}
+
+.enterBtn:pressed {
+    -fx-background-color: #1ab37b;
+    -fx-text-fill: white;
+    -fx-transition: -fx-background-color 0.5s ease;
 }
 
 .field{

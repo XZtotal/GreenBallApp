@@ -30,7 +30,7 @@
       </BorderPane>
    </top>
    <center>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="512.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="hboxcenter" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="512.0" BorderPane.alignment="CENTER">
          <children>
             <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="286.0" prefWidth="299.0" styleClass="card" stylesheets="@../css/main.css">
                <center>
@@ -91,7 +91,7 @@
                <bottom>
                   <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="303.0" BorderPane.alignment="CENTER_RIGHT">
                      <children>
-                        <Label cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="174.0" text="El usuario o contraseña incorrecta" textAlignment="RIGHT" textFill="#fc7b7b" wrapText="true">
+                        <Label cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="174.0" text="El usuario o la contraseña es incorrecta" textAlignment="RIGHT" textFill="#fc7b7b" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="12.0" />
                            </font>
@@ -99,7 +99,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Button contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" styleClass="enterBtn" text="Entrar">
+                        <Button fx:id="btnEnter" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#btnEnterOnAction" prefHeight="35.0" prefWidth="75.0" styleClass="enterBtn" text="Entrar">
                            <font>
                               <Font name="Arial Black" size="14.0" />
                            </font>
