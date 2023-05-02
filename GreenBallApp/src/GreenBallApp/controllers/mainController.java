@@ -1,4 +1,4 @@
-package controllers;
+package GreenBallApp.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -15,15 +15,13 @@ public class mainController
     @FXML
     private Button btnEnter;
     @FXML
-    private HBox hboxCenter;
-    @FXML
-    private TextField fieldUsername;
-    @FXML
-    private PasswordField fieldPassword;
-    @FXML
-    private Button btnBook;
-    @FXML
     private Hyperlink linkRegister;
+    @FXML
+    private HBox hboxcenter;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
 
     @FXML
     public void initialize() {
@@ -31,7 +29,7 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxCenter);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxcenter);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0.0);
 
@@ -40,12 +38,13 @@ public class mainController
         fadeTransition.play();
     }
 
-    // El siguiente codigo cambia de stage
 
+    @Deprecated
+    public void registerOnAction(ActionEvent actionEvent) {
+    }
 
+    @Deprecated
+    public void viewBookingOnAction(ActionEvent actionEvent) {
 
-
-
-
-
+    }
 }
