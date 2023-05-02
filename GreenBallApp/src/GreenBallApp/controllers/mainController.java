@@ -41,20 +41,16 @@ public class mainController
     }
 
 
-    @Deprecated
-    public void registerOnAction(ActionEvent actionEvent) {
-    }
 
-    @Deprecated
+
+
+
+
+    @FXML
     public void viewBookingOnAction(ActionEvent actionEvent) {
-
     }
 
     @FXML
     public void registerOnAction(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void viewBookingOnAction(ActionEvent actionEvent) {
     }
 }
