@@ -42,6 +42,9 @@ public class mainController
 
 
     @FXML
+    /*Se que aqui hay error pero le mandare un correo al teacher*/
+    //Este metodo es para que cuando se pulse el boton de entrar, se compruebe si el usuario existe en la base de datos
+
     public void btnEnterOnAction(ActionEvent actionEvent) throws IOException, ClubDAOException {
         String nickname = fieldUsername.getText();
         String password = fieldPassword.getText();
