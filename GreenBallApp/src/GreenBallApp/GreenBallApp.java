@@ -21,7 +21,7 @@ public class GreenBallApp extends Application {
         // 1- creación del grafo de escena a partir del fichero FXML
         this.stage=stage;
 
-        FXMLLoader loader= new  FXMLLoader(getClass().getResource("interfaces/register.fxml"));
+        FXMLLoader loader= new  FXMLLoader(getClass().getResource("interfaces/main.fxml"));
         Parent root = loader.load();
         System.out.println("root: "+root);
         //======================================================================

@@ -1,14 +1,23 @@
 package GreenBallApp.controllers;
 
+import GreenBallApp.GreenBallApp;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
+import model.Club;
+import model.ClubDAOException;
+import model.Member;
+
+
+import java.io.IOException;
+
+import static java.lang.Thread.sleep;
 
 public class mainController
 {
@@ -24,20 +33,32 @@ public class mainController
     private PasswordField fieldPassword;
     @FXML
     private Button btnBook;
+    @FXML
+    private Label Error;
 
     @FXML
     public void initialize() {
     }
 
-    @FXML
-    public void btnEnterOnAction(ActionEvent actionEvent) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxCenter);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0.0);
 
-        fadeTransition.setCycleCount(1);
-        fadeTransition.setAutoReverse(false);
-        fadeTransition.play();
+    @FXML
+    public void btnEnterOnAction(ActionEvent actionEvent) throws IOException, ClubDAOException {
+        String nickname = fieldUsername.getText();
+        String password = fieldPassword.getText();
+        Club club = Club.getInstance();
+        Member exist = club.getMemberByCredentials(nickname, password);
+        if(exist == null){
+            Error.setVisible(true);
+
+        }else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/register.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            GreenBallApp.setScene(scene);
+
+        }
+
+
     }
 
 
@@ -51,6 +72,13 @@ public class mainController
     }
 
     @FXML
-    public void registerOnAction(ActionEvent actionEvent) {
+    public void registerOnAction(ActionEvent actionEvent) throws IOException, InterruptedException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/register.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
+
+
     }
 }
