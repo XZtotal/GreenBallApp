@@ -22,6 +22,7 @@ public class GreenBallApp extends Application {
 
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("interfaces/main.fxml"));
         Parent root = loader.load();
+        System.out.println("root: "+root);
         //======================================================================
         // 2- creación de la escena con el nodo raiz del grafo de escena
         Scene scene = new Scene(root);
