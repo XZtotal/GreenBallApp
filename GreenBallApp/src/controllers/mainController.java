@@ -13,13 +13,17 @@ import javafx.util.Duration;
 public class mainController
 {
     @FXML
-    private TextField usernameField;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
     private Button btnEnter;
     @FXML
-    private HBox hboxcenter;
+    private HBox hboxCenter;
+    @FXML
+    private TextField fieldUsername;
+    @FXML
+    private PasswordField fieldPassword;
+    @FXML
+    private Button btnBook;
+    @FXML
+    private Hyperlink linkRegister;
 
     @FXML
     public void initialize() {
@@ -27,7 +31,7 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxcenter);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxCenter);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0.0);
 
@@ -35,4 +39,13 @@ public class mainController
         fadeTransition.setAutoReverse(false);
         fadeTransition.play();
     }
+
+    // El siguiente codigo cambia de stage
+
+
+
+
+
+
+
 }
