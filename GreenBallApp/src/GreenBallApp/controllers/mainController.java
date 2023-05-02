@@ -17,11 +17,13 @@ public class mainController
     @FXML
     private Hyperlink linkRegister;
     @FXML
-    private HBox hboxcenter;
+    private HBox hboxCenter;
     @FXML
-    private TextField usernameField;
+    private TextField fieldUsername;
     @FXML
-    private PasswordField passwordField;
+    private PasswordField fieldPassword;
+    @FXML
+    private Button btnBook;
 
     @FXML
     public void initialize() {
@@ -29,7 +31,7 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxcenter);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), hboxCenter);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0.0);
 
@@ -46,5 +48,13 @@ public class mainController
     @Deprecated
     public void viewBookingOnAction(ActionEvent actionEvent) {
 
+    }
+
+    @FXML
+    public void registerOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void viewBookingOnAction(ActionEvent actionEvent) {
     }
 }
