@@ -6,7 +6,7 @@
 <VBox alignment="CENTER" prefHeight="321.0" prefWidth="373.0" spacing="12.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLDocumentController">
    <children>
         <Label fx:id="labelMessage" lineSpacing="4.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="150.0" textAlignment="CENTER" wrapText="true" />
-        <Button fx:id="buttonClick" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButtonAction" prefWidth="80.0" text="Click" />
+        <Button fx:id="buttonClick" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleButtonAction" prefWidth="80.0" text="ClickMe" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button mnemonicParsing="false" text="Button" />
