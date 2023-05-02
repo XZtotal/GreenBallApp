@@ -14,11 +14,12 @@ import javafx.stage.Stage;
 
 
 public class GreenBallApp extends Application {
-    
+    public static Stage stage;
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
+        this.stage=stage;
 
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("interfaces/register.fxml"));
         Parent root = loader.load();
@@ -42,6 +43,13 @@ public class GreenBallApp extends Application {
         launch(args);
         
     }
+    public static void setScene(Scene scene){
+
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
 
     
