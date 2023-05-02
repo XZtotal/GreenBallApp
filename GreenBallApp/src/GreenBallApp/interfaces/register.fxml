@@ -16,7 +16,7 @@
          <left>
             <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="84.0" prefWidth="612.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="80.0" styleClass="btnExit" stylesheets="@../css/register.css">
+                  <Button fx:id="btnReturn" mnemonicParsing="false" prefHeight="84.0" prefWidth="80.0" styleClass="btnExit" stylesheets="@../css/register.css">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
