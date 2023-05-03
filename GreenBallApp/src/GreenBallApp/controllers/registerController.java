@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
@@ -23,7 +22,7 @@ public class registerController
 
     @FXML
     public void initialize() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/identifyRegisterModule.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/secondRegisterModule.fxml"));
         Parent root = loader.load();
         bpContainer.setCenter(root);
 
