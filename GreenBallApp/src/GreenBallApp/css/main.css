@@ -36,6 +36,15 @@
     -fx-cursor: hand;
 
 }
+/* Cambiar el color del boton cuando se pone el cursor encima*/
+
+.enterBtn:hover{
+    -fx-background-color: #1ab37b;
+    -fx-text-fill: white;
+    -fx-transition: -fx-background-color 0.5s ease;
+    -fx-cursor: hand;
+}
+
 
 .enterBtn:pressed {
     -fx-background-color: #1ab37b;
@@ -62,3 +71,5 @@
 
 
 */
+
+
