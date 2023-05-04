@@ -31,10 +31,16 @@
 
 .generalContainer{
     -fx-background-color: rgb(0, 99, 101);
-    -fx-background-radius: 10;
+
     -fx-border-radius: 10;
-    -fx-border-color: rgb(222, 222, 222);
-    -fx-border-width: 1;
+
+    -fx-border-color: white;
+    -fx-border-width: 0;
+
+    -fx-background-image: url("../image/fondo14.png") center;
+
+    -fx-background-size: 90;
+    -fx-background-radius: 10 ;
 }
 
 .bellowContainer{
@@ -102,4 +108,20 @@
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 20, 0, 0, 0);
 
+}
+
+.pfondo{
+    -fx-background-image: url("../image/fondo14.png") center;
+    -fx-background-size: 100;
+}
+#btnaddimage{
+    -fx-text-fill: rgb(62, 152, 119);
+}
+
+#btnaddimage:hover{
+
+    /*cambiar color letras    */
+
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.68), 20, 0, 0, 0);
 }

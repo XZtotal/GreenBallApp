@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_LEFT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="430.0" style="-fx-background-color: rgb(0, 99, 101);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModule">
+<VBox alignment="CENTER_LEFT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="301.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModule">
    <children>
       <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
          <children>
@@ -20,7 +20,7 @@
             </Label>
             <VBox prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
-                  <TextField fx:id="fieldUsername" maxHeight="40.0" maxWidth="204.0" prefHeight="39.0" prefWidth="204.0" promptText="Escribe tu nombre" styleClass="field">
+                  <TextField fx:id="fieldName" maxHeight="40.0" maxWidth="204.0" prefHeight="39.0" prefWidth="204.0" promptText="Escribe tu nombre" styleClass="field">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -52,7 +52,7 @@
             </Label>
             <VBox prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
-                  <TextField fx:id="fieldUsername1" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
+                  <TextField fx:id="fieldLastname" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -84,7 +84,7 @@
             </Label>
             <VBox prefHeight="59.0" prefWidth="150.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
-                  <TextField fx:id="fieldUsername11" maxHeight="39.0" maxWidth="150.0" prefHeight="40.0" prefWidth="150.0" promptText="123456789" styleClass="field">
+                  <TextField fx:id="fieldPhone" maxHeight="39.0" maxWidth="150.0" prefHeight="40.0" prefWidth="150.0" promptText="123456789" styleClass="field">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

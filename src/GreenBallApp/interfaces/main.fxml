@@ -17,18 +17,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="928.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.mainController">
-   <top>
-      <BorderPane prefHeight="84.0" prefWidth="641.0" styleClass="topbar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
-         <center>
-            <ImageView fitHeight="49.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../image/BienvenidoaGreenBall.png" />
-               </image>
-            </ImageView>
-         </center>
-      </BorderPane>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="600.0" prefHeight="600.0" prefWidth="829.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.mainController">
    <center>
       <HBox fx:id="hboxCenter" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="512.0" BorderPane.alignment="CENTER">
          <children>
@@ -156,4 +145,15 @@
          </children>
       </HBox>
    </center>
+   <top>
+      <HBox alignment="CENTER" minWidth="500.0" prefHeight="80.0" prefWidth="500.0" styleClass="topbar" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="468.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/BienvenidoaGreenBall.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -12,10 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="340.0" prefWidth="520.0" style="-fx-background-color: rgb(0, 99, 101);" styleClass="pfondo" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.secondRegisterModule">
+<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="337.0" prefWidth="511.0" style="-fx-background-color: rgb(0, 99, 101);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.thirdRegisterModuleController">
    <children>
       <VBox fillWidth="false" prefHeight="255.0" prefWidth="242.0">
          <children>
@@ -125,37 +122,13 @@
             <Insets left="20.0" right="20.0" />
          </HBox.margin>
       </Line>
-      <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="220.0">
+      <VBox prefHeight="267.0" prefWidth="157.0">
          <children>
-            <Text fill="#cffffe" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Te gustaria añadir una imagen a tu perfil?" textAlignment="CENTER" wrappingWidth="220.0">
-               <font>
-                  <Font name="Calibri Bold" size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Text>
-            <ImageView fitHeight="135.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="168.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/addphoto3.png" />
+                  <Image url="@../image/addphoto.png" />
                </image>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
             </ImageView>
-            <Button id="btnaddimage" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Añadir imagen">
-               <font>
-                  <Font name="Calibri Bold" size="18.0" />
-               </font>
-            </Button>
-            <Hyperlink text="Borrar imagen" textFill="#06c0c6">
-               <font>
-                  <Font name="Calibri Bold" size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="3.0" />
-               </VBox.margin>
-            </Hyperlink>
          </children>
       </VBox>
    </children>
