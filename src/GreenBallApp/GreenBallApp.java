@@ -10,11 +10,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Club;
+import model.ClubDAOException;
+import model.Court;
 
+import java.io.IOException;
 
 
 public class GreenBallApp extends Application {
     public static Stage stage;
+    public static Club club;
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
@@ -32,15 +37,18 @@ public class GreenBallApp extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("start PROJECT - IPC:");
+        stage.setTitle("GreenBallApp > Inicio");
         stage.show();
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClubDAOException, IOException {
+        initialize();
         launch(args);
+
+
         
     }
     public static void setScene(Scene scene){
@@ -48,6 +56,15 @@ public class GreenBallApp extends Application {
         stage.setScene(scene);
         stage.show();
 
+    }
+    public static void initialize() throws ClubDAOException, IOException {
+        System.out.println("GreenBallApp.initialize()");
+        club = Club.getInstance();
+
+        for (Court i : club.getCourts()) {
+            System.out.println(i);
+        }
+        System.out.printf(String.valueOf(club.getCourt("11")));
     }
 
 
