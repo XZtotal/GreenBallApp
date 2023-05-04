@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/GreenBallApp/lib/sqlite-jdbc-3.41.2.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/GreenBallApp/lib/tenisClub.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.41.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tenisClub.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
