@@ -1,0 +1,75 @@
+.card {
+    -fx-background-color: linear-gradient(to right, rgba(3, 124, 102, 0.49) 0%, rgb(0, 100, 109) 100%);
+    drop-shadow: 0 0 10px #000;
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
+    /*imnagen en backgraund que se repite    */
+
+
+    -fx-background-radius : 15;
+
+}
+.fondo{
+    -fx-background-image: url("../image/fondo4.png") center;
+    -fx-background-size: 100 ;
+    -fx-background-position: center;
+}
+.topbar{
+    -fx-background-color: linear-gradient(to right, rgb(0, 70, 71) 0%, rgb(0, 107, 109) 100%);
+
+    -fx-background-radius: 0 0 0 0;
+    -fx-border-color: rgb(0, 70, 71);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-radius: 0 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
+
+
+}
+.enterBtn{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(46, 223, 227);
+    -fx-border-width: 0;
+    -fx-border-radius: 1;
+    /*cambiar color letras    */
+    -fx-text-fill: rgb(3, 104, 107);
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
+    -fx-cursor: hand;
+
+}
+/* Cambiar el color del boton cuando se pone el cursor encima*/
+
+.enterBtn:hover{
+    -fx-background-color: #1ab37b;
+    -fx-text-fill: white;
+    -fx-transition: -fx-background-color 0.5s ease;
+    -fx-cursor: hand;
+}
+
+
+.enterBtn:pressed {
+    -fx-background-color: #1ab37b;
+    -fx-text-fill: white;
+    -fx-transition: -fx-background-color 0.5s ease;
+}
+
+.field{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(46, 223, 227);
+    -fx-border-width: 0;
+    -fx-border-radius: 3;
+    /*cambiar color letras    */
+    -fx-text-fill: rgb(3, 104, 107);
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
+}
+/*cambiar color letras
+
+-fx-background-color: linear-gradient(to right, rgb(0, 70, 71) 0%, rgb(0, 107, 109) 100%);
+
+
+
+
+
+*/
+
+
