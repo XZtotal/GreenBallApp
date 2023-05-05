@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
 import model.Court;
+import model.Member;
 
 import java.io.IOException;
 
@@ -20,6 +21,7 @@ import java.io.IOException;
 public class GreenBallApp extends Application {
     public static Stage stage;
     public static Club club;
+    public static Member member;
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
