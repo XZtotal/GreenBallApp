@@ -1,12 +1,12 @@
 package GreenBallApp.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
+import javafx.event.ActionEvent;
 
-import javax.swing.text.html.ImageView;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
 
 public class menuController {
     @javafx.fxml.FXML
@@ -14,9 +14,9 @@ public class menuController {
     @FXML
     private Hyperlink cuenta;
     @FXML
-    private Button reservas;
+    private Button books;
     @FXML
-    private Button reservar;
+    private Button booking;
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
@@ -30,11 +30,11 @@ public class menuController {
     }
 
     @FXML
-    public void reservasOnAction(ActionEvent actionEvent) {
+    public void booksOnAction(ActionEvent actionEvent) {
     }
 
     @FXML
-    public void reservarOnAction(ActionEvent actionEvent) {
+    public void bookingOnAction(ActionEvent actionEvent) {
     }
     // Escribe un metodo que escriba en el label welcome un mensaje de bienvenida a cada usuario
 
