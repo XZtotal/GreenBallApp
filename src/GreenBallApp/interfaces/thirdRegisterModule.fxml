@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="337.0" prefWidth="511.0" style="-fx-background-color: rgb(0, 99, 101);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.thirdRegisterModuleController">
+<VBox alignment="TOP_CENTER" prefHeight="413.0" prefWidth="452.0" style="-fx-background-color: rgb(0, 99, 101);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.thirdRegisterModuleController">
    <children>
-      <VBox fillWidth="false" prefHeight="255.0" prefWidth="242.0">
+      <Label prefHeight="104.0" prefWidth="423.0" text="¿Te gustaria añadir tu targeta de crédito para facilitar futuras compras?" textAlignment="CENTER" textFill="#fbfeff" wrapText="true">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+      </Label>
+      <VBox fillWidth="false" prefHeight="280.0" prefWidth="854.0">
          <children>
-            <VBox fillWidth="false" prefHeight="66.0" prefWidth="180.0">
+            <VBox fillWidth="false" prefHeight="83.0" prefWidth="220.0">
                <children>
-                  <Label prefHeight="22.0" prefWidth="160.0" text="Nombre de Usuario*" textFill="WHITE">
+                  <Label prefHeight="22.0" prefWidth="225.0" text="Número de targeta" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="2.0" left="3.0" />
                      </VBox.margin>
@@ -26,14 +28,14 @@
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </Label>
-                  <VBox prefHeight="59.0" prefWidth="180.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+                  <VBox prefHeight="59.0" prefWidth="361.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                      <children>
-                        <TextField fx:id="fieldUsername" prefHeight="39.0" promptText="Escribe un apodo" styleClass="field" stylesheets="@../css/register.css">
+                        <TextField fx:id="fieldUsername" prefHeight="39.0" prefWidth="298.0" promptText="1234567891234567" styleClass="field" stylesheets="@../css/register.css">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <Label prefHeight="22.0" prefWidth="181.0" text="Nombre ya en uso" textFill="#ff5201" wrapText="true">
+                        <Label prefHeight="21.0" prefWidth="197.0" text="Escriba el dato" textFill="#ff5201" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
@@ -51,9 +53,9 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </VBox>
-            <VBox fillWidth="false" prefHeight="80.0" prefWidth="210.0">
+            <VBox fillWidth="false" prefHeight="81.0" prefWidth="162.0">
                <children>
-                  <Label prefHeight="22.0" prefWidth="101.0" text="Contraseña*" textFill="WHITE">
+                  <Label prefHeight="22.0" prefWidth="162.0" text="Fecha de caducidad" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
@@ -63,12 +65,8 @@
                   </Label>
                   <VBox prefHeight="59.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                      <children>
-                        <PasswordField fx:id="pfieldPass" prefHeight="39.0" promptText="Escribe una contraseña" styleClass="field" stylesheets="@../css/register.css">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </PasswordField>
-                        <Label prefHeight="22.0" prefWidth="181.0" text="Escriba una contraseña" textFill="#ff5201">
+                        <DatePicker prefHeight="38.0" prefWidth="162.0" promptText="__  / __  / __" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="field" stylesheets="@../css/register.css" />
+                        <Label prefHeight="22.0" prefWidth="181.0" text="Seleccione fecha" textFill="#ff5201">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
@@ -83,9 +81,9 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </VBox>
-            <VBox fillWidth="false" prefHeight="104.0" prefWidth="210.0">
+            <VBox fillWidth="false" prefHeight="81.0" prefWidth="70.0">
                <children>
-                  <Label prefHeight="22.0" prefWidth="189.0" text="Repite la contraseña" textFill="WHITE">
+                  <Label prefHeight="22.0" prefWidth="189.0" text="CVV" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
@@ -95,12 +93,12 @@
                   </Label>
                   <VBox prefHeight="59.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                      <children>
-                        <PasswordField fx:id="pfieldRepeatPass" promptText="Repite la contraseña" styleClass="field" stylesheets="@../css/register.css">
+                        <PasswordField fx:id="pfieldRepeatPass" prefHeight="39.0" prefWidth="112.0" promptText="123" styleClass="field" stylesheets="@../css/register.css">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </PasswordField>
-                        <Label prefHeight="40.0" prefWidth="195.0" text="La contraseña no coincide" textFill="#ff5201" wrapText="true">
+                        <Label prefHeight="40.0" prefWidth="195.0" text="Vacio" textFill="#ff5201" wrapText="true">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
@@ -115,24 +113,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </VBox>
-         </children>
-      </VBox>
-      <Line startY="230.0" stroke="#ffffff22" strokeLineCap="ROUND" strokeWidth="5.0">
-         <HBox.margin>
-            <Insets left="20.0" right="20.0" />
-         </HBox.margin>
-      </Line>
-      <VBox prefHeight="267.0" prefWidth="157.0">
-         <children>
-            <ImageView fitHeight="168.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/addphoto.png" />
-               </image>
-            </ImageView>
          </children>
       </VBox>
    </children>
-   <padding>
-      <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-   </padding>
-</HBox>
+</VBox>
