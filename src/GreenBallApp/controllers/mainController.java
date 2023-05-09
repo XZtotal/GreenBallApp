@@ -48,14 +48,15 @@ public class mainController
 
         boolean mememberExists = checkMemberCredentials(nickname, password);
 
-        if(mememberExists){
+        if (mememberExists) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             GreenBallApp.setScene(scene);
-        }else{
-           if(!Error.isVisible())
-           {aparecerError();}else{
+        } else {
+           if (!Error.isVisible()) {
+               aparecerError();
+           } else {
                 remarcarError();
            }
 
