@@ -89,7 +89,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="101.0" prefWidth="554.0">
                <children>
-                  <Button fx:id="books" mnemonicParsing="false" onAction="#booksOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Mis reservas">
+                  <Button fx:id="reservas" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Mis reservas">
                      <HBox.margin>
                         <Insets right="66.0" />
                      </HBox.margin>
@@ -113,7 +113,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button fx:id="booking" mnemonicParsing="false" onAction="#bookingOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Reservar">
+                  <Button fx:id="reservar" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Reservar">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
