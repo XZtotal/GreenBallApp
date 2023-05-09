@@ -54,47 +54,52 @@ public class mainController
             Scene scene = new Scene(root);
             GreenBallApp.setScene(scene);
         }else{
-            Error.setVisible(true);
-            FadeTransition ft = new FadeTransition(Duration.millis(3000), Error);
-            ft.setFromValue(1.0);
-            ft.setToValue(0.0);
-            ft.play();
+           if(!Error.isVisible())
+           {aparecerError();}else{
+                remarcarError();
+           }
+
         }
     }
-    /*Se que aqui hay error pero le mandare un correo al teacher*/
-    //Este metodo es para que cuando se pulse el boton de entrar, se compruebe si el usuario existe en la base de datos
 
-    /*public void btnEnterOnAction(ActionEvent actionEvent) throws IOException, ClubDAOException {
-        String nickname = fieldUsername.getText();
-        String password = fieldPassword.getText();
-        Club club = Club.getInstance();
-        Member exist = club.getMemberByCredentials(nickname, password);
-        if(exist == null){
-            Error.setVisible(true);
 
-        }else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/register.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            GreenBallApp.setScene(scene);
-
-        }
+    public void remarcarError(){
+        FadeTransition ft = new FadeTransition(Duration.millis(200), Error);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.7);
+        ft.play();
+        FadeTransition fd = new FadeTransition(Duration.millis(400), Error);
+        fd.setFromValue(0.7);
+        fd.setToValue(1.0);
+        fd.play();
 
 
     }
-*/
 
 
+    public void aparecerError(){
+        Error.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(600), Error);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+    }
 
     public boolean checkMemberCredentials(String nickname, String password) throws ClubDAOException, IOException {
         Club club = Club.getInstance();
-        Member exist = club.getMemberByCredentials(nickname, password);
-        if(exist == null){
+        try {
+            Member exist = club.getMemberByCredentials(nickname, password);
+            if (exist == null) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error");
             return false;
-        }else{
-            return true;
         }
     }
+
 
 
     @FXML
