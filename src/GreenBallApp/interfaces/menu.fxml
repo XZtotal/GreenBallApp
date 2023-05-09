@@ -57,7 +57,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="550.0" style="-fx-background-radius: 15;" styleClass="topbar" stylesheets="@../css/main.css">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/addphoto3.png" />
                      </image>
@@ -67,7 +67,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="177.0" text="Bienvenido" textFill="WHITE">
+                        <Label fx:id="Bienvenida" prefHeight="35.0" prefWidth="177.0" text="Bienvenido" textFill="WHITE">
                            <font>
                               <Font size="34.0" />
                            </font>
