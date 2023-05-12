@@ -43,7 +43,7 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
-        String nickname = fieldUsername.getText();
+       /* String nickname = fieldUsername.getText();
         String password = fieldPassword.getText();
 
         boolean mememberExists = checkMemberCredentials(nickname, password);
@@ -61,6 +61,12 @@ public class mainController
            }
 
         }
+
+        */
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
     }
 
 

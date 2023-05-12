@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -35,19 +33,39 @@ public class menuController {
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Cerrar sesión");
+        alert.setHeaderText("¿Seguro que desea cerrar sesión?");
+        alert.setContentText("Estas a punto de cerrar sesión");
+        alert.showAndWait();
+        alert.getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
+        // Si el usuario pulsa OK, se cierra la sesión y se vuelve a la pantalla de inicio
+        if (alert.getResult().equals(ButtonType.OK)) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                GreenBallApp.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
     @FXML
     public void initialize() {
-        try {
+        /*try {
             welcomeMessage();
             showImage();
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
         }
+
+         */
     }
 
     @FXML
     public void cuentaOnAction(ActionEvent actionEvent) {
+        
     }
 
 
