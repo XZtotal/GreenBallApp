@@ -71,7 +71,7 @@
                <bottom>
                   <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css">
                      <children>
-                        <Hyperlink text="Omitir &gt;">
+                        <Hyperlink fx:id="linkOmit" onAction="#linkOmitOnAction" text="Omitir &gt;">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
@@ -79,12 +79,12 @@
                               <Font name="Calibri Bold" size="16.0" />
                            </font>
                         </Hyperlink>
-                        <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
+                        <Button fx:id="btnLast" mnemonicParsing="false" onAction="#btnLastOnAction" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
                            <font>
                               <Font name="Calibri Bold" size="17.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
+                        <Button fx:id="btnNext" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
                            <font>
                               <Font name="Calibri Bold" size="17.0" />
                            </font>

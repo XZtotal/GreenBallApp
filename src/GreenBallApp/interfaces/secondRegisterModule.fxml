@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="340.0" prefWidth="520.0" style="-fx-background-color: rgb(0, 99, 101);" styleClass="pfondo" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.secondRegisterModule">
+<HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="340.0" prefWidth="520.0" style="-fx-background-color: rgb(0, 99, 101);" styleClass="pfondo" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.secondRegisterModuleController">
    <children>
       <VBox fillWidth="false" prefHeight="255.0" prefWidth="242.0">
          <children>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_LEFT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="301.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModule">
+<VBox alignment="CENTER_LEFT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="301.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModuleController">
    <children>
       <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
          <children>

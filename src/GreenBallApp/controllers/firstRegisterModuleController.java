@@ -2,7 +2,7 @@ package GreenBallApp.controllers;
 
 import javafx.scene.control.TextField;
 
-public class firstRegisterModule
+public class firstRegisterModuleController
 {
     @javafx.fxml.FXML
     private TextField fieldUsername;

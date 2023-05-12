@@ -41,6 +41,7 @@ public class menuController {
         ImageView imageView = new ImageView(new Image("GreenBallApp/image/imgCerrarSesion.png"));
         imageView.setFitHeight(70);
         imageView.setFitWidth(70);
+
         //ponerle margin al imageView
 
 
