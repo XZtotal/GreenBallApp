@@ -37,6 +37,14 @@ public class menuController {
         alert.setTitle("Cerrar sesión");
         alert.setHeaderText("¿Seguro que desea cerrar sesión?");
         alert.setContentText("Estas a punto de cerrar sesión");
+        //poner una imagen en el alert en GreenBallApp/image/iconoCerrarSesionsvg.png
+        ImageView imageView = new ImageView(new Image("GreenBallApp/image/imgCerrarSesion.png"));
+        imageView.setFitHeight(70);
+        imageView.setFitWidth(70);
+        //ponerle margin al imageView
+
+
+        alert.setGraphic(imageView);
         alert.showAndWait();
         alert.getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
         // Si el usuario pulsa OK, se cierra la sesión y se vuelve a la pantalla de inicio
