@@ -52,7 +52,7 @@ public class registerController
     public void initialize() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/thirdRegisterModule.fxml"));
         Parent root = loader.load();
-        loader.get
+        //loader.get
 
         bpContainer.setCenter(root);
 

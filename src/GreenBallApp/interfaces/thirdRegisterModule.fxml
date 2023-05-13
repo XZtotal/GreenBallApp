@@ -10,7 +10,7 @@
 
 <VBox alignment="TOP_CENTER" prefHeight="413.0" prefWidth="452.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.thirdRegisterModuleController">
    <children>
-      <Label prefHeight="104.0" prefWidth="423.0" text="¿Te gustaria añadir tu targeta de crédito para facilitar futuras compras?" textAlignment="CENTER" textFill="#fbfeff" wrapText="true">
+      <Label prefHeight="104.0" prefWidth="423.0" text="¿Te gustaria añadir tu tarjeta de crédito para facilitar futuras compras?" textAlignment="CENTER" textFill="#fbfeff" wrapText="true">
          <font>
             <Font name="Calibri Bold" size="26.0" />
          </font>
