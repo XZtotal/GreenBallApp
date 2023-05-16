@@ -30,7 +30,7 @@ public class publicReservesController
     @javafx.fxml.FXML
     private Button btnReturn;
     @javafx.fxml.FXML
-    private TableView Table;
+    private TableView <Booking> Table;
     @javafx.fxml.FXML
     private TableColumn <Booking,String> nicknameColumn;
     @javafx.fxml.FXML
