@@ -45,24 +45,29 @@ public class thirdRegisterModuleController
         //limite de 16 caracteres sin contar los guiones en el campo de texto del numero de tarjeta y poner un "-" cada 4 caracteres. Ademas, no se puede escribir nada que no sea un numero.
         fieldCreditNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             // Elimina todos los caracteres que no son números
-            String cleanedValue = newValue.replaceAll("[^\\d]", "");
+            if( !oldValue.equals(newValue) ) {
+                String cleanedValue = newValue.replaceAll("[^\\d]", "");
 
-            // Agrega un guión después de cada grupo de 4 caracteres
-            StringBuilder formattedValue = new StringBuilder();
-            for (int i = 0; i < cleanedValue.length(); i++) {
-                if (i > 0 && i % 4 == 0) {
-                    formattedValue.append("-");
+                // Agrega un guión después de cada grupo de 4 caracteres
+                StringBuilder formattedValue = new StringBuilder();
+                for (int i = 0; i < cleanedValue.length(); i++) {
+                    if (i > 0 && i % 4 == 0) {
+                        formattedValue.append("-");
+                    }
+                    formattedValue.append(cleanedValue.charAt(i));
                 }
-                formattedValue.append(cleanedValue.charAt(i));
+
+                // Limita el campo de texto a 16 caracteres (sin contar los guiones)
+                if (formattedValue.length() > 19) {
+                    formattedValue.delete(19, formattedValue.length());
+                }
+                System.out.println("antes de settext");
+                // Actualiza el campo de texto
+
+                fieldCreditNumber.setText(formattedValue.toString());
             }
 
-            // Limita el campo de texto a 16 caracteres (sin contar los guiones)
-            if (formattedValue.length() > 19) {
-                formattedValue.delete(19, formattedValue.length());
-            }
 
-            // Actualiza el campo de texto
-            fieldCreditNumber.setText(formattedValue.toString());
         });
 
 
@@ -98,15 +103,30 @@ public class thirdRegisterModuleController
 
     //getters
     public String getCreditNumber() {
-        if (fieldCreditNumber.getText().length() != 19) {
+        if (fieldCreditNumber.getText().replaceAll("-", "") .length() != 16) {
             errorCreditNumber = true;
             showErrors();
 
             return null;
         }
+        errorCreditNumber = false;
+        showErrors();
 
         return fieldCreditNumber.getText().replaceAll("-", "");
 
+    }
+
+    public String getExpireDate() {
+        if (fieldExpireDate.getValue() == null) {
+            errorExpireDate = true;
+            showErrors();
+
+            return null;
+        }
+        errorExpireDate = false;
+        showErrors();
+
+        return fieldExpireDate.getValue().toString();
     }
 
 
