@@ -32,7 +32,7 @@ public class myReservesController
 
     @javafx.fxml.FXML
     public void btnEnterOnAction(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         GreenBallApp.setScene(scene);
