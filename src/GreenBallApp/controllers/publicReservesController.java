@@ -22,6 +22,7 @@ import model.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class publicReservesController
@@ -92,6 +93,14 @@ public class publicReservesController
                 Court court = Club.getInstance().getCourt(booking.getCourt().getName());
                 String nickname = member.getNickName();
                 String pista = court.getName();
+                LocalDateTime bookingdate = booking.getBookingDate();
+                LocalDate madeforday = booking.getMadeForDay();
+                LocalTime fromtime = booking.getFromTime();
+                boolean paid = booking.getPaid();
+                Booking reserva = club.registerBooking(bookingdate,madeforday,fromtime,paid,court,member);
+                bookingList.add(reserva);
+
+
 
 
 
