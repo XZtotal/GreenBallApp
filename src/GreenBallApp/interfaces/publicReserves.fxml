@@ -55,12 +55,12 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="29.0" layoutY="154.0" prefHeight="391.0" prefWidth="792.0">
+            <TableView fx:id="Table" layoutX="29.0" layoutY="154.0" prefHeight="391.0" prefWidth="792.0">
               <columns>
-                <TableColumn prefWidth="198.0" text="NickName" />
-                  <TableColumn prefWidth="198.0" text="Pista" />
-                  <TableColumn prefWidth="198.0" text="Hora Inicio" />
-                  <TableColumn prefWidth="198.0" text="Hora Fin" />
+                <TableColumn fx:id="nicknameColumn" prefWidth="198.0" text="NickName" />
+                  <TableColumn fx:id="pistaColumn" prefWidth="198.0" text="Pista" />
+                  <TableColumn fx:id="inicioColumn" prefWidth="198.0" text="Hora Inicio" />
+                  <TableColumn fx:id="finColumn" prefWidth="198.0" text="Hora Fin" />
               </columns>
             </TableView>
             <HBox layoutX="33.0" layoutY="39.0" prefHeight="100.0" prefWidth="783.0" styleClass="card">

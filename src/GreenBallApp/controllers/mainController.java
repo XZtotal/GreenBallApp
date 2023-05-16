@@ -111,7 +111,7 @@ public class mainController
 
     @FXML
     public void viewBookingOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/myReserves.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         GreenBallApp.setScene(scene);
