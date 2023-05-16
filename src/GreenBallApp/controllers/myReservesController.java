@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
+import java.io.IOException;
+
 public class myReservesController
 {
 
@@ -31,7 +33,7 @@ public class myReservesController
     }
 
     @javafx.fxml.FXML
-    public void btnEnterOnAction(ActionEvent actionEvent) {
+    public void btnEnterOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
