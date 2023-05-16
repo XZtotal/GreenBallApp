@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
-
-
-public class bookingController
+public class myReservesController
 {
     @javafx.fxml.FXML
     private HBox hboxCenter;
