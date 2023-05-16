@@ -17,11 +17,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import model.Booking;
-import model.Club;
-import model.ClubDAOException;
+import model.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -87,17 +86,25 @@ public class publicReservesController
         try{
             Club club = Club.getInstance();
             ArrayList<Booking> bookings = club.getBookings();
-            ObservableList<Booking> bookingList = FXCollections.observableArrayList(bookings);
-            nicknameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getNickName()));
-            pistaColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCourt().getName()));
-            inicioColumn.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getFromTime()));
-            finColumn.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getFromTime()));
-            Table.setItems(bookingList);
+            ObservableList<Booking> bookingList = FXCollections.observableArrayList();
+            for(Booking booking : bookingList) {
+                Member member = club.getMemberByCredentials(booking.getMember().getNickName(), booking.getMember().getPassword());
+                Court court = Club.getInstance().getCourt(booking.getCourt().getName());
+                String nickname = member.getNickName();
+                String pista = court.getName();
+
+
+
+            }
+                Table.setItems(bookingList);
+
+
         } catch (Exception e) {
-            System.out.println("error");
+            System.out.println("Error");
         }
 
     }
+
 
 
 

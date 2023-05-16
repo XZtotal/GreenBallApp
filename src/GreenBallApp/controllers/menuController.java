@@ -10,11 +10,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
-import model.Club;
-import model.ClubDAOException;
-import model.Member;
+import model.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+import static GreenBallApp.GreenBallApp.club;
 
 
 public class menuController {
@@ -89,7 +92,14 @@ public class menuController {
     }
 
     @FXML
-    public void reservarOnAction(ActionEvent actionEvent) {
+    public void reservarOnAction(ActionEvent actionEvent) throws ClubDAOException {
+        /*LocalDateTime bookingDate = LocalDateTime.now();
+        LocalDate madeForDay = LocalDate.now().plusDays(1);
+        LocalTime fromTime = LocalTime.of(10, 0);
+        Court court = new Court("Pista 1");
+        Member member = club.registerMember("Juan", "Pérez", "123456789A","paco", "1234", "asdadsads", 123456789, null);
+        boolean paid = false;
+        Booking nuevaReserva = new club.registerBooking(new Booking(bookingDate, madeForDay, fromTime, court, member,paid));*/
     }
     // Escribe un metodo que escriba en el label welcome un mensaje de bienvenida a cada usuario
 
