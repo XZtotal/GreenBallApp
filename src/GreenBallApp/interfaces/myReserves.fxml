@@ -52,12 +52,14 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="103.0" layoutY="61.0" prefHeight="449.0" prefWidth="644.0">
+            <TableView fx:id="tableView" layoutX="103.0" layoutY="61.0" prefHeight="449.0" prefWidth="644.0">
               <columns>
-                <TableColumn fx:id="NickName" prefWidth="146.0" text="NickName" />
-                  <TableColumn fx:id="Pista" prefWidth="100.0" text="Pista" />
-                  <TableColumn fx:id="HoraInicio" prefWidth="198.0" text="Hora Inicio" />
-                  <TableColumn fx:id="HoraFin" prefWidth="198.0" text="Hora Fin" />
+                <TableColumn fx:id="fechaColumn" prefWidth="128.0" text="Fecha" />
+                  <TableColumn fx:id="fechaReservaColumn" prefWidth="128.0" text="Fecha Reserva" />
+                  <TableColumn fx:id="horaColumn" minWidth="8.0" prefWidth="97.0" text="Hora" />
+                  <TableColumn fx:id="pistaColumn" prefWidth="63.0" text="Pista" />
+                  <TableColumn fx:id="miembroColumn" prefWidth="154.0" text="Miembro" />
+                  <TableColumn fx:id="pagadoColumn" prefWidth="73.0" text="Pagado" />
               </columns>
             </TableView>
          </children>
