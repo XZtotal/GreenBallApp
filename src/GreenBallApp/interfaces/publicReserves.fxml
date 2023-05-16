@@ -72,7 +72,7 @@
                               <Font name="Arial Black" size="14.0" />
                            </font>
                         </Label>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="128.0" />
+                        <TextField fx:id="Nickname" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="128.0" styleClass="field" />
                      </children>
                      <HBox.margin>
                         <Insets left="30.0" />

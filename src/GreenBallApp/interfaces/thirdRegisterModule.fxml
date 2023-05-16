@@ -19,7 +19,7 @@
          <children>
             <VBox fillWidth="false" prefHeight="83.0" prefWidth="220.0">
                <children>
-                  <Label prefHeight="22.0" prefWidth="225.0" text="Número de targeta" textFill="WHITE">
+                  <Label prefHeight="22.0" prefWidth="225.0" text="Número de tarjeta" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="2.0" left="3.0" />
                      </VBox.margin>

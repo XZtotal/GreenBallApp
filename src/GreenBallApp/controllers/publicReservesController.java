@@ -1,15 +1,22 @@
 package GreenBallApp.controllers;
 
 import GreenBallApp.GreenBallApp;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import model.Booking;
 import model.Club;
 import model.ClubDAOException;
@@ -32,19 +39,40 @@ public class publicReservesController
     private TableColumn <Booking, LocalDateTime> inicioColumn;
     @javafx.fxml.FXML
     private TableColumn <Booking,LocalDateTime> finColumn;
+    @FXML
+    private TextField Nickname;
 
-    public publicReservesController() throws ClubDAOException, IOException {
+
+     @FXML
+     public void initialize() {
+         rellenaTabla();
+
+         Nickname.textProperty().addListener((observable, oldValue, newValue) -> {
+             //Busque dentro de la columna de nickname el nickname introducido y borre la fila si lo encuentra
+           Boolean reservaExiste = false;
+              for (int i = 0; i < Table.getItems().size(); i++) {
+                   Booking item = (Booking) Table.getItems().get(i);
+                   if (item.getMember().getNickName().equals(newValue)) {
+                       Table.getItems().remove(i);
+                       reservaExiste = true;
+                       break;
+                   }
+
+              }
+              if(reservaExiste){
+                  //Esto hay que cambiarlo por el metodo de filtrar
+                  System.out.println("Existe");
+              }else{
+                  Nickname.setStyle("-fx-text-fill: red");
+              }
+
+
+
+
+         });
     }
 
-    @javafx.fxml.FXML
-    public void initialize() {
-    }
 
-    //Obtener la lista de reservas
-    Club club = Club.getInstance();
-    ArrayList<Booking> bookings = club.getBookings();
-
-    ObservableList<Booking> bookingList = FXCollections.observableArrayList(bookings);
 
 
     @javafx.fxml.FXML
@@ -54,4 +82,23 @@ public class publicReservesController
         Scene scene = new Scene(root);
         GreenBallApp.setScene(scene);
     }
+
+    public void rellenaTabla(){
+        try{
+            Club club = Club.getInstance();
+            ArrayList<Booking> bookings = club.getBookings();
+            ObservableList<Booking> bookingList = FXCollections.observableArrayList(bookings);
+            nicknameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMember().getNickName()));
+            pistaColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCourt().getName()));
+            inicioColumn.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getFromTime()));
+            finColumn.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getFromTime()));
+            Table.setItems(bookingList);
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+
+    }
+
+
+
 }
