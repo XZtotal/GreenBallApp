@@ -29,47 +29,12 @@ public class publicReservesController
 {
     @javafx.fxml.FXML
     private Button btnReturn;
-    @javafx.fxml.FXML
-    private TableView <Booking> Table;
-    @javafx.fxml.FXML
-    private TableColumn <Booking,String> nicknameColumn;
-    @javafx.fxml.FXML
-    private TableColumn <Booking,String> pistaColumn;
-    @javafx.fxml.FXML
-    private TableColumn <Booking, LocalDateTime> inicioColumn;
-    @javafx.fxml.FXML
-    private TableColumn <Booking,LocalDateTime> finColumn;
+
+
     @FXML
-    private TextField Nickname;
-
-
-     @FXML
      public void initialize() {
-         rellenaTabla();
-
-         Nickname.textProperty().addListener((observable, oldValue, newValue) -> {
-             //Busque dentro de la columna de nickname el nickname introducido y borre la fila si lo encuentra
-           Boolean reservaExiste = false;
-              for (int i = 0; i < Table.getItems().size(); i++) {
-                   Booking item = (Booking) Table.getItems().get(i);
-                   if (item.getMember().getNickName().equals(newValue)) {
-                       Table.getItems().remove(i);
-                       reservaExiste = true;
-                       break;
-                   }
-
-              }
-              if(reservaExiste){
-                  //Esto hay que cambiarlo por el metodo de filtrar
-                  System.out.println("Existe");
-              }else{
-                  Nickname.setStyle("-fx-text-fill: red");
-              }
 
 
-
-
-         });
     }
 
 
@@ -83,36 +48,9 @@ public class publicReservesController
         GreenBallApp.setScene(scene);
     }
 
-    public void rellenaTabla(){
-        try{
-            Club club = Club.getInstance();
-            ArrayList<Booking> bookings = club.getBookings();
-            ObservableList<Booking> bookingList = FXCollections.observableArrayList();
-            for(Booking booking : bookingList) {
-                Member member = club.getMemberByCredentials(booking.getMember().getNickName(), booking.getMember().getPassword());
-                Court court = Club.getInstance().getCourt(booking.getCourt().getName());
-                String nickname = member.getNickName();
-                String pista = court.getName();
-                LocalDateTime bookingdate = booking.getBookingDate();
-                LocalDate madeforday = booking.getMadeForDay();
-                LocalTime fromtime = booking.getFromTime();
-                boolean paid = booking.getPaid();
-                Booking reserva = club.registerBooking(bookingdate,madeforday,fromtime,paid,court,member);
-                bookingList.add(reserva);
 
 
 
-
-
-            }
-                Table.setItems(bookingList);
-
-
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
-
-    }
 
 
 
