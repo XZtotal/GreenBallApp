@@ -134,7 +134,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Text>
-            <ImageView fitHeight="135.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgUserImage" fitHeight="135.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/addphoto3.png" />
                </image>
@@ -142,12 +142,12 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </ImageView>
-            <Button id="btnaddimage" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Añadir imagen">
+            <Button id="btnaddimage" fx:id="btnAddImage" mnemonicParsing="false" onAction="#btnAddImageOnAction" prefHeight="34.0" prefWidth="146.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Añadir imagen">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Button>
-            <Hyperlink text="Borrar imagen" textFill="#06c0c6">
+            <Hyperlink fx:id="linkDeleteImage" onAction="#linkDeleteImageOnAction" text="Borrar imagen" textFill="#06c0c6">
                <font>
                   <Font name="Calibri Bold" size="13.0" />
                </font>

@@ -10,9 +10,13 @@ import javafx.scene.layout.VBox;
 
 public class thirdRegisterModuleController
 {
+
     boolean errorCreditNumber = false;
     boolean errorExpireDate = false;
     boolean errorCVV = false;
+
+
+    public boolean firstTry = true;
 
 
     @FXML
@@ -43,6 +47,9 @@ public class thirdRegisterModuleController
                 pfieldCVV.setText(s);
             }
         });
+
+        final thirdRegisterModuleController thisController = this;
+
         //limite de 16 caracteres sin contar los guiones en el campo de texto del numero de tarjeta y poner un "-" cada 4 caracteres. Ademas, no se puede escribir nada que no sea un numero.
         fieldCreditNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             // Elimina todos los caracteres que no son números
@@ -63,17 +70,26 @@ public class thirdRegisterModuleController
                     formattedValue.delete(19, formattedValue.length());
                 }
                 System.out.println("antes de settext");
-                // Actualiza el campo de texto
 
+                //Comprueba que el numero de tarjeta sea valido
+                if(!thisController.isFirstTry()) {
+                    thisController.setErrorCreditNumber(formattedValue.length() != 19);
+                    thisController.showErrors();
+                }
+                // Actualiza el campo de texto
                 fieldCreditNumber.setText(formattedValue.toString());
             }
 
 
         });
 
+        showErrors();
+        firstTry = true;
+
 
     }
     public void showErrors() {
+        firstTry = false;
         if (errorCreditNumber) {
             vboxCreditNumber.setStyle("-fx-background-color: rgb(251, 255, 182)");
             labelCardNumber.setOpacity(1);
@@ -158,8 +174,35 @@ public class thirdRegisterModuleController
         return Integer.parseInt(pfieldCVV.getText());
     }
 
+    public boolean isFirstTry() {
+        return firstTry;
+    }
 
 
+
+    public boolean isErrorCreditNumber() {
+        return errorCreditNumber;
+    }
+
+    public void setErrorCreditNumber(boolean errorCreditNumber) {
+        this.errorCreditNumber = errorCreditNumber;
+    }
+
+    public boolean isErrorExpireDate() {
+        return errorExpireDate;
+    }
+
+    public void setErrorExpireDate(boolean errorExpireDate) {
+        this.errorExpireDate = errorExpireDate;
+    }
+
+    public boolean isErrorCVV() {
+        return errorCVV;
+    }
+
+    public void setErrorCVV(boolean errorCVV) {
+        this.errorCVV = errorCVV;
+    }
 
 
 
