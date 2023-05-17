@@ -14,11 +14,18 @@ import java.io.IOException;
 
 public class registerController
 {
-    int moduleN = 1;
+    public static final int FIRST_MODULE = 1;
+    public static final int SECOND_MODULE = 2;
+    public static final int THIRD_MODULE = 3;
+    int currentModule = 3;
 
     firstRegisterModuleController firstRegisterModuleController;
     secondRegisterModuleController secondRegisterModuleController;
     thirdRegisterModuleController thirdRegisterModuleController;
+
+    Parent firstRegisterModuleParent;
+    Parent secondRegisterModuleParent;
+    Parent thirdRegisterModuleParent;
 
 
 
@@ -50,33 +57,39 @@ public class registerController
 
     @FXML
     public void initialize() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/thirdRegisterModule.fxml"));
-        Parent root = loader.load();
-        //loader.get
 
-        bpContainer.setCenter(root);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/firstRegisterModule.fxml"));
+        this.firstRegisterModuleParent = loader.load();
+        this.firstRegisterModuleController = loader.getController();
+
+        loader = new FXMLLoader(getClass().getResource("../interfaces/secondRegisterModule.fxml"));
+        this.secondRegisterModuleParent = loader.load();
+        this.secondRegisterModuleController = loader.getController();
+
+        loader = new FXMLLoader(getClass().getResource("../interfaces/thirdRegisterModule.fxml"));
+        this.thirdRegisterModuleParent = loader.load();
+        this.thirdRegisterModuleController = loader.getController();
+
+
+        bpContainer.setCenter(thirdRegisterModuleParent);
 
 
     }
 
-    public void chargeModule(int moduleN) throws IOException {
-        switch (moduleN) {
+    public void chargeModule(int nModule) throws IOException {
+        switch (nModule) {
             case 1:
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/firstRegisterModule.fxml"));
-                Parent root = loader.load();
+                bpContainer.setCenter(firstRegisterModuleParent);
+                break;
 
-                bpContainer.setCenter(root);
-                break;
             case 2:
-                loader = new FXMLLoader(getClass().getResource("../interfaces/secondRegisterModule.fxml"));
-                root = loader.load();
-                bpContainer.setCenter(root);
+                bpContainer.setCenter(secondRegisterModuleParent);
                 break;
+
             case 3:
-                loader = new FXMLLoader(getClass().getResource("../interfaces/thirdRegisterModule.fxml"));
-                root = loader.load();
-                bpContainer.setCenter(root);
+                bpContainer.setCenter(thirdRegisterModuleParent);
                 break;
+
         }
     }
 
@@ -95,16 +108,92 @@ public class registerController
 
     @FXML
     public void btnLastOnAction(ActionEvent actionEvent) {
+        switch (currentModule) {
+            case 1:
+
+                break;
+            case 2:
+                currentModule--;
+
+                try {
+                    chargeModule(currentModule);
+                } catch (IOException e) {
+                    currentModule++;
+                }
+                break;
+
+            case 3:
+                String var = thirdRegisterModuleController.getCreditNumber();
+                String var2 = thirdRegisterModuleController.getExpireDate();
+                int var3 = thirdRegisterModuleController.getCVV();
+                linkOmit.setVisible(false);
+                currentModule--;
+
+                if(! (var == null || var2 == null || var3 < 0) ){
+
+                    creditCard = var;
+                    exprireDate = var2;
+                    cvv = String.valueOf(var3);
+                }
+                try {
+                    chargeModule(currentModule);
+                } catch (IOException e) {
+                    currentModule++;
+                }
+
+                break;
+
+
+
+
+
+
+
+
+        }
     }
 
     @FXML
     public void btnNextOnAction(ActionEvent actionEvent) {
-        switch (moduleN) {
+        switch (currentModule) {
             case 1:
+                currentModule++;
+                try {
+                    chargeModule(currentModule);
+                    System.out.println("hola");
+                } catch (IOException e) {
+                    currentModule--;
+                    e.printStackTrace();
+                }
+                break;
+
 
             case 2:
 
+                linkOmit.setVisited(false);
+                linkOmit.setVisible(true);
+                currentModule++;
+                try {
+                    chargeModule(currentModule);
+                } catch (IOException e) {
+                    currentModule--;
+                }
+                break;
             case 3:
+                String var = thirdRegisterModuleController.getCreditNumber();
+                String var2 = thirdRegisterModuleController.getExpireDate();
+                int var3 = thirdRegisterModuleController.getCVV();
+
+                if(var == null || var2 == null || var3 < 0 ){
+                    break;
+                }
+                creditCard = var;
+                exprireDate = var2;
+                cvv = String.valueOf(var3);
+
+
+
+
 
         }
     }

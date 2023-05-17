@@ -1,5 +1,6 @@
 package GreenBallApp.controllers;
 
+import GreenBallApp.util.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -101,7 +102,12 @@ public class thirdRegisterModuleController
         }
     }
 
-    //getters
+    //Getters
+
+    /**
+     * The getCreditNumber function returns the value of the fieldCreditNumber variable.
+     * @return The value of the CreditCardNumber. Null if the text is not valid.
+     */
     public String getCreditNumber() {
         if (fieldCreditNumber.getText().replaceAll("-", "") .length() != 16) {
             errorCreditNumber = true;
@@ -116,6 +122,10 @@ public class thirdRegisterModuleController
 
     }
 
+    /**
+     * The getExpireDate function returns the value of the fieldExpireDate variable.
+     * @return The value of the ExpireDate. Null if the text is not valid.
+     */
     public String getExpireDate() {
         if (fieldExpireDate.getValue() == null) {
             errorExpireDate = true;
@@ -128,6 +138,26 @@ public class thirdRegisterModuleController
 
         return fieldExpireDate.getValue().toString();
     }
+
+
+    /**
+     * The getCVV function returns the CVV number of the credit card.
+
+     * @return CVV number. - 1 if the cvv is not valid.
+     */
+    public int getCVV() {
+        if (pfieldCVV.getText().length() != 3 || !Utils.isNumeric(pfieldCVV.getText()) ) {
+            errorCVV = true;
+            showErrors();
+
+            return -1;
+        }
+        errorCVV = false;
+        showErrors();
+
+        return Integer.parseInt(pfieldCVV.getText());
+    }
+
 
 
 
