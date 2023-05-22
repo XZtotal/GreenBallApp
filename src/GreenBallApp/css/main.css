@@ -53,6 +53,7 @@
 }
 
 .field{
+
     -fx-background-color: white;
     -fx-background-radius: 10;
     -fx-border-color: rgb(46, 223, 227);
@@ -62,6 +63,8 @@
     -fx-text-fill: rgb(3, 104, 107);
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
 }
+
+
 /*cambiar color letras
 
 -fx-background-color: linear-gradient(to right, rgb(0, 70, 71) 0%, rgb(0, 107, 109) 100%);
