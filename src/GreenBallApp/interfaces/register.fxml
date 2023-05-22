@@ -79,12 +79,12 @@
                               <Font name="Calibri Bold" size="16.0" />
                            </font>
                         </Hyperlink>
-                        <Button fx:id="btnLast" mnemonicParsing="false" onAction="#btnLastOnAction" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
+                        <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
                            <font>
                               <Font name="Calibri Bold" size="17.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnNext" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
+                        <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
                            <font>
                               <Font name="Calibri Bold" size="17.0" />
                            </font>

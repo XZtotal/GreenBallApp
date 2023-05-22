@@ -46,6 +46,10 @@ public class thirdRegisterModuleController
                 String s = pfieldCVV.getText().substring(0, 3);
                 pfieldCVV.setText(s);
             }
+            if(!this.isFirstTry()) {
+                this.setErrorCVV(pfieldCVV.getText().length() != 3);
+                this.showErrors();
+            }
         });
 
         final thirdRegisterModuleController thisController = this;
@@ -83,6 +87,14 @@ public class thirdRegisterModuleController
 
         });
 
+        fieldExpireDate.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if(!this.isFirstTry()) {
+                this.setErrorExpireDate(newValue == null);
+                this.showErrors();
+            }
+        });
+
+
         showErrors();
         firstTry = true;
 
@@ -91,7 +103,7 @@ public class thirdRegisterModuleController
     public void showErrors() {
         firstTry = false;
         if (errorCreditNumber) {
-            vboxCreditNumber.setStyle("-fx-background-color: rgb(251, 255, 182)");
+            vboxCreditNumber.setStyle("-fx-background-color: rgb(251, 255, 182) ; -fx-background-radius: 10");
             labelCardNumber.setOpacity(1);
 
         }else{
@@ -100,7 +112,7 @@ public class thirdRegisterModuleController
         }
 
         if (errorExpireDate) {
-            vboxExpireDate.setStyle("-fx-background-color: rgb(251, 255, 182)");
+            vboxExpireDate.setStyle("-fx-background-color: rgb(251, 255, 182) ; -fx-background-radius: 10");
             labelExpireDate.setOpacity(1);
 
         } else {
@@ -109,7 +121,7 @@ public class thirdRegisterModuleController
         }
 
         if (errorCVV) {
-            vboxCVV.setStyle("-fx-background-color: rgb(251, 255, 182)");
+            vboxCVV.setStyle("-fx-background-color: rgb(251, 255, 182); -fx-background-radius: 10");
             labelCVV.setOpacity(1);
 
         } else {

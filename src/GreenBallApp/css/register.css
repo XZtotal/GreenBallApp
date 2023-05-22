@@ -69,6 +69,34 @@
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
 }
 
+.datapicker .date-picker-display-node {
+    -fx-font-size: 18;
+
+
+}
+.datapicker .arrow-button{
+    -fx-background-color: #00888b;
+    -fx-background-radius: 0 5 5 0;
+    -fx-border-color: rgb(46, 223, 227);
+    -fx-border-width: 0;
+
+    /*cambiar color letras    */
+    -fx-text-fill: rgb(3, 104, 107);
+    -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 5, 0, 0, 0);
+
+    -fx-cursor: hand;
+}
+.datapicker .arrow-button .arrow{
+-fx-background-color: white;
+    -fx-background-size: 100;
+    -fx-scale-x: 1.2
+;
+    -fx-scale-y: 1.2;
+
+}
+
+
+
 .enterBtn{
     -fx-background-color: white;
     -fx-background-radius: 10;

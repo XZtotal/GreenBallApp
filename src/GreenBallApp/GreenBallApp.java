@@ -61,6 +61,12 @@ public class GreenBallApp extends Application {
         stage.show();
 
     }
+    public static void setRoot(Parent root){
+
+        stage.getScene().setRoot(root);
+        stage.show();
+
+    }
     public static void initialize() throws ClubDAOException, IOException {
         System.out.println("GreenBallApp.initialize()");
         club = Club.getInstance();

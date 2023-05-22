@@ -73,6 +73,13 @@ public class registerController
 
         bpContainer.setCenter(thirdRegisterModuleParent);
 
+        btnNext.setOnAction(event -> {
+            nextPage();
+        });
+        btnLast.setOnAction(event -> {
+            lastPage();
+        });
+
 
     }
 
@@ -106,8 +113,8 @@ public class registerController
     public void linkOmitOnAction(ActionEvent actionEvent) {
     }
 
-    @FXML
-    public void btnLastOnAction(ActionEvent actionEvent) {
+
+    public void lastPage(){
         switch (currentModule) {
             case 1:
 
@@ -153,8 +160,7 @@ public class registerController
         }
     }
 
-    @FXML
-    public void btnNextOnAction(ActionEvent actionEvent) {
+    public void nextPage(){
         switch (currentModule) {
             case 1:
                 currentModule++;
@@ -197,4 +203,6 @@ public class registerController
 
         }
     }
+
+
 }
