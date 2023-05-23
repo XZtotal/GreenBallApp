@@ -88,11 +88,11 @@
                   </HBox>
                </top>
                <center>
-                  <HBox fillHeight="false" prefHeight="358.0" prefWidth="678.0" BorderPane.alignment="CENTER">
+                  <HBox fillHeight="false" prefHeight="396.0" prefWidth="712.0" BorderPane.alignment="CENTER">
                      <children>
                         <ScrollPane prefHeight="456.0" prefWidth="728.0" style="-fx-background-color: null;">
                            <content>
-                              <GridPane fx:id="tabla" prefHeight="388.0" prefWidth="677.0" style="-fx-background-radius: 10;">
+                              <GridPane fx:id="tabla" prefHeight="388.0" prefWidth="686.0" style="-fx-background-radius: 10;">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
