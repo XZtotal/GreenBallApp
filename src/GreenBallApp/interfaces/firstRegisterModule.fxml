@@ -3,106 +3,132 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER_LEFT" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="301.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModuleController">
-   <children>
-      <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
+
+<BorderPane prefHeight="385.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModuleController">
+   <right>
+      <VBox alignment="CENTER" prefHeight="385.0" prefWidth="279.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="22.0" prefWidth="160.0" text="Nombre*" textFill="WHITE">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¡HOLA!">
+               <font>
+                  <Font name="Calibri Bold" size="49.0" />
+               </font>
+            </Text>
+            <Label prefHeight="100.0" prefWidth="279.0" text="Estamos escantados de tenerte por aquí" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Calibri Bold" size="33.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <left>
+      <VBox alignment="CENTER" prefHeight="287.0" prefWidth="213.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="22.0" prefWidth="160.0" text="Nombre*" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="2.0" left="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxName" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+                     <children>
+                        <TextField fx:id="fieldName" maxHeight="40.0" maxWidth="204.0" prefHeight="39.0" prefWidth="204.0" promptText="Escribe tu nombre" styleClass="field">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="labelName" prefHeight="22.0" prefWidth="181.0" text=" Introduce tu nombre" textFill="#ff5201">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
                <VBox.margin>
-                  <Insets bottom="2.0" left="3.0" />
+                  <Insets bottom="10.0" />
                </VBox.margin>
-               <font>
-                  <Font name="Arial Black" size="14.0" />
-               </font>
-            </Label>
-            <VBox fx:id="vboxName" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
-               <children>
-                  <TextField fx:id="fieldName" maxHeight="40.0" maxWidth="204.0" prefHeight="39.0" prefWidth="204.0" promptText="Escribe tu nombre" styleClass="field">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <Label fx:id="labelName" prefHeight="22.0" prefWidth="181.0" text=" Introduce tu nombre" textFill="#ff5201">
-                     <font>
-                        <Font name="Arial Black" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
             </VBox>
-         </children>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </VBox>
-      <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="22.0" prefWidth="86.0" text="Apellidos*" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="14.0" />
-               </font>
-            </Label>
-            <VBox fx:id="vboxSurname" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+            <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="fieldSurname" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
+                  <Label prefHeight="22.0" prefWidth="86.0" text="Apellidos*" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="14.0" />
                      </font>
-                  </TextField>
-                  <Label fx:id="labelSurname" prefHeight="22.0" prefWidth="181.0" text=" Introduce tus apellidos" textFill="#ff5201">
-                     <font>
-                        <Font name="Arial Black" size="13.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
                   </Label>
+                  <VBox fx:id="vboxSurname" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+                     <children>
+                        <TextField fx:id="fieldSurname" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="labelSurname" prefHeight="22.0" prefWidth="181.0" text=" Introduce tus apellidos" textFill="#ff5201">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-         </children>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </VBox>
-      <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="22.0" prefWidth="167.0" text="Número de teléfono*" textFill="WHITE">
                <VBox.margin>
-                  <Insets bottom="2.0" left="3.0" />
+                  <Insets bottom="10.0" />
                </VBox.margin>
-               <font>
-                  <Font name="Arial Black" size="14.0" />
-               </font>
-            </Label>
-            <VBox fx:id="vboxPhone" prefHeight="59.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+            </VBox>
+            <VBox fillWidth="false" prefHeight="85.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="fieldPhone" maxHeight="39.0" maxWidth="224.0" prefHeight="39.0" prefWidth="224.0" promptText="+34 123456789" styleClass="field">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </TextField>
-                  <Label fx:id="labelPhone" prefHeight="22.0" prefWidth="181.0" text="Número no válido" textFill="#ff5201">
-                     <font>
-                        <Font name="Arial Black" size="13.0" />
-                     </font>
+                  <Label prefHeight="22.0" prefWidth="167.0" text="Número de teléfono*" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets bottom="2.0" left="3.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
                   </Label>
+                  <VBox fx:id="vboxPhone" prefHeight="59.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+                     <children>
+                        <TextField fx:id="fieldPhone" maxHeight="39.0" maxWidth="224.0" prefHeight="39.0" prefWidth="224.0" promptText="+34 123456789" styleClass="field">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="labelPhone" prefHeight="22.0" prefWidth="181.0" text="Número no válido" textFill="#ff5201">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
             </VBox>
          </children>
-         <VBox.margin>
-            <Insets bottom="20.0" />
-         </VBox.margin>
       </VBox>
-   </children>
-</VBox>
+   </left>
+</BorderPane>
