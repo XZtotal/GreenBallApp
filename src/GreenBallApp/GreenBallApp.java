@@ -20,8 +20,8 @@ import java.io.IOException;
 
 public class GreenBallApp extends Application {
     public static Stage stage;
-    public static Club club;
-    public static Member member;
+    private static Club club;
+    private static Member member;
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
@@ -80,7 +80,17 @@ public class GreenBallApp extends Application {
         return stage;
     }
 
+    public static Member getMember() {
+        return member;
+    }
+
+    public static void setMember(Member member) {
+        GreenBallApp.member = member;
+    }
+
+    public static Club getClub() {
+        return club;
+    }
 
 
-    
 }

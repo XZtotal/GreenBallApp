@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-import static GreenBallApp.GreenBallApp.club;
+
 
 
 public class menuController {
@@ -105,7 +105,7 @@ public class menuController {
 
     public void welcomeMessage() throws ClubDAOException, IOException {
        Club club = Club.getInstance();
-       Member currentMember = GreenBallApp.member;
+       Member currentMember = GreenBallApp.getMember();
        String nombre = currentMember.getName();
        Bienvenida.setText("Bienvenido " + nombre);
     }
@@ -114,7 +114,7 @@ public class menuController {
 
     public void showImage() throws ClubDAOException, IOException {
         Club club = Club.getInstance();
-        Member currentMember = GreenBallApp.member;
+        Member currentMember = GreenBallApp.getMember();
         Image foto = currentMember.getImage();
         MiFoto.setImage(foto);
 

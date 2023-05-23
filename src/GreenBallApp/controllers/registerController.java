@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import model.ClubDAOException;
+import model.Member;
 
 import java.io.IOException;
 
@@ -40,7 +42,7 @@ public class registerController
 
     String creditCard = "";
     String exprireDate = "";
-    String cvv = "";
+    int cvv = 0;
 
 
 
@@ -99,6 +101,7 @@ public class registerController
         label4.setDisable(true);
         label5.setDisable(true);
         linkOmit.setVisible(false);
+        selectActualState();
 
 
     }
@@ -123,7 +126,16 @@ public class registerController
 
     @FXML
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
+        returnToMain();
+    }
+    private void returnToMain() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
+        Parent root = loader.load();
+
+        GreenBallApp.setRoot(root);
+    }
+    private void goToMenu() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
 
         GreenBallApp.setRoot(root);
@@ -131,6 +143,12 @@ public class registerController
 
     @FXML
     public void linkOmitOnAction(ActionEvent actionEvent) {
+        if(currentModule == THIRD_MODULE){
+            creditCard = "";
+            exprireDate = "";
+            cvv = 0;
+            registerMember();
+        }
     }
 
 
@@ -156,11 +174,11 @@ public class registerController
                 linkOmit.setVisible(false);
                 currentModule--;
 
-                if(! (var == null || var2 == null || var3 < 0) ){
+                if(! (var == null || var2 == null || var3 <= 0) ){
 
                     creditCard = var;
                     exprireDate = var2;
-                    cvv = String.valueOf(var3);
+                    cvv = var3;
                 }
                 try {
                     chargeModule(currentModule);
@@ -171,10 +189,30 @@ public class registerController
                 break;
 
         }
+        selectActualState();
 
         if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
         else btnLast.setDisable(false);
 
+
+    }
+    private void registerMember(){
+        Member member = null;
+        try {
+            member = GreenBallApp.getClub().registerMember(name,surname,phone,userName,password,creditCard,cvv,profileImage);
+        } catch (ClubDAOException ignored) {
+
+        }
+        if(member == null){
+            try {
+                returnToMain();
+            } catch (IOException ignored) {}
+        }else{
+            GreenBallApp.setMember(member);
+            try {
+                goToMenu();
+            } catch (IOException ignored) {}
+        }
 
     }
 
@@ -247,18 +285,59 @@ public class registerController
                 var2 = thirdRegisterModuleController.getExpireDate();
                 var4 = thirdRegisterModuleController.getCVV();
 
-                if(var == null || var2 == null || var4 < 0 ){
+                if(var == null || var2 == null || var4 <= 0 ){
                     break;
                 }
                 creditCard = var;
                 exprireDate = var2;
-                cvv = String.valueOf(var4);
+                cvv = var4;
+
+                registerMember();
 
 
 
         }
+        selectActualState();
         if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
         else btnLast.setDisable(false);
+    }
+
+    private void selectActualState(){
+        if(currentModule == FIRST_MODULE ) {
+            //poner familia css "activo"
+            label3.getStyleClass().remove("actualEnabledStateLabel");
+            label5.getStyleClass().remove("actualEnabledStateLabel");
+            if (!label1.getStyleClass().contains("actualEnabledStateLabel"))
+                label1.getStyleClass().add("actualEnabledStateLabel");
+
+
+        } else if ( currentModule == SECOND_MODULE ) {
+            //poner familia css "activo"
+            label1.getStyleClass().remove("actualEnabledStateLabel");
+            label5.getStyleClass().remove("actualEnabledStateLabel");
+            if (!label3.getStyleClass().contains("actualEnabledStateLabel"))
+                label3.getStyleClass().add("actualEnabledStateLabel");
+
+        } else if ( currentModule == THIRD_MODULE ) {
+            //poner familia css "activo"
+            label1.getStyleClass().remove("actualEnabledStateLabel");
+            label3.getStyleClass().remove("actualEnabledStateLabel");
+            if (!label5.getStyleClass().contains("actualEnabledStateLabel"))
+                label5.getStyleClass().add("actualEnabledStateLabel");
+
+        }
+        label1.applyCss();
+        label3.applyCss();
+        label5.applyCss();
+        System.out.println(label1.getStyleClass().size());
+        System.out.println(label3.getStyleClass().size());
+        System.out.println(label5.getStyleClass().size());
+        //imprime las clases css que tiene el label3
+
+
+
+
+
     }
 
 
