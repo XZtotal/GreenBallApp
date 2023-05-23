@@ -120,18 +120,6 @@
                                 </rowConstraints>
                                  <children>
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Horas" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="10:00 - 11:00" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="11:00 - 12:00" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="12:00 - 13:00" GridPane.rowIndex="4" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="13:00 - 14:00" GridPane.rowIndex="5" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="14:00 - 15:00" GridPane.rowIndex="6" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="15:00 - 16:00" GridPane.rowIndex="7" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="16:00 - 17:00" GridPane.rowIndex="8" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="17:00 - 18:00" GridPane.rowIndex="9" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="18:00 - 19:00" GridPane.rowIndex="10" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="19:00 - 20:00" GridPane.rowIndex="11" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="20:00 - 21:00" GridPane.rowIndex="12" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="21:00 - 22:00" GridPane.rowIndex="13" />
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 1 " GridPane.columnIndex="1" />
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 2" GridPane.columnIndex="2" />
                                     <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 3" GridPane.columnIndex="3" />
@@ -143,18 +131,54 @@
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="09:00 - 10:00" />
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="9" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="10" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="11" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="12" />
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="13" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="10:00 - 11:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="11:00 - 12:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="12:00 - 13:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="14:00 - 15:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="5">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="13:00 - 14:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="7">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="15:00 - 16:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="9">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="17:00 - 18:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="16:00 - 17:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="10">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="18:00 - 19:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="11">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="19:00 - 20:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="12">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="20:00 - 21:00" />
+                                       </children></HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="13">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="21:00 - 22:00" />
+                                       </children></HBox>
                                     <HBox prefHeight="21.0" prefWidth="96.0" />
                                  </children>
                               </GridPane>

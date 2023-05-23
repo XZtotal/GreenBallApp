@@ -57,7 +57,7 @@ public class publicReservesController
             for(int i = 0; i < 6; i++){
 
                String courtName = "Pista " + (i+1);
-               ArrayList<Booking> courtBookings = (ArrayList<Booking>) Club.getInstance().getCourtBookings(courtName, date);
+               ArrayList<Booking> courtBookings =  new ArrayList<>(Club.getInstance().getCourtBookings(courtName, date));
 
                for(int j = 9; j <= 21; j++){
 
