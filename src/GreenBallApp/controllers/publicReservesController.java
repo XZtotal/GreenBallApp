@@ -74,14 +74,13 @@ public class publicReservesController
                             if(booking.getFromTime().equals(time)){
                                  label.setText(String.valueOf(booking.getMember().getNickName()));
                                  label.setTextFill(Color.WHITE);
-                                 hbox.setStyle("-fx-background-color: #FF0000");
+                                 hbox.setStyle("-fx-background-color: WHITE");
                             }else{
                                 label.setText("Libre");}
                           }
                      }
 
-
-
+                     tabla.add(hbox, i, j-8);
 
 
                }
