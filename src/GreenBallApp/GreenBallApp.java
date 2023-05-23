@@ -76,6 +76,9 @@ public class GreenBallApp extends Application {
         }
         System.out.printf(String.valueOf(club.getCourt("11")));
     }
+    public static Stage getStage(){
+        return stage;
+    }
 
 
 

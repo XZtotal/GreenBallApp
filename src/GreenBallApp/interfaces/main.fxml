@@ -135,7 +135,7 @@
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Button fx:id="btnBook" mnemonicParsing="false" onAction="#viewBookingOnAction" styleClass="enterBtn" text="Ver Reservas">
+                  <Button fx:id="btnBook" mnemonicParsing="false" styleClass="enterBtn" text="Ver Reservas">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

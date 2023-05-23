@@ -158,9 +158,14 @@ public class registerController
 
 
         }
+        if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
+        else btnLast.setDisable(false);
+
+
     }
 
     public void nextPage(){
+
         switch (currentModule) {
             case 1:
                 currentModule++;
@@ -202,6 +207,8 @@ public class registerController
 
 
         }
+        if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
+        else btnLast.setDisable(false);
     }
 
 

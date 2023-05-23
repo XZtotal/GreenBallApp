@@ -38,6 +38,16 @@ public class mainController
 
     @FXML
     public void initialize() {
+        btnBook.setOnAction(e -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
+            try {
+                Parent root = loader.load();
+                GreenBallApp.setRoot(root);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
+        });
     }
 
 
@@ -65,8 +75,8 @@ public class mainController
         */
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+
+        GreenBallApp.setRoot(root);
     }
 
 
@@ -109,11 +119,9 @@ public class mainController
 
 
 
-    @FXML
+    @Deprecated
     public void viewBookingOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
-        Parent root = loader.load();
-        GreenBallApp.setRoot(root);
+
 
     }
 

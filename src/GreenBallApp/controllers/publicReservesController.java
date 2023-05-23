@@ -79,8 +79,10 @@ public class publicReservesController
                                 label.setText("Libre");}
                           }
                      }
+                     if(j%2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");
+                     else hbox.setStyle("-fx-background-color: white ");
 
-                     tabla.add(hbox, i, j-8);
+                     tabla.add(hbox, i+1, j-8);
 
 
                }
