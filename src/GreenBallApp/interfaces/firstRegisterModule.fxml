@@ -15,7 +15,7 @@
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¡HOLA!">
                <font>
-                  <Font name="Calibri Bold" size="49.0" />
+                  <Font name="Calibri Bold" size="59.0" />
                </font>
             </Text>
             <Label prefHeight="100.0" prefWidth="279.0" text="Estamos escantados de tenerte por aquí" textAlignment="CENTER" textFill="WHITE" wrapText="true">
