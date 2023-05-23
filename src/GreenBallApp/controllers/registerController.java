@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class registerController
 
     String userName = "";
     String password = "";
+    Image profileImage = null;
 
     String creditCard = "";
     String exprireDate = "";
@@ -105,8 +107,8 @@ public class registerController
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+
+        GreenBallApp.setRoot(root);
     }
 
     @FXML
@@ -150,14 +152,8 @@ public class registerController
 
                 break;
 
-
-
-
-
-
-
-
         }
+
         if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
         else btnLast.setDisable(false);
 
@@ -165,6 +161,12 @@ public class registerController
     }
 
     public void nextPage(){
+        String var = "";
+        String var2 = "";
+        String var3 = "";
+        int var4 = 0;
+        Image var5 = null;
+
 
         switch (currentModule) {
             case 1:
@@ -181,6 +183,17 @@ public class registerController
 
             case 2:
 
+                var = secondRegisterModuleController.getUserName();
+                var2 = secondRegisterModuleController.getPassword();
+                var5 = secondRegisterModuleController.getImage();
+
+                if(var == null || var2 == null){
+                    break;
+                }
+                userName = var;
+                password = var2;
+                profileImage = var5;
+
                 linkOmit.setVisited(false);
                 linkOmit.setVisible(true);
                 currentModule++;
@@ -189,20 +202,23 @@ public class registerController
                 } catch (IOException e) {
                     currentModule--;
                 }
+
+
+
+
+
                 break;
             case 3:
-                String var = thirdRegisterModuleController.getCreditNumber();
-                String var2 = thirdRegisterModuleController.getExpireDate();
-                int var3 = thirdRegisterModuleController.getCVV();
+                var = thirdRegisterModuleController.getCreditNumber();
+                var2 = thirdRegisterModuleController.getExpireDate();
+                var4 = thirdRegisterModuleController.getCVV();
 
-                if(var == null || var2 == null || var3 < 0 ){
+                if(var == null || var2 == null || var4 < 0 ){
                     break;
                 }
                 creditCard = var;
                 exprireDate = var2;
-                cvv = String.valueOf(var3);
-
-
+                cvv = String.valueOf(var4);
 
 
 
