@@ -111,9 +111,9 @@ public class secondRegisterModuleController
         errorRepeatPassword.setValue(false);
         //eventos de los campos de texto
         fieldUsername.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!firstTry) {
-                getUserName();
-            }
+
+            getUserName();
+
         });
 
         pfieldPass.textProperty().addListener((observable, oldValue, newValue) -> {

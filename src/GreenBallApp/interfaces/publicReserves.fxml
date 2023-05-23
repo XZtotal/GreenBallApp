@@ -73,7 +73,7 @@
                                           <Font name="Calibri Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="fecha" />
+                                    <DatePicker fx:id="date" />
                                  </children>
                               </VBox>
                            </children>

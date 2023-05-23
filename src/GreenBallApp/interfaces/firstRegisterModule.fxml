@@ -18,7 +18,7 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <VBox prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+            <VBox fx:id="vboxName" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
                   <TextField fx:id="fieldName" maxHeight="40.0" maxWidth="204.0" prefHeight="39.0" prefWidth="204.0" promptText="Escribe tu nombre" styleClass="field">
                      <VBox.margin>
@@ -28,7 +28,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label prefHeight="22.0" prefWidth="181.0" text=" Introduce un dato válido" textFill="#ff5201">
+                  <Label fx:id="labelName" prefHeight="22.0" prefWidth="181.0" text=" Introduce tu nombre" textFill="#ff5201">
                      <font>
                         <Font name="Arial Black" size="13.0" />
                      </font>
@@ -50,14 +50,14 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <VBox prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+            <VBox fx:id="vboxSurname" prefHeight="59.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
-                  <TextField fx:id="fieldLastname" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
+                  <TextField fx:id="fieldSurname" maxHeight="40.0" maxWidth="257.0" prefHeight="39.0" prefWidth="257.0" promptText="Escribe tus apellidos" styleClass="field">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label prefHeight="22.0" prefWidth="181.0" text=" Introduce un dato válido" textFill="#ff5201">
+                  <Label fx:id="labelSurname" prefHeight="22.0" prefWidth="181.0" text=" Introduce tus apellidos" textFill="#ff5201">
                      <font>
                         <Font name="Arial Black" size="13.0" />
                      </font>
@@ -82,14 +82,14 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <VBox prefHeight="59.0" prefWidth="150.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
+            <VBox fx:id="vboxPhone" prefHeight="59.0" prefWidth="170.0" style="-fx-background-radius: 10; -fx-background-color: #fbffb6;">
                <children>
-                  <TextField fx:id="fieldPhone" maxHeight="39.0" maxWidth="150.0" prefHeight="40.0" prefWidth="150.0" promptText="123456789" styleClass="field">
+                  <TextField fx:id="fieldPhone" maxHeight="39.0" maxWidth="224.0" prefHeight="39.0" prefWidth="224.0" promptText="+34 123456789" styleClass="field">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </TextField>
-                  <Label prefHeight="22.0" prefWidth="181.0" text="Número no válido" textFill="#ff5201">
+                  <Label fx:id="labelPhone" prefHeight="22.0" prefWidth="181.0" text="Número no válido" textFill="#ff5201">
                      <font>
                         <Font name="Arial Black" size="13.0" />
                      </font>

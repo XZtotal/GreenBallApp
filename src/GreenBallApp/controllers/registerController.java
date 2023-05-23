@@ -18,7 +18,7 @@ public class registerController
     public static final int FIRST_MODULE = 1;
     public static final int SECOND_MODULE = 2;
     public static final int THIRD_MODULE = 3;
-    int currentModule = 3;
+    int currentModule = 1;
 
     firstRegisterModuleController firstRegisterModuleController;
     secondRegisterModuleController secondRegisterModuleController;
@@ -32,7 +32,7 @@ public class registerController
 
     String name = "";
     String surname = "";
-    String email = "";
+    String phone = "";
 
     String userName = "";
     String password = "";
@@ -56,9 +56,21 @@ public class registerController
     private Button btnLast;
     @FXML
     private Button btnNext;
+    @FXML
+    private Label label1;
+    @FXML
+    private Label label3;
+    @FXML
+    private Label label5;
+    @FXML
+    private Label label2;
+    @FXML
+    private Label label4;
 
     @FXML
     public void initialize() throws IOException {
+        GreenBallApp.getStage().setMinWidth(700);
+        GreenBallApp.getStage().setMinHeight(700);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/firstRegisterModule.fxml"));
         this.firstRegisterModuleParent = loader.load();
@@ -73,7 +85,7 @@ public class registerController
         this.thirdRegisterModuleController = loader.getController();
 
 
-        bpContainer.setCenter(thirdRegisterModuleParent);
+        bpContainer.setCenter(firstRegisterModuleParent);
 
         btnNext.setOnAction(event -> {
             nextPage();
@@ -81,6 +93,12 @@ public class registerController
         btnLast.setOnAction(event -> {
             lastPage();
         });
+        label1.setDisable(false);
+        label2.setDisable(true);
+        label3.setDisable(true);
+        label4.setDisable(true);
+        label5.setDisable(true);
+        linkOmit.setVisible(false);
 
 
     }
@@ -170,10 +188,24 @@ public class registerController
 
         switch (currentModule) {
             case 1:
+                var = firstRegisterModuleController.getName();
+                var2 = firstRegisterModuleController.getSurname();
+                var3 = firstRegisterModuleController.getPhone();
+
+                if(var == null || var2 == null || var3 == null){
+                    break;
+                }
+                name = var;
+                surname = var2;
+                phone = var3;
+
+
+
                 currentModule++;
                 try {
                     chargeModule(currentModule);
-                    System.out.println("hola");
+                    label2.setDisable(false);
+                    label3.setDisable(false);
                 } catch (IOException e) {
                     currentModule--;
                     e.printStackTrace();
@@ -199,6 +231,8 @@ public class registerController
                 currentModule++;
                 try {
                     chargeModule(currentModule);
+                    label4.setDisable(false);
+                    label5.setDisable(false);
                 } catch (IOException e) {
                     currentModule--;
                 }

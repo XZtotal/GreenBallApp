@@ -21,38 +21,47 @@
                <top>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="127.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Identificación">
+                        <Label fx:id="label1" alignment="CENTER" prefHeight="30.0" prefWidth="128.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Identificación">
                            <font>
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets right="3.0" />
+                           </HBox.margin>
                         </Label>
-                        <Text fill="#03585b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="enabledStateLabel" text="&gt;" wrappingWidth="11.13671875">
+                        <Label fx:id="label2" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;">
                            <font>
-                              <Font name="Calibri Bold" size="22.0" />
+                              <Font name="Calibri Bold" size="25.0" />
                            </font>
+                        </Label>
+                        <Label fx:id="label3" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos de usuario">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="3.0" right="3.0" />
+                           </padding>
                            <HBox.margin>
                               <Insets left="3.0" right="3.0" />
                            </HBox.margin>
-                        </Text>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos de usuario">
+                        </Label>
+                        <Label fx:id="label4" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;" textFill="WHITE">
                            <font>
-                              <Font name="Calibri Bold" size="20.0" />
+                              <Font name="Calibri Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Text fill="#03585b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="enabledStateLabel" text="&gt;" wrappingWidth="11.13671875">
-                           <font>
-                              <Font name="Calibri Bold" size="22.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="3.0" right="3.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="107.0" styleClass="actualEnabledStateLabel" stylesheets="@../css/register.css" text="Datos extra">
+                        <Label fx:id="label5" alignment="CENTER" prefHeight="30.0" prefWidth="102.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos extra">
                            <font>
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
                   </HBox>
                </top>
                <center>
@@ -71,7 +80,7 @@
                <bottom>
                   <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css">
                      <children>
-                        <Hyperlink fx:id="linkOmit" onAction="#linkOmitOnAction" text="Omitir &gt;">
+                        <Hyperlink fx:id="linkOmit" onAction="#linkOmitOnAction" text="Omitir y registrarme &gt;">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>

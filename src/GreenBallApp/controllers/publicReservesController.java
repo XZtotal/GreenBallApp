@@ -1,26 +1,17 @@
 package GreenBallApp.controllers;
 
 import GreenBallApp.GreenBallApp;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import model.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -48,20 +39,31 @@ public class publicReservesController
 
     int numRow = 13;
     @FXML
-    private DatePicker fecha;
+    private DatePicker date;
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
         currentDate = LocalDate.now();
-        fecha.setValue(currentDate);
+        date.setValue(currentDate);
         printTable();
 
-        fecha.setOnAction(event -> {
+        date.setOnAction(event -> {
             try {
                 printTable();
             } catch (ClubDAOException | IOException e) {
                 e.printStackTrace();
             }
+        });
+
+        date.setDayCellFactory((DatePicker picker) -> {
+            return new DateCell() {
+                @Override
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0 );
+                }
+            };
         });
 
 
@@ -82,7 +84,7 @@ public class publicReservesController
     }
 
     public void printTable() throws ClubDAOException, IOException {
-        LocalDate date = fecha.getValue();
+        LocalDate date = this.date.getValue();
         if(date != null) currentDate = date;
 
         for (int i = 0; i < 6; i++) {

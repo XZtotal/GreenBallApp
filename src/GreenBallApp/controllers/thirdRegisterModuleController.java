@@ -2,11 +2,10 @@ package GreenBallApp.controllers;
 
 import GreenBallApp.util.Utils;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+
+import java.time.LocalDate;
 
 public class thirdRegisterModuleController
 {
@@ -97,6 +96,17 @@ public class thirdRegisterModuleController
 
         showErrors();
         firstTry = true;
+
+        fieldExpireDate.setDayCellFactory((DatePicker picker) -> {
+            return new DateCell() {
+                @Override
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0 );
+                }
+            };
+        });
 
 
     }
