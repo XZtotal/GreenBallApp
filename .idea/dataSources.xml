@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\vilor\IdeaProjects\GreenBallApp\club.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="club [2]" uuid="fe718288-9156-4158-bca8-55c27a5c3ef2">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\vilor\OneDrive - UPV\2 Quatrimestre 2\IPC\Project\TenisClubDataGenerator\TenisClubDataGenerator\club.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

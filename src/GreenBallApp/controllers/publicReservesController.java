@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 public class publicReservesController
 {
+    LocalDate currentDate;
     @javafx.fxml.FXML
     private Button btnReturn;
     @FXML
@@ -51,59 +52,20 @@ public class publicReservesController
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
+        currentDate = LocalDate.now();
+        fecha.setValue(currentDate);
+        printTable();
 
-            LocalDate date = fecha.getValue();
-
-            for(int i = 0; i < 6; i++){
-
-               String courtName = "Pista " + (i+1);
-               ArrayList<Booking> courtBookings =  new ArrayList<>(Club.getInstance().getCourtBookings(courtName, date));
-
-               for(int j = 9; j <= 21; j++){
-
-                   LocalTime time = LocalTime.of(j, 0);
-
-                   HBox hbox = new HBox();
-                   hbox.setAlignment(javafx.geometry.Pos.CENTER);
-                   Label label = new Label();
-                   label.setFont(new javafx.scene.text.Font(12.0));
-                   hbox.getChildren().add(label);
-
-                     if(courtBookings.size() > 0){
-                          for(Booking booking : courtBookings){
-                            if(booking.getFromTime().equals(time)){
-                                 label.setText(String.valueOf(booking.getMember().getNickName()));
-                                 label.setTextFill(Color.WHITE);
-                                 hbox.setStyle("-fx-background-color: WHITE");
-                            }else{
-                                label.setText("Libre");}
-                          }
-                     }
-                     if(j%2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");
-                     else hbox.setStyle("-fx-background-color: white ");
-
-                     tabla.add(hbox, i+1, j-8);
-
-
-               }
-
-
-
-
-
-
-
-
+        fecha.setOnAction(event -> {
+            try {
+                printTable();
+            } catch (ClubDAOException | IOException e) {
+                e.printStackTrace();
             }
+        });
 
 
-
-
-
-
-
-
-        }
+    }
 
 
 
@@ -117,6 +79,54 @@ public class publicReservesController
         Parent root = loader.load();
         Scene scene = new Scene(root);
         GreenBallApp.setScene(scene);
+    }
+
+    public void printTable() throws ClubDAOException, IOException {
+        LocalDate date = fecha.getValue();
+        if(date != null) currentDate = date;
+
+        for (int i = 0; i < 6; i++) {
+
+            String courtName = "Pista " + (i + 1);
+            ArrayList<Booking> courtBookings = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
+
+            for (int j = 9; j <= 21; j++) {
+
+                LocalTime time = LocalTime.of(j, 0);
+
+                HBox hbox = new HBox();
+                hbox.setAlignment(javafx.geometry.Pos.CENTER);
+                Label label = new Label();
+                label.setFont(new javafx.scene.text.Font(12.0));
+                hbox.getChildren().add(label);
+
+                if (courtBookings.size() > 0) {
+                    for (Booking booking : courtBookings) {
+                        if (booking.getFromTime().equals(time)) {
+                            label.setText(String.valueOf(booking.getMember().getNickName()));
+                            label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold");
+                            hbox.setStyle("-fx-background-color: WHITE");
+                        } else {
+                            label.setText("Libre");
+                            label.setStyle("-fx-text-fill: #1ab47c");
+                        }
+                    }
+                }
+                //colorea el cebreado de la tabla
+                if (j % 2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");
+                else hbox.setStyle("-fx-background-color: white ");
+
+                tabla.add(hbox, i + 1, j - 8);
+
+
+            }
+
+
+        }
+
+
+
+
     }
 
 
