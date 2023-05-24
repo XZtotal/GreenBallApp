@@ -67,27 +67,38 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
-                        <Label fx:id="Bienvenida" prefHeight="50.0" prefWidth="359.0" text="Bienvenido" textFill="WHITE">
+                        <Label fx:id="Bienvenida" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="WHITE">
                            <font>
-                              <Font size="34.0" />
+                              <Font name="Calibri" size="34.0" />
                            </font>
                         </Label>
-                        <Hyperlink fx:id="cuenta" onAction="#cuentaOnAction" prefHeight="10.0" prefWidth="68.0" text="Mi cuenta">
+                        <Label fx:id="Bienvenida1" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="#e4e4e4">
                            <font>
-                              <Font name="Calibri" size="13.0" />
+                              <Font name="Calibri Bold" size="14.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Hyperlink fx:id="cuenta" onAction="#cuentaOnAction" prefHeight="23.0" prefWidth="89.0" text="Mi cuenta &gt;" textFill="#29c6ff">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
                         </Hyperlink>
                      </children>
                   </VBox>
                </children>
                <VBox.margin>
-                  <Insets bottom="115.0" />
+                  <Insets bottom="40.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="101.0" prefWidth="554.0">
+            <HBox alignment="CENTER" prefHeight="114.0" prefWidth="554.0">
                <children>
                   <Button fx:id="reservas" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Mis reservas">
                      <HBox.margin>
