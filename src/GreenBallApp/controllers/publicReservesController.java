@@ -100,7 +100,7 @@ public class publicReservesController
                 HBox hbox = new HBox();
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
                 Label label = new Label();
-                label.setFont(new javafx.scene.text.Font(12.0));
+                label.setFont(new javafx.scene.text.Font(14.0));
                 hbox.getChildren().add(label);
 
                 if (courtBookings.size() > 0) {
