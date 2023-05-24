@@ -10,9 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.*;
@@ -108,25 +110,25 @@ public class NewBookingController
 
                 HBox hbox = new HBox();
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
-                Label label = new Label();
                 Button boton = new Button("LIBRE");
-                label.setFont(new javafx.scene.text.Font(12.0));
-                hbox.getChildren().add(label);
+
+                hbox.getChildren().add(boton);
 
                 if (courtBookings.size() > 0) {
                     for (Booking booking : courtBookings) {
                         if (booking.getFromTime().equals(time)) {
-                            label.setText(String.valueOf(booking.getMember().getNickName()));
-                            label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold");
+                            boton.setText(String.valueOf(booking.getMember().getNickName()));
+                            boton.setDisable(true);
+                            boton.setBackground(Background.EMPTY);
+                            boton.setTextFill(Color.RED);
                             hbox.setStyle("-fx-background-color: WHITE");
                         } else {
-                            label.setGraphic(boton);
+                            boton.setBackground(Background.EMPTY);
+                            boton.setTextFill(Color.GREEN);
                             boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-
                             boton.setOnMouseEntered(event -> {
                                 boton.setFont(Font.font("Arial", FontWeight.BOLD, 16));
                             });
-
                             boton.setOnMouseExited(event -> {
                                 boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
                             });
