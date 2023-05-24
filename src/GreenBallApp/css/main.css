@@ -49,7 +49,7 @@
 .enterBtn:pressed {
     -fx-background-color: #d5d5d5;
     -fx-effect: dropshadow(gaussian, rgb(152, 246, 246), 20, 0, 0, 0);
-    -fx-transition: -fx-background-color 0.5s ease;
+
 }
 .errorLabel{
     -fx-effect: dropshadow(gaussian, rgb(255, 156, 156), 20, 0, 0, 0);
