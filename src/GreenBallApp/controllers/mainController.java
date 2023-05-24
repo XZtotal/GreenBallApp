@@ -59,9 +59,12 @@ public class mainController
         String password = fieldPassword.getText();
 
         try {
-            boolean mememberExists = checkMemberCredentials(nickname, password);
 
-            if (mememberExists) {
+            Member member = Club.getInstance().getMemberByCredentials(nickname, password);
+            System.out.println(member.getNickName());
+
+            if (member != null) {
+                GreenBallApp.setMember(member);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
                 Parent root = loader.load();
                 GreenBallApp.setRoot(root);
@@ -75,6 +78,7 @@ public class mainController
             }
 
         }catch (Exception e){
+
             if (!Error.isVisible()) {
                 aparecerError();
             } else {
