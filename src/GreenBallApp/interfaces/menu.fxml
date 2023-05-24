@@ -67,7 +67,7 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
-                        <Label fx:id="Bienvenida" prefHeight="35.0" prefWidth="177.0" text="Bienvenido" textFill="WHITE">
+                        <Label fx:id="Bienvenida" prefHeight="50.0" prefWidth="359.0" text="Bienvenido" textFill="WHITE">
                            <font>
                               <Font size="34.0" />
                            </font>

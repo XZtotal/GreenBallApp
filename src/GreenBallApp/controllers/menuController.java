@@ -65,14 +65,14 @@ public class menuController {
     }
     @FXML
     public void initialize() {
-        /*try {
+        try {
             welcomeMessage();
             showImage();
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
         }
 
-         */
+
     }
 
     @FXML

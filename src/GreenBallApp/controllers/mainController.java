@@ -36,6 +36,8 @@ public class mainController
     @FXML
     private Label Error;
 
+
+
     @FXML
     public void initialize() {
         btnBook.setOnAction(e -> {
@@ -52,31 +54,35 @@ public class mainController
 
 
     @FXML
-    public void btnEnterOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
-       /* String nickname = fieldUsername.getText();
+    public void btnEnterOnAction(ActionEvent actionEvent)  {
+       String nickname = fieldUsername.getText();
         String password = fieldPassword.getText();
 
-        boolean mememberExists = checkMemberCredentials(nickname, password);
+        try {
+            boolean mememberExists = checkMemberCredentials(nickname, password);
 
-        if (mememberExists) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            GreenBallApp.setScene(scene);
-        } else {
-           if (!Error.isVisible()) {
-               aparecerError();
-           } else {
+            if (mememberExists) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
+                Parent root = loader.load();
+                GreenBallApp.setRoot(root);
+            } else {
+                if (!Error.isVisible()) {
+                    aparecerError();
+                } else {
+                    remarcarError();
+                }
+
+            }
+
+        }catch (Exception e){
+            if (!Error.isVisible()) {
+                aparecerError();
+            } else {
                 remarcarError();
-           }
+            }
 
         }
 
-        */
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
-        Parent root = loader.load();
-
-        GreenBallApp.setRoot(root);
     }
 
 
