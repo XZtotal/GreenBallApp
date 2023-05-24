@@ -1,7 +1,12 @@
 .btnExit:hover{
 
     /*Gradiaente de verde a transparente*/
-    -fx-background-color: linear-gradient(to right, rgba(108, 218, 108, 0.22), rgba(255, 255, 255, 0));
+    -fx-background-color: linear-gradient(to right, rgba(253, 253, 253, 0.08), rgba(255, 255, 255, 0));
+    -fx-cursor: hand;
+
+
+    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 10, 0, 0, 0);
+
     -fx-cursor: hand;
 }
 .btnExit{
