@@ -92,14 +92,11 @@ public class menuController {
     }
 
     @FXML
-    public void reservarOnAction(ActionEvent actionEvent) throws ClubDAOException {
-        /*LocalDateTime bookingDate = LocalDateTime.now();
-        LocalDate madeForDay = LocalDate.now().plusDays(1);
-        LocalTime fromTime = LocalTime.of(10, 0);
-        Court court = new Court("Pista 1");
-        Member member = club.registerMember("Juan", "Pérez", "123456789A","paco", "1234", "asdadsads", 123456789, null);
-        boolean paid = false;
-        Booking nuevaReserva = new club.registerBooking(new Booking(bookingDate, madeForDay, fromTime, court, member,paid));*/
+    public void reservarOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/NewBooking.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
     }
     // Escribe un metodo que escriba en el label welcome un mensaje de bienvenida a cada usuario
 
