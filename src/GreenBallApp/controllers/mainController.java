@@ -52,6 +52,11 @@ public class mainController
 
         });
 
+        fieldPassword.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnEnterOnAction(new ActionEvent());
+            }
+        });
 
 
 
