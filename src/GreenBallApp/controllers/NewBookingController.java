@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import model.*;
 
 import java.io.IOException;
@@ -107,9 +109,9 @@ public class NewBookingController
                 HBox hbox = new HBox();
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
                 Label label = new Label();
-                Button boton = new Button("");
+                Button boton = new Button("LIBRE");
                 label.setFont(new javafx.scene.text.Font(12.0));
-                hbox.getChildren().addAll(label,boton);
+                hbox.getChildren().add(label);
 
                 if (courtBookings.size() > 0) {
                     for (Booking booking : courtBookings) {
@@ -118,8 +120,16 @@ public class NewBookingController
                             label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold");
                             hbox.setStyle("-fx-background-color: WHITE");
                         } else {
-                            label.setText("Libre");
-                            label.setStyle("-fx-text-fill: #1ab47c");
+                            label.setGraphic(boton);
+                            boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+
+                            boton.setOnMouseEntered(event -> {
+                                boton.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+                            });
+
+                            boton.setOnMouseExited(event -> {
+                                boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+                            });
                             boton.setOnAction(event -> {
                                 try{
                                     Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
