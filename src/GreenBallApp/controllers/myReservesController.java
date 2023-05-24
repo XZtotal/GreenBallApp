@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import model.*;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -27,38 +28,35 @@ public class myReservesController
     @javafx.fxml.FXML
     private Button btnReturn;
     @javafx.fxml.FXML
-    private TableView<Booking> tableView = new TableView<>();
+    private TableView<Booking> tableView;
     @javafx.fxml.FXML
-    private TableColumn<Booking,LocalDateTime> fechaColumn = new TableColumn<>("Fecha");
+    private TableColumn<Booking,LocalDateTime> fechaColumn;
 
     @javafx.fxml.FXML
-    private TableColumn<Booking,LocalDate> fechaReservaColumn = new TableColumn<>("Fecha Reserva");
+    private TableColumn<Booking,LocalDate> fechaReservaColumn;
     @javafx.fxml.FXML
-    private TableColumn<Booking,LocalTime> horaColumn = new TableColumn<>("Hora");
+    private TableColumn<Booking,LocalTime> horaColumn;
     @javafx.fxml.FXML
-    private TableColumn<Booking,Court> pistaColumn = new TableColumn<>("Pista");
+    private TableColumn<Booking,Court> pistaColumn;
     @javafx.fxml.FXML
-    private TableColumn<Booking,Member> miembroColumn = new TableColumn<>("Miembro");
+    private TableColumn<Booking,Member> miembroColumn;
     @javafx.fxml.FXML
-    private TableColumn<Booking,Boolean> pagadoColumn = new TableColumn<>("Pagado");
-    Scene scene = new Scene(tableView, 800, 600);
-    private EmbeddedWindow primaryStage;
+    private TableColumn<Booking,Boolean> pagadoColumn;
+    private ObservableList<Booking> reservas;
+
 
 
     @javafx.fxml.FXML
     public void initialize() throws ClubDAOException, IOException {
-        fechaColumn.setCellValueFactory(new PropertyValueFactory("bookingDate"));
+        tableView.getColumns().addAll(fechaColumn, fechaReservaColumn, horaColumn, pistaColumn, miembroColumn, pagadoColumn);
+        reservas = FXCollections.observableArrayList(Club.getInstance().getBookings());
+        tableView.setItems(reservas);
+        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("bookingDate"));
         fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
         horaColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
         pistaColumn.setCellValueFactory(new PropertyValueFactory<>("court"));
         miembroColumn.setCellValueFactory(new PropertyValueFactory<>("member"));
         pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paid"));
-        tableView.getColumns().addAll(fechaColumn, fechaReservaColumn, horaColumn, pistaColumn, miembroColumn, pagadoColumn);
-        ObservableList<Booking> reservas = FXCollections.observableArrayList(Club.getInstance().getBookings());
-        tableView.setItems(reservas);
-        Scene scene = new Scene(tableView, 800, 600);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     @Deprecated
