@@ -120,7 +120,7 @@ public class menuController {
         Club club = Club.getInstance();
         Member currentMember = GreenBallApp.getMember();
         String nickname = currentMember.getNickName();
-        labelNickName.setText("Bienvenido " + nickname);
+        labelNickName.setText("Nombre de usuario: " + nickname);
     }
 
 }
