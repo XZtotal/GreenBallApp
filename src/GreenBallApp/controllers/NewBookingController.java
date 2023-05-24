@@ -13,14 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
-import model.Booking;
-import model.Club;
-import model.ClubDAOException;
+import model.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewBookingController
 {
@@ -89,11 +89,15 @@ public class NewBookingController
 
     public void printTable() throws ClubDAOException, IOException {
         LocalDate date = this.date.getValue();
+        LocalDateTime date1 = LocalDateTime.now();
+        Member mem = GreenBallApp.getMember();
+        List<Court> courts = Club.getInstance().getCourts();
         if(date != null) currentDate = date;
 
         for (int i = 0; i < 6; i++) {
 
             String courtName = "Pista " + (i + 1);
+            Court court = courts.get(i);
             ArrayList<Booking> courtBookings = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
 
             for (int j = 9; j <= 21; j++) {
@@ -103,8 +107,9 @@ public class NewBookingController
                 HBox hbox = new HBox();
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
                 Label label = new Label();
+                Button boton = new Button("");
                 label.setFont(new javafx.scene.text.Font(12.0));
-                hbox.getChildren().add(label);
+                hbox.getChildren().addAll(label,boton);
 
                 if (courtBookings.size() > 0) {
                     for (Booking booking : courtBookings) {
@@ -115,6 +120,12 @@ public class NewBookingController
                         } else {
                             label.setText("Libre");
                             label.setStyle("-fx-text-fill: #1ab47c");
+                            boton.setOnAction(event -> {
+                                try{
+                                    Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
+                                }catch (ClubDAOException e){}
+                                catch (IOException ex){}
+                            });
                         }
                     }
                 }
