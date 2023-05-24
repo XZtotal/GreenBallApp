@@ -43,6 +43,8 @@ public class mainController
     @FXML
     public void initialize() {
         GreenBallApp.getStage().setTitle("GreenBallApp > Inicio");
+        GreenBallApp.getStage().setMinHeight(500);
+        GreenBallApp.getStage().setMinHeight(500);
         //poner imagen superior de aplicacion
         GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/download.jpg"));
         btnBook.setOnAction(e -> {

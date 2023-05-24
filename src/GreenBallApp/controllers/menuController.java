@@ -63,6 +63,8 @@ public class menuController {
     @FXML
     public void initialize() {
         GreenBallApp.getStage().setTitle("GreenBallApp > Menú");
+        GreenBallApp.getStage().setMinHeight(500);
+        GreenBallApp.getStage().setMinWidth(600);
         try {
             welcomeMessage();
             showNickaname();
@@ -94,8 +96,8 @@ public class menuController {
     public void reservarOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/NewBooking.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+
+        GreenBallApp.setRoot(root);
     }
     // Escribe un metodo que escriba en el label welcome un mensaje de bienvenida a cada usuario
 
