@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.NewBookingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.publicReservesController">
    <top>
       <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" BorderPane.alignment="CENTER">
          <children>
@@ -42,7 +42,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </ImageView>
-            <Text fill="#ffffffae" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; Reservas " wrappingWidth="214.13671875">
+            <Text fill="#ffffffae" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; Reservar " wrappingWidth="214.13671875">
                <HBox.margin>
                   <Insets left="16.0" top="5.0" />
                </HBox.margin>
@@ -119,13 +119,34 @@
                                     <RowConstraints fx:id="col7" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Horas" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 1 " GridPane.columnIndex="1" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 2" GridPane.columnIndex="2" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 3" GridPane.columnIndex="3" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 4" GridPane.columnIndex="4" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 5" GridPane.columnIndex="5" />
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 6" GridPane.columnIndex="6" />
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Horas">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 1 " GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 2" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 3" GridPane.columnIndex="3">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 4" GridPane.columnIndex="4">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 5" GridPane.columnIndex="5">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="Pista 6" GridPane.columnIndex="6">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Label>
                                     <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.rowIndex="1">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="17.0" prefWidth="118.0" text="09:00 - 10:00" />
