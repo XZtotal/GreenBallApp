@@ -43,6 +43,7 @@ public class publicReservesController
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Reservas públicas");
         currentDate = LocalDate.now();
         date.setValue(currentDate);
         printTable();

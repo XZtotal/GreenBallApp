@@ -71,6 +71,8 @@ public class registerController
 
     @FXML
     public void initialize() throws IOException {
+
+        GreenBallApp.getStage().setTitle("GreenBallApp > Registro");
         GreenBallApp.getStage().setMinWidth(700);
         GreenBallApp.getStage().setMinHeight(700);
 

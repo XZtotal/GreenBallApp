@@ -54,6 +54,7 @@ public class NewBookingController
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Menú > Reservar");
         currentDate = LocalDate.now();
         date.setValue(currentDate);
         printTable();

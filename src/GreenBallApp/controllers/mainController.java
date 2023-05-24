@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
@@ -41,6 +42,9 @@ public class mainController
 
     @FXML
     public void initialize() {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Inicio");
+        //poner imagen superior de aplicacion
+        GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/download.jpg"));
         btnBook.setOnAction(e -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
             try {
@@ -95,7 +99,7 @@ public class mainController
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+
             if (!Error.isVisible()) {
                 aparecerError();
             } else {

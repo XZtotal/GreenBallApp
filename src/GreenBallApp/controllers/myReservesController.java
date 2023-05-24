@@ -48,6 +48,7 @@ public class myReservesController
 
     @javafx.fxml.FXML
     public void initialize() throws ClubDAOException, IOException {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Menú > Mis reservas");
         tableView.getColumns().addAll(fechaColumn, fechaReservaColumn, horaColumn, pistaColumn, miembroColumn, pagadoColumn);
         reservas = FXCollections.observableArrayList(Club.getInstance().getBookings());
         tableView.setItems(reservas);

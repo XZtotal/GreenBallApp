@@ -62,6 +62,7 @@ public class menuController {
     }
     @FXML
     public void initialize() {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Menú");
         try {
             welcomeMessage();
             showNickaname();
