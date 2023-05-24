@@ -19,6 +19,28 @@
 
 
 }
+.fondo {
+    -fx-background-image: url("../image/fondo3-2.png") center;
+    -fx-background-size: 100;
+    -fx-background-position: center;
+}
+.button:hover{
+    -fx-background-color: linear-gradient(to top, rgb(56, 129, 130), rgb(63, 171, 146));
+    -fx-text-fill: white;
+    -fx-transition: -fx-background-color 0.5s ease;
+    -fx-cursor: hand;
+}
+
+.topcard{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+    -fx-border-color: white;
+    -fx-border-width: 0;
+
+    -fx-background-size: 90;
+    -fx-background-radius: 10 ;
+}
 
 .actualEnabledStateLabel{
     -fx-background-radius: 5;
