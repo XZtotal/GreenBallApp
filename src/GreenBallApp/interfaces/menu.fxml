@@ -72,7 +72,7 @@
                               <Font name="Calibri" size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="Bienvenida1" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="#e4e4e4">
+                        <Label fx:id="Nickanme" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="#e4e4e4">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>

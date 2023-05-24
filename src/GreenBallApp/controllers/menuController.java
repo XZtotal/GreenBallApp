@@ -34,6 +34,8 @@ public class menuController {
     private ImageView MiFoto;
     @FXML
     private Label Bienvenida;
+    @FXML
+    private Label Nickanme;
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
@@ -68,6 +70,7 @@ public class menuController {
     public void initialize() {
         try {
             welcomeMessage();
+            showNickaname();
             showImage();
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
@@ -117,6 +120,13 @@ public class menuController {
         Utils.circularCutout(MiFoto);
         MiFoto.setImage(foto);
 
+    }
+    
+    public void showNickaname() throws ClubDAOException, IOException {
+        Club club = Club.getInstance();
+        Member currentMember = GreenBallApp.getMember();
+        String nickname = currentMember.getNickName();
+        Nickanme.setText("Bienvenido " + nickname);
     }
 
 }
