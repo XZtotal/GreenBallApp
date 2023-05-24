@@ -16,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/register.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
    <top>
-      <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#btnReturnOnAction" prefHeight="84.0" prefWidth="80.0" styleClass="btnExit" stylesheets="@../css/register.css">
                <graphic>
@@ -55,9 +55,9 @@
    <center>
       <VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="414.0" prefWidth="660.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="550.0" style="-fx-background-radius: 15;" styleClass="topbar" stylesheets="@../css/main.css">
+            <HBox prefHeight="150.0" prefWidth="550.0" styleClass="topcard">
                <children>
-                  <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/addphoto3.png" />
                      </image>
@@ -67,12 +67,12 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
-                        <Label fx:id="Bienvenida" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="WHITE">
+                        <Label fx:id="Bienvenida" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="#005c5d">
                            <font>
-                              <Font name="Calibri" size="34.0" />
+                              <Font name="Calibri Bold" size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="Bienvenida1" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="#e4e4e4">
+                        <Label fx:id="Bienvenida1" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="TEAL">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -80,13 +80,34 @@
                               <Insets left="2.0" />
                            </VBox.margin>
                         </Label>
-                        <Hyperlink fx:id="cuenta" onAction="#cuentaOnAction" prefHeight="23.0" prefWidth="89.0" text="Mi cuenta &gt;" textFill="#29c6ff">
+                        <Hyperlink fx:id="cuenta" onAction="#cuentaOnAction" prefHeight="23.0" prefWidth="89.0" text="Mi cuenta &gt;">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.303600013256073" green="0.49955999851226807" blue="0.6899999976158142" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="0.303600013256073" green="0.49955999851226807" blue="0.6899999976158142" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.061403509229421616" green="0.5792397856712341" blue="0.7368420958518982" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
                         </Hyperlink>
                      </children>
                   </VBox>
@@ -98,9 +119,9 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="114.0" prefWidth="554.0">
+            <HBox alignment="CENTER" prefHeight="246.0" prefWidth="554.0">
                <children>
-                  <Button fx:id="reservas" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Mis reservas">
+                  <Button fx:id="reservas" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css">
                      <HBox.margin>
                         <Insets right="66.0" />
                      </HBox.margin>
@@ -123,8 +144,15 @@
                            </stops>
                         </LinearGradient>
                      </textFill>
+                     <graphic>
+                        <ImageView fitHeight="220.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/menubtn1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="reservar" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="68.0" prefWidth="117.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css" text="Reservar">
+                  <Button fx:id="reservar" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
@@ -143,7 +171,14 @@
                               </Stop>
                            </stops>
                         </LinearGradient>
-                     </textFill></Button>
+                     </textFill>
+                     <graphic>
+                        <ImageView fitHeight="220.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/menubtn2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </HBox>
          </children>

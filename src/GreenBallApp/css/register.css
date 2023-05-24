@@ -21,6 +21,7 @@
 }
 
 
+
 .actualEnabledStateLabel{
     -fx-background-radius: 10;
     -fx-background-color: linear-gradient(to top, rgb(56, 129, 130), rgb(63, 171, 146));
@@ -30,6 +31,7 @@
 
 
 }
+
 
 .generalContainer{
     -fx-background-color: rgb(0, 99, 101);
