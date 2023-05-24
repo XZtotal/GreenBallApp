@@ -39,17 +39,21 @@
 /* Cambiar el color del boton cuando se pone el cursor encima*/
 
 .enterBtn:hover{
-    -fx-background-color: #1ab37b;
-    -fx-text-fill: white;
-    -fx-transition: -fx-background-color 0.5s ease;
+
+
+    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 20, 0, 0, 0);
     -fx-cursor: hand;
 }
 
 
 .enterBtn:pressed {
-    -fx-background-color: #1ab37b;
-    -fx-text-fill: white;
+    -fx-background-color: #d5d5d5;
+    -fx-effect: dropshadow(gaussian, rgb(152, 246, 246), 20, 0, 0, 0);
     -fx-transition: -fx-background-color 0.5s ease;
+}
+.errorLabel{
+    -fx-effect: dropshadow(gaussian, rgb(255, 156, 156), 20, 0, 0, 0);
+
 }
 
 .field{
