@@ -1,6 +1,7 @@
 package GreenBallApp.controllers;
 
 import GreenBallApp.GreenBallApp;
+import GreenBallApp.util.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -113,6 +114,7 @@ public class menuController {
         Club club = Club.getInstance();
         Member currentMember = GreenBallApp.getMember();
         Image foto = currentMember.getImage();
+        Utils.circularCutout(MiFoto);
         MiFoto.setImage(foto);
 
     }
