@@ -87,7 +87,7 @@
             </VBox>
             <VBox fillWidth="false" prefHeight="104.0" prefWidth="210.0">
                <children>
-                  <Label prefHeight="22.0" prefWidth="189.0" text="Repite la contraseña" textFill="WHITE">
+                  <Label prefHeight="22.0" prefWidth="189.0" text="Repite la contraseña*" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
