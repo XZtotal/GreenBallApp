@@ -24,10 +24,14 @@
     -fx-background-size: 100;
     -fx-background-position: center;
 }
+.button{
+    -fx-background-color: white;
+}
 .button:hover{
-    -fx-background-color: linear-gradient(to top, rgb(56, 129, 130), rgb(63, 171, 146));
-    -fx-text-fill: white;
-    -fx-transition: -fx-background-color 0.5s ease;
+    -fx-background-color: white;
+
+    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 10, 0, 0, 0);
+
     -fx-cursor: hand;
 }
 

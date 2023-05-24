@@ -95,7 +95,7 @@ public class mainController
             }
 
         }catch (Exception e){
-
+            e.printStackTrace();
             if (!Error.isVisible()) {
                 aparecerError();
             } else {

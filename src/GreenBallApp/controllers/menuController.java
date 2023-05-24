@@ -9,16 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
 import model.*;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-
 
 
 public class menuController {
@@ -33,9 +27,9 @@ public class menuController {
     @FXML
     private ImageView MiFoto;
     @FXML
-    private Label Bienvenida;
+    private Label labelWelcome;
     @FXML
-    private Label Nickanme;
+    private Label labelNickName;
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
@@ -108,7 +102,7 @@ public class menuController {
        Club club = Club.getInstance();
        Member currentMember = GreenBallApp.getMember();
        String nombre = currentMember.getName();
-       Bienvenida.setText("Bienvenido " + nombre);
+       labelWelcome.setText("Bienvenido " + nombre);
     }
 
     // Escribe un metodo que muestre la imagen del usuario
@@ -126,7 +120,7 @@ public class menuController {
         Club club = Club.getInstance();
         Member currentMember = GreenBallApp.getMember();
         String nickname = currentMember.getNickName();
-        Nickanme.setText("Bienvenido " + nickname);
+        labelNickName.setText("Bienvenido " + nickname);
     }
 
 }

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/register.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
    <top>
       <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
          <children>
@@ -67,12 +67,12 @@
                   </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
-                        <Label fx:id="Bienvenida" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="#005c5d">
+                        <Label fx:id="labelWelcome" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="#005c5d">
                            <font>
                               <Font name="Calibri Bold" size="34.0" />
                            </font>
                         </Label>
-                        <Label fx:id="Bienvenida1" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="TEAL">
+                        <Label fx:id="labelNickName" prefHeight="0.0" prefWidth="352.0" text="Nombre de usuario:" textFill="TEAL">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -121,7 +121,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="246.0" prefWidth="554.0">
                <children>
-                  <Button fx:id="reservas" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css">
+                  <Button fx:id="reservas" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
                      <HBox.margin>
                         <Insets right="66.0" />
                      </HBox.margin>
@@ -152,7 +152,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="reservar" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;" styleClass="enterBtn" stylesheets="@../css/register.css">
+                  <Button fx:id="reservar" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
