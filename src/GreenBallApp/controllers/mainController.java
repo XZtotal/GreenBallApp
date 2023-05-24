@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import model.Club;
@@ -50,6 +51,8 @@ public class mainController
             }
 
         });
+
+        fieldPassword.getOnKeyPressed(
     }
 
 
@@ -61,7 +64,7 @@ public class mainController
         try {
 
             Member member = Club.getInstance().getMemberByCredentials(nickname, password);
-            System.out.println(member.getNickName());
+
 
             if (member != null) {
                 GreenBallApp.setMember(member);
