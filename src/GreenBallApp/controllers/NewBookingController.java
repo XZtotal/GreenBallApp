@@ -25,8 +25,8 @@ import java.util.ArrayList;
 public class NewBookingController
 {
     LocalDate currentDate;
-    @FXML
-    private Button btnReturn;
+
+
     @FXML
     private GridPane tabla;
     @FXML
@@ -47,6 +47,8 @@ public class NewBookingController
     int numRow = 13;
     @FXML
     private DatePicker date;
+    @FXML
+    private Button btnReturn;
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
@@ -83,12 +85,7 @@ public class NewBookingController
 
 
     @FXML
-    public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
-    }
+
 
     public void printTable() throws ClubDAOException, IOException {
         LocalDate date = this.date.getValue();
@@ -139,10 +136,11 @@ public class NewBookingController
     }
 
 
-
-
-
-
-
-
+    @FXML
+    public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
+    }
 }

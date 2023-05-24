@@ -52,6 +52,13 @@ public class mainController
 
         });
 
+        fieldUsername.setOnKeyPressed(e -> {
+            if(!fieldUsername.getText().equals("") && e.getCode() == KeyCode.ENTER) {
+               //fieldPassword.requestFocus();
+                fieldPassword.requestFocus();
+            }
+        });
+
         fieldPassword.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ENTER) {
                 btnEnterOnAction(new ActionEvent());
