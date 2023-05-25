@@ -78,7 +78,7 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent)  {
-       String nickname = fieldUsername.getText();
+        String nickname = fieldUsername.getText();
         String password = fieldPassword.getText();
 
         try {

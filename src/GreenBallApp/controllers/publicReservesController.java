@@ -109,11 +109,16 @@ public class publicReservesController
                             label.setText(String.valueOf(booking.getMember().getNickName()));
                             label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold");
                             hbox.setStyle("-fx-background-color: WHITE");
+                            courtBookings.remove(booking);
+                            break;
                         } else {
                             label.setText("Libre");
                             label.setStyle("-fx-text-fill: #1ab47c");
                         }
                     }
+                }else{
+                    label.setText("Libre");
+                    label.setStyle("-fx-text-fill: #1ab47c");
                 }
                 //colorea el cebreado de la tabla
                 if (j % 2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");

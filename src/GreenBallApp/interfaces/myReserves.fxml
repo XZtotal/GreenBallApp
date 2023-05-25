@@ -52,16 +52,15 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" layoutX="103.0" layoutY="61.0" prefHeight="449.0" prefWidth="644.0">
+            <TableView fx:id="tableView" layoutX="17.0" layoutY="22.0" prefHeight="488.0" prefWidth="820.0" style="-fx-alignment: center; -fx-background-radius: 10;">
               <columns>
-                <TableColumn fx:id="fechaColumn" prefWidth="128.0" text="Fecha" />
-                  <TableColumn fx:id="fechaReservaColumn" prefWidth="128.0" text="Fecha Reserva" />
-                  <TableColumn fx:id="horaColumn" minWidth="8.0" prefWidth="97.0" text="Hora" />
-                  <TableColumn fx:id="pistaColumn" prefWidth="63.0" text="Pista" />
-                  <TableColumn fx:id="miembroColumn" prefWidth="154.0" text="Miembro" />
-                  <TableColumn fx:id="pagadoColumn" prefWidth="73.0" text="Pagado" />
+                  <TableColumn fx:id="fechaReservaColumn" maxWidth="3217.129077911377" minWidth="30.0" prefWidth="321.7129077911377" style="-fx-alignment: center;" text="Fecha Reserva" />
+                  <TableColumn fx:id="horaColumn" maxWidth="1682.871322631836" minWidth="30.0" prefWidth="168.2871322631836" style="-fx-alignment: center;" text="Hora" />
+                  <TableColumn fx:id="pistaColumn" maxWidth="1916.6085815429688" minWidth="30.0" prefWidth="191.66085815429688" style="-fx-alignment: center;" text="Pista" />
+                  <TableColumn fx:id="pagadoColumn" maxWidth="1393.3917236328125" minWidth="30.0" prefWidth="139.33917236328125" style="-fx-alignment: center;" text="Pagado" />
               </columns>
             </TableView>
+            <Button fx:id="cancelButton" cancelButton="true" contentDisplay="CENTER" layoutX="328.0" layoutY="523.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="36.0" prefWidth="199.0" styleClass="card" text="CANCELAR RESERVA" />
          </children>
       </Pane>
    </center>

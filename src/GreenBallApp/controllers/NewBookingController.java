@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,6 +22,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class NewBookingController
 {
@@ -123,6 +121,8 @@ public class NewBookingController
                             boton.setBackground(Background.EMPTY);
                             boton.setTextFill(Color.RED);
                             hbox.setStyle("-fx-background-color: WHITE");
+                            courtBookings.remove(booking);
+                            break;
                         } else {
                             boton.setBackground(Background.EMPTY);
                             boton.setTextFill(Color.GREEN);
@@ -135,12 +135,54 @@ public class NewBookingController
                             });
                             boton.setOnAction(event -> {
                                 try{
-                                    Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
-                                }catch (ClubDAOException e){}
-                                catch (IOException ex){}
+                                    Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                                    alerta.setTitle("Confirmar acción");
+                                    alerta.setHeaderText("¿Está seguro de que desea realizar esta acción?");
+
+                                    Optional<ButtonType> resultado = alerta.showAndWait();
+                                    if (resultado.get() == ButtonType.OK){
+                                        Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
+                                        courtBookings.add(b);
+                                        printTable();
+                                    }
+                                }catch (ClubDAOException e){
+                                    e.printStackTrace();
+                                }
+                                catch (IOException ex){
+                                    ex.printStackTrace();
+                                }
                             });
                         }
                     }
+                }else{boton.setBackground(Background.EMPTY);
+                    boton.setTextFill(Color.GREEN);
+                    boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+                    boton.setOnMouseEntered(event -> {
+                        boton.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+                    });
+                    boton.setOnMouseExited(event -> {
+                        boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+                    });
+                    boton.setOnAction(event -> {
+                        try{
+                            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                            alerta.setTitle("Confirmar acción");
+                            alerta.setHeaderText("¿Está seguro de que desea realizar esta acción?");
+
+                            Optional<ButtonType> resultado = alerta.showAndWait();
+                            if (resultado.get() == ButtonType.OK){
+                                Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
+                                courtBookings.add(b);
+                                printTable();
+                            }
+                        }catch (ClubDAOException e){
+                            e.printStackTrace();
+                        }
+                        catch (IOException ex){
+                            ex.printStackTrace();
+                        }
+                    });
+
                 }
                 //colorea el cebreado de la tabla
                 if (j % 2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");
