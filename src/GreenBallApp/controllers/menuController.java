@@ -7,11 +7,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 import model.*;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -30,9 +35,19 @@ public class menuController {
     private Label labelWelcome;
     @FXML
     private Label labelNickName;
+    @FXML
+    private Button imagen;
+    @FXML
+    private ImageView cambioFoto;
+    @FXML
+    private BorderPane root;
+
+    private final BoxBlur blur = new BoxBlur(10, 10, 3);
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
+
+        root.setEffect(blur);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cerrar sesión");
         alert.setHeaderText("¿Seguro que desea cerrar sesión?");
@@ -42,7 +57,7 @@ public class menuController {
         imageView.setFitHeight(70);
         imageView.setFitWidth(70);
 
-        //ponerle margin al imageView
+
 
 
         alert.setGraphic(imageView);
@@ -58,7 +73,11 @@ public class menuController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else{
+            root.setEffect(null);
         }
+
+
     }
     @FXML
     public void initialize() {
@@ -69,6 +88,16 @@ public class menuController {
             welcomeMessage();
             showNickaname();
             showImage();
+            imagen.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue) {
+                    cambioFoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
+                    MiFoto.setEffect(new GaussianBlur(5));
+                } else {
+                    cambioFoto.setImage(null);
+                    MiFoto.setEffect(null);
+                }
+            });
+
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +106,11 @@ public class menuController {
     }
 
     @FXML
-    public void cuentaOnAction(ActionEvent actionEvent) {
+    public void cuentaOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/config.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
         
     }
 
@@ -124,6 +157,29 @@ public class menuController {
         Member currentMember = GreenBallApp.getMember();
         String nickname = currentMember.getNickName();
         labelNickName.setText("Nombre de usuario: " + nickname);
+
     }
+
+    @FXML
+    public void imagenOnAction(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona una imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imagenes", "*.png", "*.jpg"));
+        File selectedFile = fileChooser.showOpenDialog(GreenBallApp.getStage());
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            MiFoto.setImage(image);
+            Utils.circularCutout(MiFoto);
+            Member currentMember = GreenBallApp.getMember();
+            currentMember.setImage(image);
+        }
+
+
+    }
+
+
+
+
 
 }

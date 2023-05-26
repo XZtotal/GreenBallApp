@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.configController">
+   <center>
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white; -fx-background-radius: 10;" styleClass="bellowContainer" stylesheets="@../css/register.css">
+               <top>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="label1" alignment="CENTER" prefHeight="30.0" prefWidth="128.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Identificación">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="3.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="label2" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;">
+                           <font>
+                              <Font name="Calibri Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label3" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos de usuario">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="3.0" right="3.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="3.0" right="3.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="label4" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="label5" alignment="CENTER" prefHeight="30.0" prefWidth="102.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos extra">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </HBox>
+               </top>
+               <center>
+                  <BorderPane fx:id="bpContainer" cache="true" prefHeight="340.0" prefWidth="520.0" styleClass="generalContainer">
+                     <BorderPane.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                     </padding>
+                  </BorderPane>
+               </center>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <bottom>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css">
+                     <children>
+                        <Hyperlink fx:id="linkOmit" onAction="#linkOmitOnAction" text="Omitir y registrarme &gt;">
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="16.0" />
+                           </font>
+                        </Hyperlink>
+                        <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
+                           <font>
+                              <Font name="Calibri Bold" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
+                           <font>
+                              <Font name="Calibri Bold" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </HBox>
+               </bottom>
+               <padding>
+                  <Insets left="2.0" right="2.0" />
+               </padding>
+            </BorderPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#btnReturnOnAction" prefHeight="84.0" prefWidth="80.0" styleClass="btnExit" stylesheets="@../css/register.css">
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/flecha.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Line startY="60.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
+            <ImageView fitHeight="76.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/GreenBall1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <Text fill="#ffffffae" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; Registro" wrappingWidth="214.13671875">
+               <HBox.margin>
+                  <Insets left="16.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Calibri Bold" size="37.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

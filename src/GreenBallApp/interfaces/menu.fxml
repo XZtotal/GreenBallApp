@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.menuController">
    <top>
       <HBox alignment="CENTER_LEFT" maxHeight="85.0" minHeight="54.0" prefHeight="80.0" prefWidth="612.0" styleClass="topbar" stylesheets="@../css/main.css" BorderPane.alignment="CENTER">
          <children>
@@ -57,14 +58,20 @@
          <children>
             <HBox prefHeight="150.0" prefWidth="550.0" styleClass="topcard">
                <children>
-                  <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/addphoto3.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </ImageView>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/addphoto3.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="imagebutton" fx:id="imagen" mnemonicParsing="false" onAction="#imagenOnAction" prefHeight="172.0" prefWidth="201.0" style="-fx-background-radius: 100; -fx-background-color: null;">
+                           <graphic>
+                              <ImageView fx:id="cambioFoto" fitHeight="150.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
                   <VBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="370.0">
                      <children>
                         <Label fx:id="labelWelcome" prefHeight="0.0" prefWidth="352.0" text="Bienvenido" textFill="#005c5d">
@@ -181,6 +188,7 @@
                      </graphic></Button>
                </children>
             </HBox>
+            <StackPane prefHeight="150.0" prefWidth="200.0" />
          </children>
       </VBox>
    </center>

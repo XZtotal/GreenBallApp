@@ -74,8 +74,6 @@ public class publicReservesController
 
 
 
-
-
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
@@ -87,6 +85,7 @@ public class publicReservesController
     public void printTable() throws ClubDAOException, IOException {
         LocalDate date = this.date.getValue();
         if(date != null) currentDate = date;
+
 
         for (int i = 0; i < 6; i++) {
 
@@ -102,6 +101,7 @@ public class publicReservesController
                 Label label = new Label();
                 label.setFont(new javafx.scene.text.Font(14.0));
                 hbox.getChildren().add(label);
+
 
                 if (courtBookings.size() > 0) {
                     for (Booking booking : courtBookings) {

@@ -54,6 +54,7 @@ public class mainController
                 GreenBallApp.setRoot(root);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
+
             }
 
         });
