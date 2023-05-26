@@ -152,3 +152,15 @@
     -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.68), 20, 0, 0, 0);
 }
 
+#imagebutton:hover{
+
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.68), 20, 0, 0, 0);
+
+
+}
+
+
+
+
+
+

@@ -7,11 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.stage.FileChooser;
 import model.*;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -30,6 +33,10 @@ public class menuController {
     private Label labelWelcome;
     @FXML
     private Label labelNickName;
+    @FXML
+    private Button imagen;
+    @FXML
+    private ImageView cambioFoto;
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
@@ -69,6 +76,15 @@ public class menuController {
             welcomeMessage();
             showNickaname();
             showImage();
+            imagen.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue) {
+                    cambioFoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
+                    MiFoto.setEffect(new GaussianBlur(5));
+                } else {
+                    cambioFoto.setImage(null);
+                    MiFoto.setEffect(null);
+                }
+            });
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
         }
@@ -124,6 +140,16 @@ public class menuController {
         Member currentMember = GreenBallApp.getMember();
         String nickname = currentMember.getNickName();
         labelNickName.setText("Nombre de usuario: " + nickname);
+
     }
+
+    @FXML
+    public void imagenOnAction(ActionEvent actionEvent) {
+
+
+    }
+
+
+
 
 }
