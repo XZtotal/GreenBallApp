@@ -76,7 +76,7 @@ public class myReservesController {
         // Redondear las esquinas
         tableView.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);");
         // Cambiar el tipo de letra
-        tableView.setStyle("-fx-font-family: 'Helvetica'; -fx-font-size: 20px;");
+        tableView.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 30px;");
         tableView.setStyle("--fx-background-color: EMPTY;");
         // Añadir bordes gruesos y redondeados entre filas
         tableView.setStyle("-fx-cell-size: 100;");
@@ -88,7 +88,7 @@ public class myReservesController {
                 if (empty) {
                     setStyle("");
                 } else {
-                    setStyle("-fx-background-color: #fff; -fx-border-color: #bbb; -fx-border-width: 2; -fx-border-radius: 7;");
+                    setStyle("-fx-background-color: #fff; -fx-border-color: #bbb; -fx-border-width: 2; -fx-border-radius: 7; -fx-border-height: 10;");
                 }
             }
         });
@@ -113,14 +113,18 @@ public class myReservesController {
 
     @FXML
     public void cancelOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
+        Reserva reserve = new Reserva(tableView.getSelectionModel().getSelectedItem());
+        LocalDateTime ti = reserve.getBookingDate();
+        String cou = reserve.getName();
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
         alerta.setTitle("Confirmar cancelación");
-        alerta.setHeaderText("¿Está seguro de que desea eliminar esta Reserva?");
+        alerta.setHeaderText("¿Está seguro de que desea eliminar la reserva con fecha " + ti + " en la " + cou + " ?");
 
         Optional<ButtonType> resultado = alerta.showAndWait();
         if (resultado.get() == ButtonType.OK) {
             Booking b = tableView.getSelectionModel().getSelectedItem();
             Club.getInstance().removeBooking(b);
+            reservas.remove(b);
             initialize();
         }
     }
