@@ -2,12 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -21,20 +21,7 @@
                <top>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="label1" alignment="CENTER" prefHeight="30.0" prefWidth="128.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Identificación">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="3.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="label2" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;">
-                           <font>
-                              <Font name="Calibri Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="label3" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos de usuario">
+                        <Label fx:id="labelTop" alignment="CENTER" prefHeight="30.0" prefWidth="283.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Opciones">
                            <font>
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
@@ -43,19 +30,6 @@
                            </padding>
                            <HBox.margin>
                               <Insets left="3.0" right="3.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="label4" prefHeight="30.0" prefWidth="3.0" styleClass="enabledStateLabel" text="&gt;" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri Bold" size="25.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="label5" alignment="CENTER" prefHeight="30.0" prefWidth="102.0" styleClass="enabledStateLabel" stylesheets="@../css/register.css" text="Datos extra">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="3.0" />
                            </HBox.margin>
                         </Label>
                      </children>
@@ -77,39 +51,40 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <bottom>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css">
-                     <children>
-                        <Hyperlink fx:id="linkOmit" onAction="#linkOmitOnAction" text="Omitir y registrarme &gt;">
-                           <HBox.margin>
-                              <Insets right="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Calibri Bold" size="16.0" />
-                           </font>
-                        </Hyperlink>
-                        <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
-                           <font>
-                              <Font name="Calibri Bold" size="17.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
-                           <font>
-                              <Font name="Calibri Bold" size="17.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </HBox>
-               </bottom>
                <padding>
                   <Insets left="2.0" right="2.0" />
                </padding>
+               <bottom>
+                  <StackPane prefHeight="56.0" prefWidth="596.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox fx:id="hboxDown" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css" visible="false">
+                           <children>
+                              <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
+                                 <font>
+                                    <Font name="Calibri Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
+                                 <font>
+                                    <Font name="Calibri Bold" size="17.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </HBox>
+                        <Label fx:id="labelDown" prefHeight="26.0" prefWidth="367.0" text="Seleccione una opción para configurarla" textFill="#006365">
+                           <font>
+                              <Font name="Calibri Bold" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </bottom>
             </BorderPane>
          </children>
          <BorderPane.margin>
@@ -141,7 +116,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </ImageView>
-            <Text fill="#ffffffae" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; Registro" wrappingWidth="214.13671875">
+            <Text fill="#ffffffae" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; Mi Cuenta" wrappingWidth="214.13671875">
                <HBox.margin>
                   <Insets left="16.0" top="5.0" />
                </HBox.margin>
