@@ -7,10 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import model.*;
 
@@ -37,9 +39,15 @@ public class menuController {
     private Button imagen;
     @FXML
     private ImageView cambioFoto;
+    @FXML
+    private BorderPane root;
+
+    private final BoxBlur blur = new BoxBlur(10, 10, 3);
 
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
+
+        root.setEffect(blur);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cerrar sesión");
         alert.setHeaderText("¿Seguro que desea cerrar sesión?");
@@ -49,7 +57,7 @@ public class menuController {
         imageView.setFitHeight(70);
         imageView.setFitWidth(70);
 
-        //ponerle margin al imageView
+
 
 
         alert.setGraphic(imageView);
@@ -65,7 +73,11 @@ public class menuController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else{
+            root.setEffect(null);
         }
+
+
     }
     @FXML
     public void initialize() {
@@ -85,6 +97,7 @@ public class menuController {
                     MiFoto.setEffect(null);
                 }
             });
+
         } catch (ClubDAOException | IOException e) {
             e.printStackTrace();
         }
@@ -93,7 +106,11 @@ public class menuController {
     }
 
     @FXML
-    public void cuentaOnAction(ActionEvent actionEvent) {
+    public void cuentaOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/config.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GreenBallApp.setScene(scene);
         
     }
 
@@ -158,6 +175,7 @@ public class menuController {
 
 
     }
+
 
 
 
