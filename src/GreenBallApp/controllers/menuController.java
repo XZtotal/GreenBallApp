@@ -145,6 +145,16 @@ public class menuController {
 
     @FXML
     public void imagenOnAction(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona una imagen");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Imagenes", "*.png", "*.jpg"));
+        File selectedFile = fileChooser.showOpenDialog(GreenBallApp.getStage());
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            MiFoto.setImage(image);
+            Utils.circularCutout(MiFoto);
+        }
 
 
     }
