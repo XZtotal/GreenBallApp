@@ -1,6 +1,7 @@
 package GreenBallApp.controllers;
 
 import GreenBallApp.GreenBallApp;
+import GreenBallApp.extras.Reserva;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.text.FontWeight;
 import model.*;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -141,8 +143,30 @@ public class NewBookingController
 
                                     Optional<ButtonType> resultado = alerta.showAndWait();
                                     if (resultado.get() == ButtonType.OK){
-                                        Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
-                                        courtBookings.add(b);
+                                        ArrayList<String> listaAux = null;
+                                        List<Booking> lista = Club.getInstance().getForDayBookings(currentDate);
+                                        int contador = 0;
+                                        for(Booking b : lista){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName())){
+                                                contador++;
+                                            }
+                                        }
+                                        if(contador == 0 || contador == 1) {
+                                            Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
+                                            courtBookings.add(b);
+                                        }else{
+                                            Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                                            alerta.setTitle("Error");
+                                            alerta.setHeaderText("Numero de reservas maximas por dia alcanzado");
+                                            alerta.setContentText("El numero maximo de reservas es 2 por dia si quiere realizar la reserva debera cancelar una de las reservas previstas para el dia en que desea realizar la reserva");
+
+                                            Optional<ButtonType> resultado1 = alerta.showAndWait();
+                                            if (resultado.get() == ButtonType.CLOSE) {
+                                                initialize();
+                                            }
+                                        }
                                         printTable();
                                     }
                                 }catch (ClubDAOException e){
