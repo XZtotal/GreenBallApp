@@ -171,6 +171,8 @@ public class menuController {
             Image image = new Image(selectedFile.toURI().toString());
             MiFoto.setImage(image);
             Utils.circularCutout(MiFoto);
+            Member currentMember = GreenBallApp.getMember();
+            currentMember.setImage(image);
         }
 
 
