@@ -158,11 +158,11 @@ public class NewBookingController
                                             courtBookings.add(b);
                                         }else{
                                             Alert alerta2 = new Alert(Alert.AlertType.ERROR);
-                                            alerta.setTitle("Error");
-                                            alerta.setHeaderText("Numero de reservas maximas por dia alcanzado");
-                                            alerta.setContentText("El numero maximo de reservas es 2 por dia si quiere realizar la reserva debera cancelar una de las reservas previstas para el dia en que desea realizar la reserva");
+                                            alerta2.setTitle("Error");
+                                            alerta2.setHeaderText("Numero de reservas maximas por dia alcanzado");
+                                            alerta2.setContentText("Si desea realizar otra reserva, cancele una de las ya existentes");
 
-                                            Optional<ButtonType> resultado1 = alerta.showAndWait();
+                                            Optional<ButtonType> resultado1 = alerta2.showAndWait();
                                             if (resultado.get() == ButtonType.CLOSE) {
                                                 initialize();
                                             }
