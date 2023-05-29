@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -124,38 +125,54 @@
             <Insets left="20.0" right="20.0" />
          </HBox.margin>
       </Line>
-      <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="220.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Text fill="#cffffe" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Te gustaria añadir una imagen a tu perfil?" textAlignment="CENTER" wrappingWidth="220.0">
-               <font>
-                  <Font name="Calibri Bold" size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Text>
-            <ImageView fx:id="imgUserImage" fitHeight="135.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/addphoto3.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </ImageView>
-            <Button id="btnaddimage" fx:id="btnAddImage" mnemonicParsing="false" onAction="#btnAddImageOnAction" prefHeight="34.0" prefWidth="146.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Añadir imagen">
-               <font>
-                  <Font name="Calibri Bold" size="18.0" />
-               </font>
-            </Button>
-            <Hyperlink fx:id="linkDeleteImage" onAction="#linkDeleteImageOnAction" text="Borrar imagen" textFill="#06c0c6">
-               <font>
-                  <Font name="Calibri Bold" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="3.0" />
-               </VBox.margin>
-            </Hyperlink>
+            <VBox fx:id="vboxtext1" alignment="CENTER" prefHeight="266.0" prefWidth="220.0" visible="false">
+               <children>
+                  <Text fill="#cffffe" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Te gustaria añadir una imagen a tu perfil?" textAlignment="CENTER" wrappingWidth="220.0">
+                     <font>
+                        <Font name="Calibri Bold" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ImageView fx:id="imgUserImage" fitHeight="135.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/addphoto3.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button id="btnaddimage" fx:id="btnAddImage" mnemonicParsing="false" onAction="#btnAddImageOnAction" prefHeight="34.0" prefWidth="146.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Añadir imagen">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Hyperlink fx:id="linkDeleteImage" onAction="#linkDeleteImageOnAction" text="Borrar imagen" textFill="#06c0c6">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+               </children>
+            </VBox>
+            <VBox fx:id="vboxtext2" alignment="CENTER" prefHeight="266.0" prefWidth="220.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/conf2.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets right="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
          </children>
-      </VBox>
+      </StackPane>
    </children>
 </HBox>

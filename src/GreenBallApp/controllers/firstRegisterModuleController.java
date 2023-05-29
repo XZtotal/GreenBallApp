@@ -13,6 +13,9 @@ public class firstRegisterModuleController
     BooleanProperty errorPhone = new SimpleBooleanProperty(true);
     boolean firstTry = true;
 
+    boolean configMode = false;
+
+
 
     @javafx.fxml.FXML
     private VBox vboxName;
@@ -32,6 +35,10 @@ public class firstRegisterModuleController
     private Label labelPhone;
     @javafx.fxml.FXML
     private VBox vboxSurname;
+    @javafx.fxml.FXML
+    private VBox vboxtext1;
+    @javafx.fxml.FXML
+    private VBox vboxtext2;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -48,6 +55,9 @@ public class firstRegisterModuleController
             }
 
         });
+
+        vboxtext1.setVisible(true);
+        vboxtext2.setVisible(false);
 
 
 
@@ -110,6 +120,22 @@ public class firstRegisterModuleController
         errorName.setValue(false);
         errorSurname.setValue(false);
         errorPhone.setValue(false);
+
+
+    }
+
+    /**
+     * The activeConfigMode function sets the configMode variable to true.
+
+     */
+    public void activateConfigMode(String name, String surname, String phone) {
+        this.configMode = true;
+        fieldName.setText(name);
+        fieldSurname.setText(surname);
+        fieldPhone.setText(phone);
+
+        vboxtext1.setVisible(false);
+        vboxtext2.setVisible(true);
 
 
     }

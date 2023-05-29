@@ -68,8 +68,9 @@ public class menuController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
                 Parent root = loader.load();
-                Scene scene = new Scene(root);
-                GreenBallApp.setScene(scene);
+                GreenBallApp.setRoot(root);
+                GreenBallApp.setMember(null);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

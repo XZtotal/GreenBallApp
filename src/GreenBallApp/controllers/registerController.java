@@ -80,6 +80,8 @@ public class registerController
         this.firstRegisterModuleParent = loader.load();
         this.firstRegisterModuleController = loader.getController();
 
+
+
         loader = new FXMLLoader(getClass().getResource("../interfaces/secondRegisterModule.fxml"));
         this.secondRegisterModuleParent = loader.load();
         this.secondRegisterModuleController = loader.getController();

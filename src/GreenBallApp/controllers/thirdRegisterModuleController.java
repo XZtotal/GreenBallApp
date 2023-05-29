@@ -1,6 +1,8 @@
 package GreenBallApp.controllers;
 
 import GreenBallApp.util.Utils;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -15,7 +17,13 @@ public class thirdRegisterModuleController
     boolean errorCVV = false;
 
 
-    public boolean firstTry = true;
+    private boolean firstTry = true;
+
+    private boolean configMode = false;
+
+    BooleanProperty cardLoaded = new SimpleBooleanProperty(false);
+
+    configController configController;
 
 
     @FXML
@@ -36,6 +44,12 @@ public class thirdRegisterModuleController
     private Label labelExpireDate;
     @FXML
     private Label labelCVV;
+    @FXML
+    private Label text1;
+    @FXML
+    private Label text2;
+    @FXML
+    private Button btnDeleteCard;
 
     @FXML
     public void initialize() {
@@ -72,7 +86,7 @@ public class thirdRegisterModuleController
                 if (formattedValue.length() > 19) {
                     formattedValue.delete(19, formattedValue.length());
                 }
-                System.out.println("antes de settext");
+
 
                 //Comprueba que el numero de tarjeta sea valido
                 if(!thisController.isFirstTry()) {
@@ -82,6 +96,8 @@ public class thirdRegisterModuleController
                 // Actualiza el campo de texto
                 fieldCreditNumber.setText(formattedValue.toString());
             }
+
+
 
 
         });
@@ -108,7 +124,59 @@ public class thirdRegisterModuleController
             };
         });
 
+        cardLoaded.addListener((observable, oldValue, newValue) -> {
+            if(newValue) {
+                btnDeleteCard.setVisible(true);
+                text1.setVisible(false);
+                text2.setVisible(true);
 
+            } else {
+                btnDeleteCard.setVisible(false);
+                text1.setVisible(true);
+                text2.setVisible(false);
+
+            }
+        });
+
+        btnDeleteCard.setOnAction( event -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Eliminar tarjeta");
+            alert.setHeaderText("¿Estás seguro de que quieres eliminar la tarjeta?");
+            alert.setContentText("Esta acción no se puede deshacer.");
+            DialogPane dialogPane = alert.getDialogPane();
+            /*dialogPane.getStylesheets().add(
+                    getClass().getResource("/GreenBallApp/assets/css/darkMode.css").toExternalForm());
+            dialogPane.getStyleClass().add("darkMode");*/
+            if (alert.showAndWait().get() == ButtonType.OK){
+                configController.deleteCard();
+                cardLoaded.setValue(false);
+            }
+
+
+
+
+        });
+
+        text1.setVisible(true);
+        text2.setVisible(false);
+        btnDeleteCard.setVisible(false);
+
+
+    }
+
+    public void activateConfigMode(configController cc,String cardNumber) {
+        this.configMode = true;
+        this.configController = cc;
+        if(cardNumber != null && !cardNumber.equals("")) {
+            cardLoaded.setValue(true);
+
+        }
+
+    }
+    public void clearFields() {
+        fieldCreditNumber.setText("");
+        fieldExpireDate.setValue(null);
+        pfieldCVV.setText("");
     }
     public void showErrors() {
         firstTry = false;
