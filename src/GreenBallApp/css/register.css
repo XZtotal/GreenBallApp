@@ -46,9 +46,9 @@
     -fx-border-color: white;
     -fx-border-width: 0;
 
-    -fx-background-image: url("../image/fondo14.png") center;
+    -fx-background-image: url("../image/fondo5.png") center;
 
-    -fx-background-size: 90;
+    -fx-background-size: 130;
     -fx-background-radius: 10 ;
 }
 
