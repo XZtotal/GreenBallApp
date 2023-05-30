@@ -45,8 +45,10 @@ public class mainController
         GreenBallApp.getStage().setTitle("GreenBallApp > Inicio");
         GreenBallApp.getStage().setMinHeight(500);
         GreenBallApp.getStage().setMinHeight(500);
+        GreenBallApp.getStage().getIcons().clear();
+        GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/bola.png"));
         //poner imagen superior de aplicacion
-        GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/download.jpg"));
+
         btnBook.setOnAction(e -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
             try {
@@ -79,8 +81,12 @@ public class mainController
 
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent)  {
-        String nickname = fieldUsername.getText();
+        String nickname = fieldUsername.getText().trim();
         String password = fieldPassword.getText();
+        if(nickname.equalsIgnoreCase("basketball")) {
+            eastereggs();
+            return;
+        }
 
         try {
 
@@ -125,6 +131,15 @@ public class mainController
         fd.play();
 
 
+    }
+    public void eastereggs(){
+        GreenBallApp.getStage().setTitle("OrangeBallApp > Inicio");
+
+        GreenBallApp.getStage().getIcons().clear();
+        GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/easteregg.jpg"));
+        //cojer el componente padre y cambiarle el color de fondo
+
+        GreenBallApp.getStage().getScene().getRoot().setStyle("-fx-background-image: url('GreenBallApp/image/easteregg.jpg'); ");
     }
 
 
