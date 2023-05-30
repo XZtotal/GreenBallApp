@@ -203,6 +203,7 @@ public class registerController
     private void registerMember(){
         Member member = null;
         try {
+            if(profileImage == null) profileImage = new Image("GreenBallApp/image/cimg2.png");
             member = GreenBallApp.getClub().registerMember(name,surname,phone,userName,password,creditCard,cvv,profileImage);
         } catch (ClubDAOException ignored) {
 
