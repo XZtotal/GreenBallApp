@@ -42,7 +42,7 @@ public class GreenBallApp extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("GreenBallApp > Inicio");
-        stage.setMinWidth(500);
+        stage.setMinWidth(600);
         stage.setMinHeight(600);
         stage.show();
 

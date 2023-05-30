@@ -43,8 +43,8 @@ public class mainController
     @FXML
     public void initialize() {
         GreenBallApp.getStage().setTitle("GreenBallApp > Inicio");
-        GreenBallApp.getStage().setMinHeight(500);
-        GreenBallApp.getStage().setMinHeight(500);
+        GreenBallApp.getStage().setMinHeight(600);
+        GreenBallApp.getStage().setMinHeight(600);
         GreenBallApp.getStage().getIcons().clear();
         GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/bola.png"));
         //poner imagen superior de aplicacion

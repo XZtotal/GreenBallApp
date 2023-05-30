@@ -87,7 +87,7 @@
                               <Insets left="2.0" />
                            </VBox.margin>
                         </Label>
-                        <Hyperlink fx:id="cuenta" onAction="#cuentaOnAction" prefHeight="23.0" prefWidth="89.0" text="Mi cuenta &gt;">
+                        <Hyperlink fx:id="linkMyAccount" onAction="#cuentaOnAction" prefHeight="23.0" prefWidth="89.0" text="Mi cuenta &gt;">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -128,7 +128,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="246.0" prefWidth="554.0">
                <children>
-                  <Button fx:id="reservas" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
+                  <Button fx:id="btnMyReserves" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservasOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
                      <HBox.margin>
                         <Insets right="66.0" />
                      </HBox.margin>

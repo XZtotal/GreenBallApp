@@ -65,7 +65,7 @@ public class configController
     @javafx.fxml.FXML
     public void initialize() throws IOException {
         GreenBallApp.getStage().setTitle("GreenBallApp > Mi cuenta");
-        GreenBallApp.getStage().setMinWidth(700);
+        GreenBallApp.getStage().setMinWidth(600);
         GreenBallApp.getStage().setMinHeight(700);
         loadData();
 

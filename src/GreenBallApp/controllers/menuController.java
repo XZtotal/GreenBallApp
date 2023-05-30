@@ -5,7 +5,6 @@ import GreenBallApp.util.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.GaussianBlur;
@@ -24,9 +23,9 @@ public class menuController {
     @javafx.fxml.FXML
     private Button btnReturn;
     @FXML
-    private Hyperlink cuenta;
+    private Hyperlink linkMyAccount;
     @FXML
-    private Button reservas;
+    private Button btnMyReserves;
     @FXML
     private Button reservar;
     @FXML
@@ -44,6 +43,31 @@ public class menuController {
 
     private final BoxBlur blur = new BoxBlur(10, 10, 3);
 
+    @FXML
+    public void initialize() {
+        GreenBallApp.getStage().setTitle("GreenBallApp > Menú");
+        GreenBallApp.getStage().setMinHeight(600);
+        GreenBallApp.getStage().setMinWidth(600);
+        try {
+            welcomeMessage();
+            showNickaname();
+            showImage();
+            imagen.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue) {
+                    cambioFoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
+                    MiFoto.setEffect(new GaussianBlur(5));
+                } else {
+                    cambioFoto.setImage(null);
+                    MiFoto.setEffect(null);
+                }
+            });
+
+        } catch (ClubDAOException | IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
 
@@ -80,39 +104,14 @@ public class menuController {
 
 
     }
-    @FXML
-    public void initialize() {
-        GreenBallApp.getStage().setTitle("GreenBallApp > Menú");
-        GreenBallApp.getStage().setMinHeight(500);
-        GreenBallApp.getStage().setMinWidth(600);
-        try {
-            welcomeMessage();
-            showNickaname();
-            showImage();
-            imagen.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    cambioFoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
-                    MiFoto.setEffect(new GaussianBlur(5));
-                } else {
-                    cambioFoto.setImage(null);
-                    MiFoto.setEffect(null);
-                }
-            });
-
-        } catch (ClubDAOException | IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     @FXML
     public void cuentaOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/config.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
-        
+
+        GreenBallApp.setRoot(root);
+
     }
 
 
@@ -121,8 +120,7 @@ public class menuController {
     public void reservasOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/myReserves.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+        GreenBallApp.setRoot(root);
 
     }
 

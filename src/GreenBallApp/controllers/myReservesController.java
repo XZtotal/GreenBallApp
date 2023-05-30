@@ -102,9 +102,7 @@ public class myReservesController {
     public void btnEnterOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
-
+        GreenBallApp.setRoot(root);
     }
 
     @Deprecated
