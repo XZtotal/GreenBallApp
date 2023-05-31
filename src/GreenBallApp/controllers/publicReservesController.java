@@ -39,11 +39,16 @@ public class publicReservesController
         printTable();
         //Actualiza la tabla cuando se cambia la fecha
         date.setOnAction(event -> {
+            //si la fecha es hoy o un dia anteror, derabilita el boton anterior
+            checkPreButton();
             try {
                 printTable();
             } catch (ClubDAOException | IOException e) {
                 e.printStackTrace();
             }
+
+
+
         });
         //Desactiva las fechas anteriores a la actual
         date.setDayCellFactory((DatePicker picker) -> {
@@ -57,11 +62,38 @@ public class publicReservesController
             };
         });
 
+        btnNextDay.setOnAction(event -> {
+            date.setValue(date.getValue().plusDays(1));
+            checkPreButton();
+        });
+        //si es el dia actual, no lo cambia
+        btnPreDay.setOnAction(event -> {
+            if(!date.getValue().equals(LocalDate.now())) date.setValue(date.getValue().minusDays(1));
+            checkPreButton();
+        });
+        checkPreButton();
+
+
+
 
     }
 
 
+    private void checkPreButton(){
+        if (date.getValue().isBefore(LocalDate.now()) || date.getValue().isEqual(LocalDate.now())) {
+            //si es una fecha pasada o actual, desabilita el boton de anterior
+            btnPreDay.setDisable(true);
 
+        } else {
+            //si es una fecha futura, habilita el boton de anterior
+            btnPreDay.setDisable(false);
+        }
+        try {
+            printTable();
+        } catch (ClubDAOException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 
      //Método para volver al menú principal
     @javafx.fxml.FXML
