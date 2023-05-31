@@ -38,10 +38,16 @@
     -fx-effect: dropshadow(gaussian, rgb(49, 115, 171), 10, 0, 0, 0);
     -fx-cursor: hand;
 }
+
 .btnNextDay:hover{
     -fx-font-weight: bold;
     -fx-font: 14px "Arial";
     -fx-effect: dropshadow(gaussian, rgb(29, 63, 105), 10, 0, 0, 0);
+}
+.btnNextDay:disabled{
+    -fx-opacity: 0.70;
+    -fx-effect: dropshadow(gaussian, rgb(25, 119, 119), 20, 0, 0, 0);
+    -fx-cursor: default;
 }
 
 .date-picker{
