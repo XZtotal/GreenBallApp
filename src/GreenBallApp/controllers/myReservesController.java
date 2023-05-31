@@ -29,6 +29,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class myReservesController {
@@ -76,6 +78,8 @@ public class myReservesController {
             Reserva r = new Reserva(b);
             newReservas.add(r);
         }
+        Comparator<Reserva> comparador = (r1, r2) -> r2.getBookingDate().compareTo(r1.getBookingDate());
+        Collections.sort(newReservas, comparador);
         tableView.setItems(newReservas);
 
 
