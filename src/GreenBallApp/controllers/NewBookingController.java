@@ -144,7 +144,7 @@ public class NewBookingController
                                 try{
                                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                                     alerta.setTitle("Confirmar acción");
-                                    alerta.setHeaderText("¿Está seguro de que desea realizar esta acción?");
+                                    alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
 
                                     Optional<ButtonType> resultado = alerta.showAndWait();
                                     if (resultado.get() == ButtonType.OK){
@@ -252,7 +252,7 @@ public class NewBookingController
                                         }else{
                                             Alert alerta2 = new Alert(Alert.AlertType.ERROR);
                                             alerta2.setTitle("Error");
-                                            alerta2.setHeaderText("Numero de reservas maximas por dia alcanzado");
+                                            alerta2.setHeaderText("Numero máximo de reservas consecutivas  alcanzado");
                                             alerta2.setContentText("Si desea realizar otra reserva, cancele una de las ya existentes");
 
                                             Optional<ButtonType> resultado1 = alerta2.showAndWait();
@@ -284,7 +284,7 @@ public class NewBookingController
                         try{
                             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                             alerta.setTitle("Confirmar acción");
-                            alerta.setHeaderText("¿Está seguro de que desea realizar esta acción?");
+                            alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
 
                             Optional<ButtonType> resultado = alerta.showAndWait();
                             if (resultado.get() == ButtonType.OK){
@@ -392,7 +392,7 @@ public class NewBookingController
                                 }else{
                                     Alert alerta2 = new Alert(Alert.AlertType.ERROR);
                                     alerta2.setTitle("Error");
-                                    alerta2.setHeaderText("Numero de reservas maximas por dia alcanzado");
+                                    alerta2.setHeaderText("Número máximo de reservas consecutivas  alcanzado");
                                     alerta2.setContentText("Si desea realizar otra reserva, cancele una de las ya existentes");
 
                                     Optional<ButtonType> resultado1 = alerta2.showAndWait();
