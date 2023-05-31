@@ -334,9 +334,7 @@ public class registerController
         label1.applyCss();
         label3.applyCss();
         label5.applyCss();
-        System.out.println(label1.getStyleClass().size());
-        System.out.println(label3.getStyleClass().size());
-        System.out.println(label5.getStyleClass().size());
+
         //imprime las clases css que tiene el label3
 
 
