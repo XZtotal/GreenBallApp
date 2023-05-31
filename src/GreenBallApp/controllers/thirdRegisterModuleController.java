@@ -94,8 +94,15 @@ public class thirdRegisterModuleController
                     thisController.setErrorCreditNumber(formattedValue.length() != 19);
                     thisController.showErrors();
                 }
-                // Actualiza el campo de texto
-                fieldCreditNumber.setText(formattedValue.toString());
+                // Actualiza el campo de texto.
+
+
+                    fieldCreditNumber.setText(formattedValue.toString());
+
+                //ERROR en consola: Cuando borró un caracter con un guion alante se borra el guion tambien. Esto produce un error en consola que no hemos sido capaces de solucionar.
+
+
+
             }
 
 
