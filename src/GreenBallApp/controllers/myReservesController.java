@@ -24,9 +24,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 public class myReservesController {
@@ -62,7 +64,7 @@ public class myReservesController {
         horaColumn.setReorderable(false);
         pistaColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         pistaColumn.setReorderable(false);
-        pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paid"));
+        pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paide"));
         pagadoColumn.setReorderable(false);
     }
     public void printTable(){
@@ -106,11 +108,45 @@ public class myReservesController {
         Optional<ButtonType> resultado = alerta.showAndWait();
         if (resultado.get() == ButtonType.OK) {
             Reserva b = tableView.getSelectionModel().getSelectedItem();
-            //por alguna razon, este cambio no se ve reflejado en la clase Member, y hace falta recargarla. Error de la libreria.
-            boolean a = club.removeBooking(b.getBooking());
-            System.out.println("Reserva cancelada: " + a);
+            LocalDateTime fe = b.getBookingDate();
+            LocalTime ho = b.getFromTime();
+            LocalDateTime ahora = LocalDateTime.now();
+            LocalDateTime fechaHoraReserva = fe.toLocalDate().atTime(ho);
+            LocalDateTime hoy = LocalDateTime.now();
+            if((hoy.getDayOfYear() - b.getMadeForDay().getDayOfYear()) < -1){
+                boolean a = club.removeBooking(b.getBooking());
+                System.out.println("Reserva cancelada: " + a);
+                printTable();
+            }else if((hoy.getDayOfYear() - b.getMadeForDay().getDayOfYear()) < 0 && hoy.getHour() < b.getFromTime().getHour()){
+                boolean a = club.removeBooking(b.getBooking());
+                System.out.println("Reserva cancelada: " + a);
+                printTable();
+            }else if(hoy.getMinute() < b.getFromTime().getMinute()){
+                boolean a = club.removeBooking(b.getBooking());
+                System.out.println("Reserva cancelada: " + a);
+                printTable();
+            }else if(hoy.getDayOfYear()> b.getMadeForDay().getDayOfYear() || (hoy.getDayOfYear() == b.getMadeForDay().getDayOfYear() && hoy.getHour() >= b.getFromTime().getHour())){
+                Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                alerta2.setTitle("Error");
+                alerta2.setHeaderText("Cancelar Reserva");
+                alerta2.setContentText("No se puede cancelar una reserva con menos de 24h de antelación");
 
-            printTable();
+                Optional<ButtonType> resultado1 = alerta2.showAndWait();
+                if (resultado.get() == ButtonType.CLOSE) {
+                    initialize();
+                }
+            }else{
+                Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                alerta2.setTitle("Error");
+                alerta2.setHeaderText("Cancelar Reserva");
+                alerta2.setContentText("No se puede cancelar una reserva con menos de 24h de antelación");
+
+                Optional<ButtonType> resultado1 = alerta2.showAndWait();
+                if (resultado.get() == ButtonType.CLOSE) {
+                    initialize();
+                }
+            }
+
         }
     }
 }

@@ -5,6 +5,7 @@ import model.Booking;
 public class Reserva extends Booking {
     private String courtName;
     private String userName;
+    private String paid;
     Booking booking;
     public Reserva(Booking b){
         super(b.getBookingDate(),
@@ -16,6 +17,11 @@ public class Reserva extends Booking {
         courtName = b.getCourt().getName();
         userName = b.getMember().getName();
         booking = b;
+        if (b.getPaid()){
+            paid = "Pagado";
+        }else{
+            paid = "No Pagado";
+        }
     }
     public String getName(){
         return courtName;
@@ -28,4 +34,7 @@ public class Reserva extends Booking {
     public Booking getBooking(){
         return booking;
     }
+
+
+    public String getPaide() {return this.paid;}
 }
