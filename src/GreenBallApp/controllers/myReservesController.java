@@ -59,7 +59,7 @@ public class myReservesController {
         GreenBallApp.getStage().setTitle("GreenBallApp > Mis reservas");
         //tableView.getColumns().addAll(fechaReservaColumn, horaColumn, pistaColumn, pagadoColumn);
         printTable();
-
+        //Rellena el tableView
         fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
         fechaReservaColumn.setReorderable(false);
         horaColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
@@ -68,6 +68,7 @@ public class myReservesController {
         pistaColumn.setReorderable(false);
         pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paide"));
         pagadoColumn.setReorderable(false);
+        //Si no hay ningun elemento seleccionado, desabilita el boton cancelar
         cancelButton.disableProperty().bind(tableView.getSelectionModel().selectedItemProperty().isNull());
     }
     public void printTable(){
@@ -100,7 +101,7 @@ public class myReservesController {
         this.club = Club.getInstance();
 
     }
-
+    //Cuando se pulsa el boton cancelar reserva
     @FXML
     public void cancelOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
         Reserva reserve = new Reserva(tableView.getSelectionModel().getSelectedItem());
@@ -110,6 +111,7 @@ public class myReservesController {
         alerta.setTitle("Confirmar cancelación");
         alerta.setHeaderText("¿Está seguro de que desea eliminar la reserva con fecha " + ti + " en la " + cou + " ?");
 
+        //Compara la fecha y hora de la reserva y en caso de que esta sea en menos de 24 horas no permite cancelar
         Optional<ButtonType> resultado = alerta.showAndWait();
         if (resultado.get() == ButtonType.OK) {
             Reserva b = tableView.getSelectionModel().getSelectedItem();
