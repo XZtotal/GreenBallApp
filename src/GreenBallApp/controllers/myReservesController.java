@@ -53,7 +53,7 @@ public class myReservesController {
     @FXML
     public void initialize() throws ClubDAOException, IOException {
         GreenBallApp.getStage().setTitle("GreenBallApp > Mis reservas");
-        tableView.getColumns().addAll(fechaReservaColumn, horaColumn, pistaColumn, pagadoColumn);
+        //tableView.getColumns().addAll(fechaReservaColumn, horaColumn, pistaColumn, pagadoColumn);
         printTable();
 
         fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
