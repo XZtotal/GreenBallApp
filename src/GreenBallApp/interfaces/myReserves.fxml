@@ -50,7 +50,7 @@
          </children>
       </HBox>
    </top>
-   <bottom>
+   <center>
       <VBox alignment="CENTER" fillWidth="false" prefHeight="570.0" prefWidth="518.0" BorderPane.alignment="CENTER">
          <children>
             <BorderPane prefHeight="484.0" prefWidth="727.0" style="-fx-background-color: rgb(244, 244, 244); -fx-background-radius: 10;" styleClass="bellowContainer" stylesheets="@../css/register.css">
@@ -84,5 +84,5 @@
             </BorderPane>
          </children>
       </VBox>
-   </bottom>
+   </center>
 </BorderPane>
