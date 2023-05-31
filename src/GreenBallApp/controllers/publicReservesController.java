@@ -95,7 +95,7 @@ public class publicReservesController
                     for (Booking booking : courtBookings) {
                         if (booking.getFromTime().equals(time)) {
                             label.setText(String.valueOf(booking.getMember().getNickName()));
-                            label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold");
+                            label.setStyle("-fx-text-fill: #005c5e ; -fx-font-weight: bold ; -fx-font-size: 14");
                             hbox.setStyle("-fx-background-color: WHITE");
                             courtBookings.remove(booking);
                             break;
