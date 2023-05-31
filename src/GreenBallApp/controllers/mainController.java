@@ -49,6 +49,7 @@ public class mainController
         GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/bola.png"));
         //poner imagen superior de aplicacion
 
+        //Al pulsar el boton entra a ver las reservas existentes sin tener que hacer login
         btnBook.setOnAction(e -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/publicReserves.fxml"));
             try {
@@ -60,14 +61,14 @@ public class mainController
             }
 
         });
-
+        //Cambia el foco del campo de texto de usuario al de contraseña al pulsar enter
         fieldUsername.setOnKeyPressed(e -> {
             if(!fieldUsername.getText().equals("") && e.getCode() == KeyCode.ENTER) {
                //fieldPassword.requestFocus();
                 fieldPassword.requestFocus();
             }
         });
-
+        //Al pulsar enter en el campo de contraseña se ejecuta el metodo btnEnterOnAction
         fieldPassword.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ENTER) {
                 btnEnterOnAction(new ActionEvent());
@@ -78,7 +79,7 @@ public class mainController
 
     }
 
-
+    //Comprueba las credenciales del usuario y si son correctas carga el menu principal y si no muestra mensaje de error
     @FXML
     public void btnEnterOnAction(ActionEvent actionEvent)  {
         String nickname = fieldUsername.getText().trim();
@@ -119,7 +120,7 @@ public class mainController
 
     }
 
-
+    //Remarca el mensaje de error
     public void remarcarError(){
         FadeTransition ft = new FadeTransition(Duration.millis(200), Error);
         ft.setFromValue(1.0);
@@ -137,12 +138,12 @@ public class mainController
 
         GreenBallApp.getStage().getIcons().clear();
         GreenBallApp.getStage().getIcons().add(new Image("GreenBallApp/image/easteregg.jpg"));
-        //cojer el componente padre y cambiarle el color de fondo
+        //coger el componente padre y cambiarle el color de fondo
 
         GreenBallApp.getStage().getScene().getRoot().setStyle("-fx-background-image: url('GreenBallApp/image/easteregg.jpg'); ");
     }
 
-
+    //Muestra el mensaje de error
     public void aparecerError(){
         Error.setVisible(true);
         FadeTransition ft = new FadeTransition(Duration.millis(600), Error);
@@ -151,29 +152,14 @@ public class mainController
         ft.play();
     }
 
-    public boolean checkMemberCredentials(String nickname, String password) throws ClubDAOException, IOException {
-        Club club = Club.getInstance();
-        try {
-            Member exist = club.getMemberByCredentials(nickname, password);
-            if (exist == null) {
-                return false;
-            } else {
-                return true;
-            }
-        } catch (Exception e) {
-            System.out.println("Error");
-            return false;
-        }
-    }
+
 
 
 
     @Deprecated
-    public void viewBookingOnAction(ActionEvent actionEvent) throws IOException {
 
 
-    }
-
+    //Carga la ventana de registro
     @FXML
     public void registerOnAction(ActionEvent actionEvent) throws IOException, InterruptedException {
 

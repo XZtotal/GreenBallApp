@@ -27,21 +27,21 @@ public class menuController {
     @FXML
     private Button btnMyReserves;
     @FXML
-    private Button reservar;
-    @FXML
-    private ImageView MiFoto;
-    @FXML
     private Label labelWelcome;
     @FXML
     private Label labelNickName;
     @FXML
-    private Button imagen;
-    @FXML
-    private ImageView cambioFoto;
-    @FXML
     private BorderPane root;
 
     private final BoxBlur blur = new BoxBlur(10, 10, 3);
+    @FXML
+    private Button book;
+    @FXML
+    private Button image;
+    @FXML
+    private ImageView MyPhoto;
+    @FXML
+    private ImageView changePhoto;
 
     @FXML
     public void initialize() {
@@ -49,16 +49,18 @@ public class menuController {
         GreenBallApp.getStage().setMinHeight(600);
         GreenBallApp.getStage().setMinWidth(600);
         try {
+            //Se muestra el nombre de usuario el nickname y la imagen de perfil
             welcomeMessage();
             showNickaname();
             showImage();
-            imagen.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            //Si se pasa por encima de la imagen de perfil se pone borroso y se muestra un icono de que se permite cambiar la foto
+            image.hoverProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue) {
-                    cambioFoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
-                    MiFoto.setEffect(new GaussianBlur(5));
+                    changePhoto.setImage(new Image("GreenBallApp/image/cimg2.png"));
+                    MyPhoto.setEffect(new GaussianBlur(5));
                 } else {
-                    cambioFoto.setImage(null);
-                    MiFoto.setEffect(null);
+                    changePhoto.setImage(null);
+                    MyPhoto.setEffect(null);
                 }
             });
 
@@ -68,9 +70,11 @@ public class menuController {
 
 
     }
+
+    //Metodo para cerrar sesión y volver a la pantalla de inicio
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
-
+        //Cuando se pulsa el boton se pone borroso el fondo y sale el mensaje de confirmacion
         root.setEffect(blur);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cerrar sesión");
@@ -99,12 +103,14 @@ public class menuController {
                 e.printStackTrace();
             }
         }else{
+            //Si se cancela deja quita el efecto borroso
             root.setEffect(null);
         }
 
 
     }
 
+    //Metodo para ir al menu de  configuracion
     @FXML
     public void cuentaOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/config.fxml"));
@@ -115,7 +121,7 @@ public class menuController {
     }
 
 
-
+    //Metodo para ir al menu de mis reservas
     @FXML
     public void reservasOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/myReserves.fxml"));
@@ -124,6 +130,7 @@ public class menuController {
 
     }
 
+    //Metodo para ir al menu de reservar pista
     @FXML
     public void reservarOnAction(ActionEvent actionEvent) throws ClubDAOException, IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/NewBooking.fxml"));
@@ -131,8 +138,8 @@ public class menuController {
 
         GreenBallApp.setRoot(root);
     }
-    // Escribe un metodo que escriba en el label welcome un mensaje de bienvenida a cada usuario
 
+    // Metodo que cambia el label de bienvenida para cada usuario
     public void welcomeMessage() throws ClubDAOException, IOException {
        Club club = Club.getInstance();
        Member currentMember = GreenBallApp.getMember();
@@ -140,17 +147,17 @@ public class menuController {
        labelWelcome.setText("Bienvenido " + nombre);
     }
 
-    // Escribe un metodo que muestre la imagen del usuario
+    // Metodo que muestra la imagen del usuario en el menu
 
     public void showImage() throws ClubDAOException, IOException {
         Club club = Club.getInstance();
         Member currentMember = GreenBallApp.getMember();
         Image foto = currentMember.getImage();
-        Utils.circularCutout(MiFoto);
-        MiFoto.setImage(foto);
+        Utils.circularCutout(MyPhoto);
+        MyPhoto.setImage(foto);
 
     }
-    
+    //Metodo que muestra el nickname del usuario que ha accedido al menu
     public void showNickaname() throws ClubDAOException, IOException {
         Club club = Club.getInstance();
         Member currentMember = GreenBallApp.getMember();
@@ -159,17 +166,20 @@ public class menuController {
 
     }
 
+    //Metodo para cambiar la imagen de perfil
     @FXML
     public void imagenOnAction(ActionEvent actionEvent) {
+        //Se abre un filechooser para seleccionar la imagen
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Selecciona una imagen");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Imagenes", "*.png", "*.jpg"));
         File selectedFile = fileChooser.showOpenDialog(GreenBallApp.getStage());
+        //Se establece la imagen tanto en el menu como en el miembro
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
-            MiFoto.setImage(image);
-            Utils.circularCutout(MiFoto);
+            MyPhoto.setImage(image);
+            Utils.circularCutout(MyPhoto);
             Member currentMember = GreenBallApp.getMember();
             currentMember.setImage(image);
         }

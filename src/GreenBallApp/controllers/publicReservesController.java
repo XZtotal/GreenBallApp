@@ -20,26 +20,12 @@ public class publicReservesController
     LocalDate currentDate;
     @javafx.fxml.FXML
     private Button btnReturn;
-    @FXML
-    private GridPane tabla;
-    @FXML
-    private RowConstraints col1;
-    @FXML
-    private RowConstraints col2;
-    @FXML
-    private RowConstraints col3;
-    @FXML
-    private RowConstraints col4;
-    @FXML
-    private RowConstraints col5;
-    @FXML
-    private RowConstraints col6;
-    @FXML
-    private RowConstraints col7;
 
     int numRow = 13;
     @FXML
     private DatePicker date;
+    @FXML
+    private GridPane board;
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
@@ -47,7 +33,7 @@ public class publicReservesController
         currentDate = LocalDate.now();
         date.setValue(currentDate);
         printTable();
-
+        //Actualiza la tabla cuando se cambia la fecha
         date.setOnAction(event -> {
             try {
                 printTable();
@@ -55,7 +41,7 @@ public class publicReservesController
                 e.printStackTrace();
             }
         });
-
+        //Desactiva las fechas anteriores a la actual
         date.setDayCellFactory((DatePicker picker) -> {
             return new DateCell() {
                 @Override
@@ -73,7 +59,7 @@ public class publicReservesController
 
 
 
-
+     //Método para volver al menú principal
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
@@ -81,18 +67,21 @@ public class publicReservesController
         GreenBallApp.setRoot(root);
     }
 
+    //Método para imprmir la tabla en el gridpane
     public void printTable() throws ClubDAOException, IOException {
         LocalDate date = this.date.getValue();
         if(date != null) currentDate = date;
 
 
         for (int i = 0; i < 6; i++) {
-
+            //Bucle que itera sobre las pistas y lo añade a una lsita con el nombre de la pista y las reservas de ese día
             String courtName = "Pista " + (i + 1);
             ArrayList<Booking> courtBookings = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
 
+            //Bucle que itera sobre las filas y nos servirá para añadir las labels de si esta reservado o no
             for (int j = 9; j <= 21; j++) {
 
+                //Creamos un objeto LocalTime con la hora que queremos comprobar y las hbox y labels que vamos a introducir en el gridpane
                 LocalTime time = LocalTime.of(j, 0);
 
                 HBox hbox = new HBox();
@@ -101,7 +90,7 @@ public class publicReservesController
                 label.setFont(new javafx.scene.text.Font(14.0));
                 hbox.getChildren().add(label);
 
-
+                //Comprobamos si la hora esta reservada si esta ponemos el nombre del usuario que la ha reservado y si no pondra una etiqueta de libre
                 if (courtBookings.size() > 0) {
                     for (Booking booking : courtBookings) {
                         if (booking.getFromTime().equals(time)) {
@@ -123,7 +112,7 @@ public class publicReservesController
                 if (j % 2 == 0) hbox.setStyle("-fx-background-color: #f4f4f4 ; -fx-background-radius: 15");
                 else hbox.setStyle("-fx-background-color: white ");
 
-                tabla.add(hbox, i + 1, j - 8);
+                board.add(hbox, i + 1, j - 8);
 
 
             }

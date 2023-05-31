@@ -60,14 +60,14 @@
                <children>
                   <StackPane prefHeight="150.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="MiFoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="MyPhoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/addphoto3.png" />
                            </image>
                         </ImageView>
-                        <Button id="imagebutton" fx:id="imagen" mnemonicParsing="false" onAction="#imagenOnAction" prefHeight="172.0" prefWidth="201.0" style="-fx-background-radius: 100; -fx-background-color: null;">
+                        <Button id="imagebutton" fx:id="image" mnemonicParsing="false" onAction="#imagenOnAction" prefHeight="172.0" prefWidth="201.0" style="-fx-background-radius: 100; -fx-background-color: null;">
                            <graphic>
-                              <ImageView fx:id="cambioFoto" fitHeight="150.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="changePhoto" fitHeight="150.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                      </children>
@@ -159,7 +159,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="reservar" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
+                  <Button fx:id="book" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#reservarOnAction" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 15;">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
