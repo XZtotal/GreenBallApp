@@ -249,7 +249,7 @@ public class NewBookingController
                                                     aux1 = false;
                                                 }
                                         }
-                                        if(aux1){
+                                        if((aux1 && time.getHour() > LocalDateTime.now().getHour() && LocalDateTime.now().getDayOfYear() == date.getDayOfYear()) || (aux1 && LocalDateTime.now().getDayOfYear() != date.getDayOfYear())){
                                             if(GreenBallApp.getMember().getCreditCard().equals("")){
                                                 Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
                                                 courtBookings.add(b);
@@ -259,10 +259,20 @@ public class NewBookingController
                                             Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                             courtBookings.add(b);
                                             printTable();
+                                        }else if(time.getHour() <= LocalDateTime.now().getHour()){
+                                            Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                                            alerta2.setTitle("Error");
+                                            alerta2.setHeaderText("Error Reserva");
+                                            alerta2.setContentText("No puede reservar una hora que ya ha pasado!");
+
+                                            Optional<ButtonType> resultado1 = alerta2.showAndWait();
+                                            if (resultado.get() == ButtonType.CLOSE) {
+                                                initialize();
+                                            }
                                         }else{
                                             Alert alerta2 = new Alert(Alert.AlertType.ERROR);
                                             alerta2.setTitle("Error");
-                                            alerta2.setHeaderText("Numero máximo de reservas consecutivas  alcanzado");
+                                            alerta2.setHeaderText("Número máximo de reservas consecutivas  alcanzado");
                                             alerta2.setContentText("Si desea realizar otra reserva, cancele una de las ya existentes");
 
                                             Optional<ButtonType> resultado1 = alerta2.showAndWait();
@@ -388,7 +398,7 @@ public class NewBookingController
                                             aux1 = false;
                                         }
                                 }
-                                if(aux1){
+                                if((aux1 && time.getHour() > LocalDateTime.now().getHour() && LocalDateTime.now().getDayOfYear() == date.getDayOfYear()) || (aux1 && LocalDateTime.now().getDayOfYear() != date.getDayOfYear())){
                                     if(GreenBallApp.getMember().getCreditCard().equals("")){
                                         Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
                                         courtBookings.add(b);
@@ -398,6 +408,16 @@ public class NewBookingController
                                     Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                     courtBookings.add(b);
                                     printTable();
+                                }else if(time.getHour() <= LocalDateTime.now().getHour()){
+                                    Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                                    alerta2.setTitle("Error");
+                                    alerta2.setHeaderText("Error Reserva");
+                                    alerta2.setContentText("No puede reservar una hora que ya ha pasado!");
+
+                                    Optional<ButtonType> resultado1 = alerta2.showAndWait();
+                                    if (resultado.get() == ButtonType.CLOSE) {
+                                        initialize();
+                                    }
                                 }else{
                                     Alert alerta2 = new Alert(Alert.AlertType.ERROR);
                                     alerta2.setTitle("Error");
