@@ -23,8 +23,7 @@ public class GreenBallApp extends Application {
     public static Stage stage;
     private static Club club;
     private static Member member;
-    private static String username;
-    private static String password;
+
     @Override
     public void start(Stage stage) throws Exception {
         //======================================================================
@@ -87,7 +86,7 @@ public class GreenBallApp extends Application {
         for (Court i : club.getCourts()) {
             System.out.println(i);
         }
-        System.out.printf(String.valueOf(club.getCourt("11")));
+
     }
     public static Stage getStage(){
         return stage;
@@ -99,22 +98,14 @@ public class GreenBallApp extends Application {
 
     public static void setMember(Member member) {
         GreenBallApp.member = member;
-        username =  member.getNickName();
-        password = member.getPassword();
+
     }
 
     public static Club getClub() {
         return club;
     }
 
-    public void loadMember(String username, String password ) throws ClubDAOException {
-        GreenBallApp.username = username;
-        GreenBallApp.password = password;
-        member = club.getMemberByCredentials(username, password);
-    }
-    public void reloadMemer() throws ClubDAOException {
-        loadMember(username, password);
-    }
+
 
 
 }
