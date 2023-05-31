@@ -85,31 +85,34 @@ public class NewBookingController
         });
 
         btnNextDay.setOnAction(event -> {
-            currentDate = currentDate.plusDays(1);
-            date.setValue(currentDate);
-            try {
-                printTable();
-            } catch (ClubDAOException | IOException e) {
-                e.printStackTrace();
-            }
+            date.setValue(date.getValue().plusDays(1));
+            checkPreButton();
         });
-
+        //si es el dia actual, no lo cambia
         btnPreDay.setOnAction(event -> {
-            currentDate = currentDate.minusDays(1);
-            LocalDate date1 = LocalDate.now();
-            if(currentDate.compareTo(date1) < 0) currentDate = date1;
-            date.setValue(currentDate);
-            try {
-                printTable();
-            } catch (ClubDAOException | IOException e) {
-                e.printStackTrace();
-            }
+            if(!date.getValue().equals(LocalDate.now())) date.setValue(date.getValue().minusDays(1));
+            checkPreButton();
         });
+        checkPreButton();
 
 
     }
 
+    private void checkPreButton(){
+        if (date.getValue().isBefore(LocalDate.now()) || date.getValue().isEqual(LocalDate.now())) {
+            //si es una fecha pasada o actual, desabilita el boton de anterior
+            btnPreDay.setDisable(true);
 
+        } else {
+            //si es una fecha futura, habilita el boton de anterior
+            btnPreDay.setDisable(false);
+        }
+        try {
+            printTable();
+        } catch (ClubDAOException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
