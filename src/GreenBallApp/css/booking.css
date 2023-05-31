@@ -16,7 +16,7 @@
 
 .ocupadobtn{
     -fx-background-color: null;
-    -fx-font: 16px "Calibri";
+    -fx-font: 14px "Arial";
     -fx-text-fill: red;
     -fx-border-width: 0;
     -fx-font-weight: bold;
