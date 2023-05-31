@@ -84,6 +84,28 @@ public class NewBookingController
             };
         });
 
+        btnNextDay.setOnAction(event -> {
+            currentDate = currentDate.plusDays(1);
+            date.setValue(currentDate);
+            try {
+                printTable();
+            } catch (ClubDAOException | IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        btnPreDay.setOnAction(event -> {
+            currentDate = currentDate.minusDays(1);
+            LocalDate date1 = LocalDate.now();
+            if(currentDate.compareTo(date1) < 0) currentDate = date1;
+            date.setValue(currentDate);
+            try {
+                printTable();
+            } catch (ClubDAOException | IOException e) {
+                e.printStackTrace();
+            }
+        });
+
 
     }
 
