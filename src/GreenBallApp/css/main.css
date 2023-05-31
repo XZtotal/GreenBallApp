@@ -16,10 +16,10 @@
 .topbar{
     -fx-background-color: linear-gradient(to right, rgb(0, 70, 71) 0%, rgb(0, 107, 109) 100%);
 
-    -fx-background-radius: 0 0 0 0;
+    -fx-background-radius: 0 ;
     -fx-border-color: rgb(0, 70, 71);
     -fx-border-width: 0 0 1 0;
-    -fx-border-radius: 0 0 0 0;
+    -fx-border-radius: 0;
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 10, 0, 0, 0);
 
 

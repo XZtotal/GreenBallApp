@@ -1,0 +1,57 @@
+.cbutton{
+    -fx-background-color:  rgb(246, 246, 246);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 20, 0, 0, 0);
+    -fx-background-radius: 20;
+    -fx-opacity: 0.9;
+}
+
+.cbutton:hover{
+
+    -fx-opacity: 1;
+    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 20, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.39), 20, 0, 0, 0);
+
+    -fx-cursor: hand;
+}
+
+
+.deleteCardButton{
+    -fx-background-color: rgb(204, 0, 0);
+    -fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Calibri";
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+.deleteCardButton:hover{
+    -fx-effect: dropshadow(three-pass-box, rgb(255, 106, 106), 25, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.generalContainer{
+    -fx-background-color: rgb(0, 99, 101);
+
+    -fx-border-radius: 10;
+
+    -fx-border-color: white;
+    -fx-border-width: 0;
+
+    -fx-background-image: url("../image/fondo14.png") center;
+
+    -fx-background-size: 90;
+    -fx-background-radius: 10 ;
+}
+.generalContainer2{
+    -fx-background-color: white;
+
+    -fx-border-radius: 10;
+
+    -fx-border-color: white;
+    -fx-border-width: 0;
+
+    -fx-background-size: 90;
+    -fx-background-radius: 10 ;
+}
+

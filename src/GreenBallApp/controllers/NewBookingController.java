@@ -56,7 +56,7 @@ public class NewBookingController
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
-        GreenBallApp.getStage().setTitle("GreenBallApp > Menú > Reservar");
+        GreenBallApp.getStage().setTitle("GreenBallApp > Reservar");
         currentDate = LocalDate.now();
         date.setValue(currentDate);
         printTable();
@@ -432,7 +432,6 @@ public class NewBookingController
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+        GreenBallApp.setRoot(root);
     }
 }

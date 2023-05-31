@@ -3,32 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane prefHeight="385.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.firstRegisterModuleController">
-   <right>
-      <VBox alignment="CENTER" prefHeight="385.0" prefWidth="279.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¡HOLA!">
-               <font>
-                  <Font name="Calibri Bold" size="59.0" />
-               </font>
-            </Text>
-            <Label prefHeight="100.0" prefWidth="279.0" text="Estamos escantados de tenerte por aquí" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="Calibri Bold" size="33.0" />
-               </font>
-            </Label>
-         </children>
-         <BorderPane.margin>
-            <Insets right="10.0" />
-         </BorderPane.margin>
-      </VBox>
-   </right>
    <left>
       <VBox alignment="CENTER" prefHeight="287.0" prefWidth="213.0" BorderPane.alignment="CENTER">
          <children>
@@ -131,4 +114,33 @@
          </children>
       </VBox>
    </left>
+   <right>
+      <StackPane prefHeight="385.0" prefWidth="316.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vboxtext1" alignment="CENTER" prefHeight="385.0" prefWidth="279.0" visible="false">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="¡HOLA!">
+                     <font>
+                        <Font name="Calibri Bold" size="59.0" />
+                     </font>
+                  </Text>
+                  <Label prefHeight="100.0" prefWidth="279.0" text="Estamos escantados de tenerte por aquí" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Calibri Bold" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="vboxtext2" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/conf1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </right>
 </BorderPane>

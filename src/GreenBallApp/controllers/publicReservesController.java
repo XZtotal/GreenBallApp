@@ -78,8 +78,7 @@ public class publicReservesController
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/main.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
+        GreenBallApp.setRoot(root);
     }
 
     public void printTable() throws ClubDAOException, IOException {

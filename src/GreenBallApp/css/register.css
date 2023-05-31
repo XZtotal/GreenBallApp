@@ -46,9 +46,9 @@
     -fx-border-color: white;
     -fx-border-width: 0;
 
-    -fx-background-image: url("../image/fondo14.png") center;
+    -fx-background-image: url("../image/fondo5.png") center;
 
-    -fx-background-size: 90;
+    -fx-background-size: 130;
     -fx-background-radius: 10 ;
 }
 
@@ -146,6 +146,10 @@
     -fx-effect: dropshadow(gaussian, rgb(41, 98, 147), 20, 0, 0, 0);
 
 }
+.enterBtn:focused{
+    -fx-background-color: #eeeeee;
+
+}
 
 .pfondo{
     -fx-background-image: url("../image/fondo14.png") center;
@@ -162,4 +166,20 @@
     -fx-cursor: hand;
     -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.68), 20, 0, 0, 0);
 }
+.field:disabled{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(255, 255, 255);
+
+    -fx-border-radius: 1;
+    /*cambiar color letras    */
+
+    -fx-effect: dropshadow(gaussian, rgb(26, 179, 123), 10, 0, 0, 0);
+    -fx-opacity: 0.75;
+
+
+}
+
+
+
 

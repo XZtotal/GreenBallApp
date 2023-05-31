@@ -13,7 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.net.URL?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="650.0" prefWidth="850.0" styleClass="fondo" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreenBallApp.controllers.configController">
+   <stylesheets> <URL value="@../css/config.css"></URL></stylesheets>
    <center>
       <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -57,14 +59,14 @@
                <bottom>
                   <StackPane prefHeight="56.0" prefWidth="596.0" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox fx:id="hboxDown" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css" visible="false">
+                        <HBox fx:id="hboxDown" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: white;" stylesheets="@../css/register.css">
                            <children>
                               <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="&lt; Atras">
                                  <font>
                                     <Font name="Calibri Bold" size="17.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Siguiente &gt;">
+                              <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Guardar">
                                  <font>
                                     <Font name="Calibri Bold" size="17.0" />
                                  </font>
@@ -77,7 +79,7 @@
                               <Insets right="20.0" />
                            </padding>
                         </HBox>
-                        <Label fx:id="labelDown" prefHeight="26.0" prefWidth="367.0" text="Seleccione una opción para configurarla" textFill="#006365">
+                        <Label fx:id="labelDown" prefHeight="26.0" prefWidth="367.0" text="Seleccione una opción para configurarla" textFill="#006365" visible="false">
                            <font>
                               <Font name="Calibri Bold" size="22.0" />
                            </font>

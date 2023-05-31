@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Club;
 import model.ClubDAOException;
@@ -28,6 +29,7 @@ public class GreenBallApp extends Application {
         // 1- creación del grafo de escena a partir del fichero FXML
         this.stage=stage;
 
+
         FXMLLoader loader= new FXMLLoader(getClass().getResource("interfaces/main.fxml"));
         Parent root = loader.load();
         System.out.println("root: "+root);
@@ -40,9 +42,16 @@ public class GreenBallApp extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("GreenBallApp > Inicio");
-        stage.setMinWidth(500);
+        stage.setMinWidth(600);
         stage.setMinHeight(600);
         stage.show();
+
+        try {
+            stage.getIcons().add(new Image("GreenBallApp/image/bola.png"))  ;
+        }catch (Exception e){
+            System.out.println("No se ha podido cargar la imagen");
+        }
+
     }
 
     /**
@@ -71,6 +80,7 @@ public class GreenBallApp extends Application {
     public static void initialize() throws ClubDAOException, IOException {
         System.out.println("GreenBallApp.initialize()");
         club = Club.getInstance();
+
 
         for (Court i : club.getCourts()) {
             System.out.println(i);

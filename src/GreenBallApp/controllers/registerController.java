@@ -80,6 +80,8 @@ public class registerController
         this.firstRegisterModuleParent = loader.load();
         this.firstRegisterModuleController = loader.getController();
 
+
+
         loader = new FXMLLoader(getClass().getResource("../interfaces/secondRegisterModule.fxml"));
         this.secondRegisterModuleParent = loader.load();
         this.secondRegisterModuleController = loader.getController();
@@ -201,6 +203,7 @@ public class registerController
     private void registerMember(){
         Member member = null;
         try {
+            if(profileImage == null) profileImage = new Image("GreenBallApp/image/cimg2.png");
             member = GreenBallApp.getClub().registerMember(name,surname,phone,userName,password,creditCard,cvv,profileImage);
         } catch (ClubDAOException ignored) {
 

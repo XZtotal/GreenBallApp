@@ -52,7 +52,7 @@ public class myReservesController {
 
     @FXML
     public void initialize() throws ClubDAOException, IOException {
-        GreenBallApp.getStage().setTitle("GreenBallApp > Menú > Mis reservas");
+        GreenBallApp.getStage().setTitle("GreenBallApp > Mis reservas");
         tableView.getColumns().addAll(fechaReservaColumn, horaColumn, pistaColumn, pagadoColumn);
         reservas = FXCollections.observableArrayList(club.getUserBookings(GreenBallApp.getMember().getNickName()));
         ObservableList<Reserva> newReservas = FXCollections.observableArrayList();
@@ -71,9 +71,7 @@ public class myReservesController {
     public void btnEnterOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
-        GreenBallApp.setScene(scene);
-
+        GreenBallApp.setRoot(root);
     }
 
     @Deprecated
