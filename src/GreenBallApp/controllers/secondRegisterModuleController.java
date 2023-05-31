@@ -66,7 +66,7 @@ public class secondRegisterModuleController
         linkDeleteImage.visibleProperty().bind(imageSelected);
 
         errorUsername.addListener((observable, oldValue, newValue) -> {
-            System.out.println("errorUsername: " + newValue);
+
             if (newValue && !configMode) {
                 if(fieldUsername.getText().trim().isEmpty())
                     labelUsername.setText("Escribe un nombre");
@@ -83,7 +83,7 @@ public class secondRegisterModuleController
         });
 
         errorPassword.addListener((observable, oldValue, newValue) -> {
-            System.out.println("errorPassword: " + newValue);
+
             if (newValue) {
                 vboxPass.setStyle("-fx-background-color: rgb(251, 255, 182) ; -fx-background-radius: 10");
                 labelPass.setOpacity(1);
@@ -98,7 +98,7 @@ public class secondRegisterModuleController
 
 
         errorRepeatPassword.addListener((observable, oldValue, newValue) -> {
-            System.out.println("errorRepeatPassword: " + newValue);
+
             if (newValue) {
                 vboxRepeatPass.setStyle("-fx-background-color: rgb(251, 255, 182) ; -fx-background-radius: 10");
                 labelRepeatPass.setOpacity(1);
