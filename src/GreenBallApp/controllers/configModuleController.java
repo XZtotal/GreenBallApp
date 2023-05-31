@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class configModuleController
 {
+
     @javafx.fxml.FXML
     private Button btnIndentify;
     @javafx.fxml.FXML

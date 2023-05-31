@@ -11,9 +11,9 @@ public class firstRegisterModuleController
     BooleanProperty errorName = new SimpleBooleanProperty(true);
     BooleanProperty errorSurname = new SimpleBooleanProperty(true);
     BooleanProperty errorPhone = new SimpleBooleanProperty(true);
-    boolean firstTry = true;
+    boolean firstTry = true; //Para que no salte el error al principio. Se pone a false cuando se pulsa el boton de siguiente
 
-    boolean configMode = false;
+    boolean configMode = false; //False es para ser utilizado en Register, True en config
 
 
 
@@ -36,9 +36,9 @@ public class firstRegisterModuleController
     @javafx.fxml.FXML
     private VBox vboxSurname;
     @javafx.fxml.FXML
-    private VBox vboxtext1;
+    private VBox vboxtext1;//texto para el registerMode (configMode = false)
     @javafx.fxml.FXML
-    private VBox vboxtext2;
+    private VBox vboxtext2; //texto para el configMode (configMode = true)
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -123,11 +123,14 @@ public class firstRegisterModuleController
 
 
     }
-
     /**
-     * The activeConfigMode function sets the configMode variable to true.
-
+     * Activa el modo de configuración y establece los valores de nombre, apellido y teléfono.
+     *
+     * @param name   El nombre a establecer.
+     * @param surname   El apellido a establecer.
+     * @param phone   El teléfono a establecer.
      */
+
     public void activateConfigMode(String name, String surname, String phone) {
         this.configMode = true;
         fieldName.setText(name);
