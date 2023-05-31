@@ -435,13 +435,13 @@ public class NewBookingController
                                         }
                                 }
                                 if((aux1 && time.getHour() > LocalDateTime.now().getHour() && LocalDateTime.now().getDayOfYear() == date.getDayOfYear()) || (aux1 && LocalDateTime.now().getDayOfYear() != date.getDayOfYear())){
+                                    Booking b;
                                     if(GreenBallApp.getMember().getCreditCard().equals("")){
-                                        Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
-                                        courtBookings.add(b);
-                                        printTable();
+                                        b = GreenBallApp.getClub().registerBooking(date1, date, time, false, court, mem);
 
+                                    }else{
+                                        b = GreenBallApp.getClub().registerBooking(date1, date, time, true, court, mem);
                                     }
-                                    Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                     courtBookings.add(b);
                                     printTable();
                                 }else if(time.getHour() <= LocalDateTime.now().getHour()){
