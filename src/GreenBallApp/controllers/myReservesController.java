@@ -54,17 +54,25 @@ public class myReservesController {
     public void initialize() throws ClubDAOException, IOException {
         GreenBallApp.getStage().setTitle("GreenBallApp > Mis reservas");
         tableView.getColumns().addAll(fechaReservaColumn, horaColumn, pistaColumn, pagadoColumn);
+        printTable();
+
+        fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
+        horaColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
+        pistaColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paid"));
+    }
+    public void printTable(){
+
         reservas = FXCollections.observableArrayList(club.getUserBookings(GreenBallApp.getMember().getNickName()));
+
         ObservableList<Reserva> newReservas = FXCollections.observableArrayList();
         for(Booking b : reservas){
             Reserva r = new Reserva(b);
             newReservas.add(r);
         }
         tableView.setItems(newReservas);
-        fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
-        horaColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
-        pistaColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paid"));
+
+
     }
 
     @javafx.fxml.FXML
@@ -93,9 +101,12 @@ public class myReservesController {
 
         Optional<ButtonType> resultado = alerta.showAndWait();
         if (resultado.get() == ButtonType.OK) {
-            Booking b = tableView.getSelectionModel().getSelectedItem();
-            boolean a = club.removeBooking(b);
-            initialize();
+            Reserva b = tableView.getSelectionModel().getSelectedItem();
+            //por alguna razon, este cambio no se ve reflejado en la clase Member, y hace falta recargarla. Error de la libreria.
+            boolean a = club.removeBooking(b.getBooking());
+            System.out.println("Reserva cancelada: " + a);
+
+            printTable();
         }
     }
 }
