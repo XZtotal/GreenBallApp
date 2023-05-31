@@ -12,16 +12,17 @@ import java.time.LocalDate;
 public class thirdRegisterModuleController
 {
 
-    boolean errorCreditNumber = false;
-    boolean errorExpireDate = false;
-    boolean errorCVV = false;
+    boolean errorCreditNumber = false; // Indica si hay un error en el número de tarjeta de crédito.
+    boolean errorExpireDate = false;// Indica si hay un error en la fecha de vencimiento.
+    boolean errorCVV = false; // Indica si hay un error en el CVV.
 
 
-    private boolean firstTry = true;
+    private boolean firstTry = true;// Indica si es el primer intento de validación.
 
     private boolean configMode = false;
 
-    BooleanProperty cardLoaded = new SimpleBooleanProperty(false);
+    BooleanProperty cardLoaded = new SimpleBooleanProperty(false); // Propiedad que indica si se ha cargado una tarjeta.
+
 
     configController configController;
 
@@ -178,6 +179,10 @@ public class thirdRegisterModuleController
         fieldExpireDate.setValue(null);
         pfieldCVV.setText("");
     }
+
+    /**
+     * Muestra los errores en los campos de entrada.
+     */
     public void showErrors() {
         firstTry = false;
         if (errorCreditNumber) {
@@ -211,8 +216,9 @@ public class thirdRegisterModuleController
     //Getters
 
     /**
-     * The getCreditNumber function returns the value of the fieldCreditNumber variable.
-     * @return The value of the CreditCardNumber. Null if the text is not valid.
+     * Obtiene el número de tarjeta de crédito ingresado.
+     *
+     * @return El número de tarjeta de crédito. Null si el texto no es válido.
      */
     public String getCreditNumber() {
         if (fieldCreditNumber.getText().replaceAll("-", "") .length() != 16) {
@@ -229,8 +235,9 @@ public class thirdRegisterModuleController
     }
 
     /**
-     * The getExpireDate function returns the value of the fieldExpireDate variable.
-     * @return The value of the ExpireDate. Null if the text is not valid.
+     * Obtiene la fecha de vencimiento ingresada.
+     *
+     * @return La fecha de vencimiento. Null si el texto no es válido.
      */
     public String getExpireDate() {
         if (fieldExpireDate.getValue() == null) {
@@ -247,9 +254,9 @@ public class thirdRegisterModuleController
 
 
     /**
-     * The getCVV function returns the CVV number of the credit card.
-
-     * @return CVV number. - 1 if the cvv is not valid.
+     * Obtiene el número CVV de la tarjeta de crédito.
+     *
+     * @return El número CVV. -1 si el CVV no es válido.
      */
     public int getCVV() {
         if (pfieldCVV.getText().length() != 3 || !Utils.isNumeric(pfieldCVV.getText()) ) {
@@ -263,12 +270,20 @@ public class thirdRegisterModuleController
 
         return Integer.parseInt(pfieldCVV.getText());
     }
-
+    /**
+     * Verifica si es el primer intento de validación de los campos.
+     *
+     * @return True si es el primer intento, False de lo contrario.
+     */
     public boolean isFirstTry() {
         return firstTry;
     }
 
-
+    /**
+     * Verifica si hay un error en el número de tarjeta de crédito.
+     *
+     * @return True si hay un error, False de lo contrario.
+     */
 
     public boolean isErrorCreditNumber() {
         return errorCreditNumber;

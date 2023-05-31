@@ -179,6 +179,11 @@ public class secondRegisterModuleController
 
     }
 
+    /**
+     * Maneja el evento de acción del enlace "Eliminar imagen".
+     * Restaura la imagen predeterminada y desactiva la selección de imagen.
+     */
+
     @javafx.fxml.FXML
     public void linkDeleteImageOnAction(ActionEvent actionEvent) {
         imgUserImage.setImage(defaultImage);
@@ -188,6 +193,12 @@ public class secondRegisterModuleController
     }
 
     //getters and setters
+
+    /**
+     * Obtiene el nombre de usuario ingresado en el campo correspondiente.
+     *
+     * @return El nombre de usuario ingresado, o null si el campo está vacío o el nombre ya está en uso.
+     */
 
     public String getUserName() {
         firstTry = false;
@@ -207,6 +218,12 @@ public class secondRegisterModuleController
             return null;
         }
     }
+
+    /**
+     * Obtiene la contraseña ingresada en el campo correspondiente y realiza las verificaciones necesarias.
+     *
+     * @return La contraseña ingresada, o null si el campo está vacío o las contraseñas no coinciden.
+     */
 
     public String getPassword(){
         String password = pfieldPass.getText();
@@ -231,7 +248,11 @@ public class secondRegisterModuleController
             return null;
         }
     }
-
+    /**
+     * Obtiene la imagen de usuario seleccionada.
+     *
+     * @return La imagen de usuario seleccionada, o null si no se ha seleccionado ninguna imagen.
+     */
     public Image getImage(){
         if (imageSelected.getValue()) {
             return imgUserImage.getImage();

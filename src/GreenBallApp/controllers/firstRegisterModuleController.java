@@ -144,6 +144,12 @@ public class firstRegisterModuleController
     }
 
     //getters and setters
+
+    /**
+     * Obtiene el valor ingresado en el campo de nombre.
+     *
+     * @return El nombre ingresado, o null si el campo está vacío.
+     */
     public String getName() {
         firstTry = false;
         String name = fieldName.getText();
@@ -155,6 +161,11 @@ public class firstRegisterModuleController
             return null;
         }
     }
+    /**
+     * Obtiene el valor ingresado en el campo de apellido.
+     *
+     * @return El apellido ingresado, o null si el campo está vacío.
+     */
     public String getSurname() {
         firstTry = false;
         String surname = fieldSurname.getText();
@@ -166,6 +177,11 @@ public class firstRegisterModuleController
             return null;
         }
     }
+    /**
+     * Obtiene el valor ingresado en el campo de teléfono.
+     *
+     * @return El teléfono ingresado, o null si el campo está vacío o no cumple el formato requerido.
+     */
     public String getPhone() {
         firstTry = false;
         String phone = fieldPhone.getText().replace(" ", "");
