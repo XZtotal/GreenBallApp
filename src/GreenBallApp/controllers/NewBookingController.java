@@ -104,10 +104,15 @@ public class NewBookingController
             String courtName = "Pista " + (i + 1);
             Court court = courts.get(i);
             ArrayList<Booking> courtBookings = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
-
+            ArrayList<Booking> courtBookings1 = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
             for (int j = 9; j <= 21; j++) {
 
                 LocalTime time = LocalTime.of(j, 0);
+                LocalTime time1 = LocalTime.of(j-1,0);
+                LocalTime time2 = LocalTime.of(j-2,0);
+                LocalTime time3 = LocalTime.of(j+1,0);
+                LocalTime time4 = LocalTime.of(j+2,0);
+
 
                 HBox hbox = new HBox();
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
@@ -115,7 +120,7 @@ public class NewBookingController
 
                 hbox.getChildren().add(boton);
 
-                if (courtBookings.size() > 0) {
+                if (courtBookings.size() > 0 ) {
                     for (Booking booking : courtBookings) {
                         if (booking.getFromTime().equals(time)) {
                             boton.setText(String.valueOf(booking.getMember().getNickName()));
@@ -143,19 +148,107 @@ public class NewBookingController
 
                                     Optional<ButtonType> resultado = alerta.showAndWait();
                                     if (resultado.get() == ButtonType.OK){
-                                        ArrayList<String> listaAux = null;
-                                        List<Booking> lista = Club.getInstance().getForDayBookings(currentDate);
-                                        int contador = 0;
-                                        for(Booking b : lista){
-                                            Reserva re = new Reserva(b);
-                                            String name = re.getUserName();
-                                            if(name.equals(GreenBallApp.getMember().getName())){
-                                                contador++;
-                                            }
+                                        int aux = time.getHour();
+                                        boolean aux1 = true;
+                                        int contadorA = 0;
+                                        int contadorB = 0;
+                                        int contadorC = 0;
+                                        switch (aux){
+                                            case 9:
+                                                for(Booking b : courtBookings1){
+                                                    Reserva re = new Reserva(b);
+                                                    String name = re.getUserName();
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                        contadorA++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                        contadorB++;
+                                                    }
+                                                }
+                                                if(contadorA == 1 && contadorB == 1){
+                                                    aux1 = false;
+                                                }
+                                                break;
+                                            case 10:
+                                                for(Booking b : courtBookings1){
+                                                    Reserva re = new Reserva(b);
+                                                    String name = re.getUserName();
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                        contadorA++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                        contadorB++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                        contadorA++;
+                                                        contadorB++;
+                                                    }
+                                                }
+                                                if(contadorA == 2 || contadorB == 2){
+                                                    aux1 = false;
+                                                }
+                                                break;
+                                            case 20:
+                                                for(Booking b : courtBookings1){
+                                                    Reserva re = new Reserva(b);
+                                                    String name = re.getUserName();
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                        contadorA++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                        contadorB++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                        contadorA++;
+                                                        contadorB++;
+                                                    }
+                                                }
+                                                if (contadorA == 2 || contadorB == 2){
+                                                    aux1 = false;
+                                                }
+                                                break;
+                                            case 21:
+                                                for(Booking b : courtBookings1){
+                                                    Reserva re = new Reserva(b);
+                                                    String name = re.getUserName();
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                        contadorA++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                        contadorB++;
+                                                    }
+                                                }
+                                                if(contadorA == 1 && contadorB == 1){
+                                                    aux1 = false;
+                                                }
+                                                break;
+                                            default:
+                                                for(Booking b : courtBookings1){
+                                                    Reserva re = new Reserva(b);
+                                                    String name = re.getUserName();
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                        contadorA++;
+                                                        contadorB++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                        contadorB++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                        contadorA++;
+                                                        contadorC++;
+                                                    }
+                                                    if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                        contadorC++;
+                                                    }
+                                                }
+                                                if (contadorA == 2 || contadorB == 2 || contadorC == 2){
+                                                    aux1 = false;
+                                                }
                                         }
-                                        if(contador == 0 || contador == 1) {
+                                        if(aux1){
                                             Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                             courtBookings.add(b);
+                                            printTable();
                                         }else{
                                             Alert alerta2 = new Alert(Alert.AlertType.ERROR);
                                             alerta2.setTitle("Error");
@@ -167,7 +260,6 @@ public class NewBookingController
                                                 initialize();
                                             }
                                         }
-                                        printTable();
                                     }
                                 }catch (ClubDAOException e){
                                     e.printStackTrace();
@@ -178,7 +270,8 @@ public class NewBookingController
                             });
                         }
                     }
-                }else{boton.setBackground(Background.EMPTY);
+                }else{
+                    boton.setBackground(Background.EMPTY);
                     boton.setTextFill(Color.GREEN);
                     boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
                     boton.setOnMouseEntered(event -> {
@@ -195,9 +288,118 @@ public class NewBookingController
 
                             Optional<ButtonType> resultado = alerta.showAndWait();
                             if (resultado.get() == ButtonType.OK){
-                                Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
-                                courtBookings.add(b);
-                                printTable();
+                                int aux = time.getHour();
+                                boolean aux1 = true;
+                                int contadorA = 0;
+                                int contadorB = 0;
+                                int contadorC = 0;
+                                switch (aux){
+                                    case 9:
+                                        for(Booking b : courtBookings1){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                contadorA++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                contadorB++;
+                                            }
+                                        }
+                                        if(contadorA == 1 && contadorB == 1){
+                                            aux1 = false;
+                                        }
+                                        break;
+                                    case 10:
+                                        for(Booking b : courtBookings1){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                contadorA++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                contadorB++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                contadorA++;
+                                                contadorB++;
+                                            }
+                                        }
+                                        if(contadorA == 2 || contadorB == 2){
+                                            aux1 = false;
+                                        }
+                                        break;
+                                    case 20:
+                                        for(Booking b : courtBookings1){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                contadorA++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                contadorB++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                contadorA++;
+                                                contadorB++;
+                                            }
+                                        }
+                                        if (contadorA == 2 || contadorB == 2){
+                                            aux1 = false;
+                                        }
+                                        break;
+                                    case 21:
+                                        for(Booking b : courtBookings1){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                contadorA++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                contadorB++;
+                                            }
+                                        }
+                                        if(contadorA == 1 && contadorB == 1){
+                                            aux1 = false;
+                                        }
+                                        break;
+                                    default:
+                                        for(Booking b : courtBookings1){
+                                            Reserva re = new Reserva(b);
+                                            String name = re.getUserName();
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time1)){
+                                                contadorA++;
+                                                contadorB++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time2)){
+                                                contadorB++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time3)){
+                                                contadorA++;
+                                                contadorC++;
+                                            }
+                                            if(name.equals(GreenBallApp.getMember().getName()) && re.getFromTime().equals(time4)){
+                                                contadorC++;
+                                            }
+                                        }
+                                        if (contadorA == 2 || contadorB == 2 || contadorC == 2){
+                                            aux1 = false;
+                                        }
+                                }
+                                if(aux1){
+                                    Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
+                                    courtBookings.add(b);
+                                    printTable();
+                                }else{
+                                    Alert alerta2 = new Alert(Alert.AlertType.ERROR);
+                                    alerta2.setTitle("Error");
+                                    alerta2.setHeaderText("Numero de reservas maximas por dia alcanzado");
+                                    alerta2.setContentText("Si desea realizar otra reserva, cancele una de las ya existentes");
+
+                                    Optional<ButtonType> resultado1 = alerta2.showAndWait();
+                                    if (resultado.get() == ButtonType.CLOSE) {
+                                        initialize();
+                                    }
+                                }
                             }
                         }catch (ClubDAOException e){
                             e.printStackTrace();
