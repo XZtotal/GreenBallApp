@@ -68,6 +68,7 @@ public class myReservesController {
         pistaColumn.setReorderable(false);
         pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paide"));
         pagadoColumn.setReorderable(false);
+        cancelButton.disableProperty().bind(tableView.getSelectionModel().selectedItemProperty().isNull());
     }
     public void printTable(){
 
