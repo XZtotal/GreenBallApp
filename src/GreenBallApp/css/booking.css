@@ -1,0 +1,26 @@
+.librebtn{
+    -fx-font: 16px "Calibri";
+    -fx-text-fill: #058a22;
+
+    -fx-border-color: null;
+    -fx-border-width: 0;
+    -fx-background-color: null;
+    -fx-cursor: hand;
+}
+.librebtn:hover{
+
+    -fx-font-weight: bold;
+    -fx-scale-x: 1.1;
+
+}
+
+.ocupadobtn{
+    -fx-background-color: null;
+    -fx-font: 16px "Calibri";
+    -fx-text-fill: red;
+    -fx-border-width: 0;
+    -fx-font-weight: bold;
+    -fx-border-color: null;
+    -fx-cursor: hand;
+}
+

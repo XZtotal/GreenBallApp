@@ -118,33 +118,34 @@ public class NewBookingController
                 hbox.setAlignment(javafx.geometry.Pos.CENTER);
                 Button boton = new Button("LIBRE");
 
+                hbox.getStylesheets().add("GreenBallApp/css/booking.css");
+
                 hbox.getChildren().add(boton);
 
                 if (courtBookings.size() > 0 ) {
-                    for (Booking booking : courtBookings) {
+                    for (int in = 0; in < courtBookings.size(); in++) {
+                        Booking booking = courtBookings.get(in);
                         if (booking.getFromTime().equals(time)) {
+                            boton.getStyleClass().add("ocupadobtn");
                             boton.setText(String.valueOf(booking.getMember().getNickName()));
                             boton.setDisable(true);
-                            boton.setBackground(Background.EMPTY);
-                            boton.setTextFill(Color.RED);
+
                             hbox.setStyle("-fx-background-color: WHITE");
                             courtBookings.remove(booking);
+                            boton.applyCss();
                             break;
-                        } else {
-                            boton.setBackground(Background.EMPTY);
-                            boton.setTextFill(Color.GREEN);
-                            boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-                            boton.setOnMouseEntered(event -> {
-                                boton.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-                            });
-                            boton.setOnMouseExited(event -> {
-                                boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-                            });
+                        } else if(in == courtBookings.size()-1) {
+                            boton.getStyleClass().add("librebtn");
+                            boton.applyCss();
+
+
+
+
                             boton.setOnAction(event -> {
                                 try{
                                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                                     alerta.setTitle("Confirmar acción");
-                                    if(GreenBallApp.getMember().getCreditCard() == null){
+                                    if(GreenBallApp.getMember().getCreditCard() == null || GreenBallApp.getMember().getCreditCard().equals("")){
                                         alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera  en las instalaciones");
                                     }
                                     alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
@@ -280,15 +281,8 @@ public class NewBookingController
                         }
                     }
                 }else{
-                    boton.setBackground(Background.EMPTY);
-                    boton.setTextFill(Color.GREEN);
-                    boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-                    boton.setOnMouseEntered(event -> {
-                        boton.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-                    });
-                    boton.setOnMouseExited(event -> {
-                        boton.setFont(Font.font("Arial", FontWeight.BOLD, 12));
-                    });
+                    boton.getStyleClass().add("librebtn");
+                    boton.applyCss();
                     boton.setOnAction(event -> {
                         try{
                             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
