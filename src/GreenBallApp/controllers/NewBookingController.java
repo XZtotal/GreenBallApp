@@ -120,20 +120,21 @@ public class NewBookingController
 
     @FXML
 
-
+    //Este metodo dibuja la tabla celda a celda comprobando si existe una reserva ya a la hora
     public void printTable() throws ClubDAOException, IOException {
         LocalDate date = this.date.getValue();
         LocalDateTime date1 = LocalDateTime.now();
         Member mem = GreenBallApp.getMember();
         List<Court> courts = Club.getInstance().getCourts();
         if(date != null) currentDate = date;
-
+        //Recorre todas las columnas
         for (int i = 0; i < 6; i++) {
 
             String courtName = "Pista " + (i + 1);
             Court court = courts.get(i);
             ArrayList<Booking> courtBookings = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
             ArrayList<Booking> courtBookings1 = new ArrayList<>(Club.getInstance().getCourtBookings(courtName, currentDate));
+            //Para cada columna se recorre todas las celdas y se rellenan con botones
             for (int j = 9; j <= 21; j++) {
 
                 LocalTime time = LocalTime.of(j, 0);
@@ -152,8 +153,10 @@ public class NewBookingController
                 hbox.getChildren().add(boton);
 
                 if (courtBookings.size() > 0 ) {
+                    //Comprueba si existe alguna reserva en el momento y pista seleccionados
                     for (int in = 0; in < courtBookings.size(); in++) {
                         Booking booking = courtBookings.get(in);
+                        //Si existe se pone el nombre del usuario
                         if (booking.getFromTime().equals(time)) {
                             boton.getStyleClass().add("ocupadobtn");
                             boton.setText(String.valueOf(booking.getMember().getNickName()));
@@ -163,23 +166,22 @@ public class NewBookingController
                             courtBookings.remove(booking);
                             boton.applyCss();
                             break;
+                        //Si no existe se activa el boton y permite reservar
                         } else if(in == courtBookings.size()-1) {
                             boton.getStyleClass().add("librebtn");
                             boton.applyCss();
-
-
-
-
                             boton.setOnAction(event -> {
                                 try{
                                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                                     alerta.setTitle("Confirmar acción");
+                                    //Si no ha introducido los datos bancarios le salta un mensaje de advertencia
                                     if(GreenBallApp.getMember().getCreditCard() == null || GreenBallApp.getMember().getCreditCard().equals("")){
                                         alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera  en las instalaciones");
+                                    }else{
+                                        alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
                                     }
-                                    alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
-
                                     Optional<ButtonType> resultado = alerta.showAndWait();
+                                    //Se comprueba si se puede realizar una reserva en esa hora y se almacena el resultado en aux1
                                     if (resultado.get() == ButtonType.OK){
                                         int aux = time.getHour();
                                         boolean aux1 = true;
@@ -278,6 +280,7 @@ public class NewBookingController
                                                     aux1 = false;
                                                 }
                                         }
+                                        //Comprueba si aparte de poder reservar la hora a la que se intenta reservar no haya pasado
                                         if((aux1 && time.getHour() > LocalDateTime.now().getHour() && LocalDateTime.now().getDayOfYear() == date.getDayOfYear()) || (aux1 && LocalDateTime.now().getDayOfYear() != date.getDayOfYear())){
                                             if(GreenBallApp.getMember().getCreditCard().equals("")){
                                                 Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
@@ -329,6 +332,7 @@ public class NewBookingController
                             alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
 
                             Optional<ButtonType> resultado = alerta.showAndWait();
+                            //Comprueba si se puede hacer una reserva en las columnas donde no hay ninguna reserva
                             if (resultado.get() == ButtonType.OK){
                                 int aux = time.getHour();
                                 boolean aux1 = true;
@@ -487,6 +491,7 @@ public class NewBookingController
 
 
     @FXML
+    //boton de ir para atras
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
