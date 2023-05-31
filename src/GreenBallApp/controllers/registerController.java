@@ -99,6 +99,7 @@ public class registerController
         btnLast.setOnAction(event -> {
             lastPage();
         });
+
         label1.setDisable(false);
         label2.setDisable(true);
         label3.setDisable(true);
@@ -109,7 +110,12 @@ public class registerController
 
 
     }
-
+    /**
+     * Carga el módulo especificado en el contenedor del formulario.
+     *
+     * @param nModule El número del módulo que se va a cargar.
+     * @throws IOException Si ocurre una excepción de E/S al cargar el módulo.
+     */
     public void chargeModule(int nModule) throws IOException {
         switch (nModule) {
             case 1:
@@ -127,7 +133,11 @@ public class registerController
         }
     }
 
-
+    /**
+     * Maneja la acción cuando se hace clic en el botón "Return" (Volver).
+     * Navega de vuelta a la pantalla principal de la aplicación, en este caso el login.
+     *
+     */
     @FXML
     public void btnReturnOnAction(ActionEvent actionEvent) throws IOException {
         returnToMain();
@@ -155,7 +165,10 @@ public class registerController
         }
     }
 
-
+    /**
+     * Maneja la acción cuando se hace clic en el botón "Previous" (Anterior).
+     * Navega al módulo anterior.
+     */
     public void lastPage(){
         switch (currentModule) {
             case 1:
@@ -200,6 +213,11 @@ public class registerController
 
 
     }
+
+    /**
+     * Registra al miembro y navega al menú principal si el registro es exitoso.
+     * Crea un nuevo objeto Member y lo registra en la instancia de GreenBallApp.
+     */
     private void registerMember(){
         Member member = null;
         try {
@@ -220,7 +238,10 @@ public class registerController
         }
 
     }
-
+    /**
+     * Maneja la acción cuando se hace clic en el botón "Next" (Siguiente).
+     * Navega al siguiente módulo y recopila los datos del módulo actual.
+     */
     public void nextPage(){
         String var = "";
         String var2 = "";
@@ -280,10 +301,6 @@ public class registerController
                     currentModule--;
                 }
 
-
-
-
-
                 break;
             case 3:
                 var = thirdRegisterModuleController.getCreditNumber();
@@ -306,6 +323,11 @@ public class registerController
         if(currentModule == FIRST_MODULE ) btnLast.setDisable(true);
         else btnLast.setDisable(false);
     }
+
+    /**
+     * Actualiza el estado visual del formulario para resaltar el módulo actual.
+     * Aplica estilos CSS a las etiquetas correspondientes.
+     */
 
     private void selectActualState(){
         if(currentModule == FIRST_MODULE ) {

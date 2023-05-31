@@ -120,7 +120,10 @@ public class configController
 
 
     }
-
+    /**
+     * Maneja la acción cuando se hace clic en el botón "Return" (Volver).
+     * Navega de vuelta a la pantalla principal de la aplicación.
+     */
     @javafx.fxml.FXML
     public void btnReturnOnAction(ActionEvent actionEvent) {
         try {
@@ -129,6 +132,13 @@ public class configController
             e.printStackTrace();
         }
     }
+
+    /**
+     * Carga el módulo especificado en el contenedor del formulario.
+     *
+     * @param nModule El número del módulo que se va a cargar.
+     * @throws IOException Si ocurre una excepción de E/S al cargar el módulo.
+     */
 
     public void chargeModule(int nModule) throws IOException {
         switch (nModule) {
@@ -188,12 +198,24 @@ public class configController
 
 
     }
+
+    /**
+     * Elimina la tarjeta de crédito del miembro actual.
+     * Borra los datos de la tarjeta de crédito del miembro actualmente registrado en GreenBallApp.
+     */
     public void deleteCard() {
         creditCard = "";
         exprireDate = "";
         cvv = 0;
         pushData();
     }
+
+    /**
+     * Navega de vuelta al menú principal.
+     * Carga la interfaz de usuario del menú principal y la establece como la raíz de la aplicación GreenBallApp.
+     *
+     * @throws IOException Si ocurre una excepción de E/S al cargar la interfaz de usuario del menú principal.
+     */
     private void MenuBack() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../interfaces/menu.fxml"));
         Parent root = loader.load();
@@ -201,6 +223,10 @@ public class configController
         GreenBallApp.setRoot(root);
 
     }
+    /**
+     * Carga los datos del miembro en las variables locales.
+     * Obtiene los datos del miembro actualmente registrado en GreenBallApp y los almacena en las variables locales correspondientes.
+     */
     public void loadData() {
         name = GreenBallApp.getMember().getName();
         surname = GreenBallApp.getMember().getSurname();
@@ -212,6 +238,13 @@ public class configController
         cvv = GreenBallApp.getMember().getSvc();
 
     }
+
+    /**
+     * Guarda los datos modificados en el miembro actual.
+     * Actualiza los datos del miembro actualmente registrado en GreenBallApp con los valores modificados en el formulario.
+     *
+     * @return true si los datos se guardaron correctamente, false en caso contrario.
+     */
 
     private boolean saveData() {
         boolean result = false;
@@ -264,6 +297,10 @@ public class configController
         }
         return result;
     }
+    /**
+     * Actualiza los datos del miembro actual en GreenBallApp.
+     * Actualiza los datos del miembro actualmente registrado en GreenBallApp con los valores almacenados en las variables locales.
+     */
 
     public void pushData(){
         GreenBallApp.getMember().setName(name);
