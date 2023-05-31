@@ -29,6 +29,8 @@ public class secondRegisterModuleController
 
     boolean firstTry = true;
 
+    boolean configMode = false;
+
 
     @javafx.fxml.FXML
     private TextField fieldUsername;
@@ -54,6 +56,10 @@ public class secondRegisterModuleController
     private Label labelPass;
     @javafx.fxml.FXML
     private Label labelRepeatPass;
+    @javafx.fxml.FXML
+    private VBox vboxtext1;
+    @javafx.fxml.FXML
+    private VBox vboxtext2;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -61,8 +67,8 @@ public class secondRegisterModuleController
 
         errorUsername.addListener((observable, oldValue, newValue) -> {
             System.out.println("errorUsername: " + newValue);
-            if (newValue) {
-                if(fieldUsername.getText().isEmpty())
+            if (newValue && !configMode) {
+                if(fieldUsername.getText().trim().isEmpty())
                     labelUsername.setText("Escribe un nombre");
                 else labelUsername.setText("Nombre ya en uso");
                 vboxUsername.setStyle("-fx-background-color: rgb(251, 255, 182) ; -fx-background-radius: 10");
@@ -130,8 +136,23 @@ public class secondRegisterModuleController
                 getPassword();
             }
         });
+
+        vboxtext1.setVisible(true);
+        vboxtext2.setVisible(false);
     }
 
+    public void activateConfigMode(String username, String password){
+        configMode = true;
+        fieldUsername.setText(username);
+        fieldUsername.setDisable(true);
+        pfieldPass.clear();
+        pfieldRepeatPass.clear();
+        vboxtext1.setVisible(false);
+        vboxtext2.setVisible(true);
+
+
+
+    }
     @javafx.fxml.FXML
     public void btnAddImageOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -170,7 +191,7 @@ public class secondRegisterModuleController
 
     public String getUserName() {
         firstTry = false;
-        String username = fieldUsername.getText();
+        String username = fieldUsername.getText().trim();
         boolean exists = true;
         try {
             exists = Club.getInstance().existsLogin(username);

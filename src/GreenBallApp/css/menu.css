@@ -20,30 +20,31 @@
 
 }
 .fondo {
-    -fx-background-image: url("../image/fondo3-2.png") center;
+    -fx-background-image: url("../image/fondo4.png") center;
     -fx-background-size: 100;
     -fx-background-position: center;
 }
 .button{
     -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.39), 20, 0, 0, 0);
 }
 .button:hover{
     -fx-background-color: white;
 
-    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 10, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgb(255, 255, 255), 20, 0, 0, 0);
 
     -fx-cursor: hand;
 }
 
 .topcard{
     -fx-background-color: rgb(255, 255, 255);
-    -fx-background-radius: 10 10 0 0;
-    -fx-border-radius: 10 10 0 0;
+    -fx-background-radius: 70;
+
     -fx-border-color: white;
     -fx-border-width: 0;
 
     -fx-background-size: 90;
-    -fx-background-radius: 10 ;
+
 }
 
 .actualEnabledStateLabel{
