@@ -144,6 +144,9 @@ public class NewBookingController
                                 try{
                                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                                     alerta.setTitle("Confirmar acción");
+                                    if(GreenBallApp.getMember().getCreditCard() == null){
+                                        alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera  en las instalaciones");
+                                    }
                                     alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
 
                                     Optional<ButtonType> resultado = alerta.showAndWait();
@@ -246,6 +249,11 @@ public class NewBookingController
                                                 }
                                         }
                                         if(aux1){
+                                            if(GreenBallApp.getMember().getCreditCard() == null){
+                                                Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
+                                                courtBookings.add(b);
+                                                printTable();
+                                            }
                                             Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                             courtBookings.add(b);
                                             printTable();

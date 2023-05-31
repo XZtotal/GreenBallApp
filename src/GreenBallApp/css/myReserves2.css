@@ -3,38 +3,38 @@
 }
 
 .background {
-    -fx-background-color: #1d1d1d;
+    -fx-background-color: white;
 }
 
 .label {
     -fx-font-size: 11pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #1d1d1d;
     -fx-opacity: 0.6;
 }
 
 .label-bright {
     -fx-font-size: 11pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #1d1d1d;
     -fx-opacity: 1;
 }
 
 .label-header {
     -fx-font-size: 32pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #1d1d1d;
     -fx-opacity: 1;
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
+    -fx-base: white;
+    -fx-control-inner-background: white;
+    -fx-background-color: white;
+    -fx-table-cell-border-color: white;
+    -fx-table-header-border-color: white;
     -fx-padding: 5;
 }
 
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
 }
 
 .table-view .column-header, .table-view .filler {

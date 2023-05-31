@@ -62,12 +62,12 @@
                      <children>
                         <ScrollPane prefHeight="456.0" prefWidth="728.0" style="-fx-background-color: null;">
                            <content>
-                              <TableView fx:id="tableView" prefHeight="423.0" prefWidth="716.0" styleClass="card" stylesheets="@../css/myReserves2.css">
+                              <TableView fx:id="tableView" prefHeight="423.0" prefWidth="716.0" styleClass="card" stylesheets="@../css/myReserves.css">
                                 <columns>
                                     <TableColumn fx:id="fechaReservaColumn" maxWidth="3217.129077911377" minWidth="30.0" prefWidth="223.0" style="-fx-text-color: WHITE;" text="Fecha Reserva" />
                                     <TableColumn fx:id="horaColumn" maxWidth="1682.871322631836" minWidth="30.0" prefWidth="169.0" text="Hora" />
-                                    <TableColumn fx:id="pistaColumn" maxWidth="1916.6085815429688" minWidth="30.0" prefWidth="180.0" text="Pista" />
-                                    <TableColumn fx:id="pagadoColumn" maxWidth="1393.3917236328125" minWidth="30.0" prefWidth="251.0" text="Pagado" />
+                                    <TableColumn fx:id="pistaColumn" maxWidth="1916.6085815429688" minWidth="0.0" prefWidth="161.0" text="Pista" />
+                                    <TableColumn fx:id="pagadoColumn" maxWidth="162.0" minWidth="30.0" prefWidth="160.0" text="Pagado" />
                                 </columns>
                               </TableView>
                            </content>
