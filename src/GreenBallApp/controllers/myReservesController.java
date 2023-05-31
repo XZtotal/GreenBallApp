@@ -57,9 +57,13 @@ public class myReservesController {
         printTable();
 
         fechaReservaColumn.setCellValueFactory(new PropertyValueFactory<>("madeForDay"));
+        fechaReservaColumn.setReorderable(false);
         horaColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
+        horaColumn.setReorderable(false);
         pistaColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        pistaColumn.setReorderable(false);
         pagadoColumn.setCellValueFactory(new PropertyValueFactory<>("paid"));
+        pagadoColumn.setReorderable(false);
     }
     public void printTable(){
 

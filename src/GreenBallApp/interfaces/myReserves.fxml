@@ -55,19 +55,19 @@
          <children>
             <BorderPane prefHeight="484.0" prefWidth="727.0" style="-fx-background-color: rgb(244, 244, 244); -fx-background-radius: 10;" styleClass="bellowContainer" stylesheets="@../css/register.css">
                <padding>
-                  <Insets bottom="12.5" top="10.0" />
+                  <Insets top="10.0" />
                </padding>
                <center>
                   <HBox fillHeight="false" prefHeight="396.0" prefWidth="712.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ScrollPane prefHeight="456.0" prefWidth="728.0" style="-fx-background-color: null; -fx-border-width: 0; -fx-effect: null;">
+                        <ScrollPane prefHeight="420.0" prefWidth="729.0" style="-fx-background-color: null; -fx-border-width: 0; -fx-effect: null;">
                            <content>
-                              <TableView fx:id="tableView" prefHeight="423.0" prefWidth="726.0" styleClass="card" stylesheets="@../css/myReserves.css">
+                              <TableView fx:id="tableView" prefHeight="414.0" prefWidth="721.0" styleClass="card" stylesheets="@../css/myReserves.css">
                                 <columns>
-                                    <TableColumn fx:id="fechaReservaColumn" maxWidth="3217.129077911377" minWidth="30.0" prefWidth="223.0" style="-fx-text-color: WHITE;" text="Fecha Reserva" />
+                                    <TableColumn fx:id="fechaReservaColumn" editable="false" maxWidth="3217.129077911377" minWidth="30.0" prefWidth="223.0" sortType="DESCENDING" style="-fx-text-color: WHITE;" text="Fecha Reserva" />
                                     <TableColumn fx:id="horaColumn" maxWidth="1682.871322631836" minWidth="30.0" prefWidth="169.0" text="Hora" />
                                     <TableColumn fx:id="pistaColumn" maxWidth="1916.6085815429688" minWidth="0.0" prefWidth="161.0" text="Pista" />
-                                    <TableColumn fx:id="pagadoColumn" maxWidth="162.0" minWidth="30.0" prefWidth="160.0" text="Pagado" />
+                                    <TableColumn fx:id="pagadoColumn" maxWidth="162.0" minWidth="30.0" prefWidth="151.0" text="Pagado" />
                                 </columns>
                               </TableView>
                            </content>
@@ -79,10 +79,18 @@
                   </HBox>
                </center>
                <bottom>
-                  <Button fx:id="cancelButton" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="36.0" prefWidth="199.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="CANCELAR RESERVA" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Calibri Bold" size="16.0" />
-                     </font></Button>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="727.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="cancelButton" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="36.0" prefWidth="199.0" styleClass="enterBtn" stylesheets="@../css/register.css" text="Cancelar reserva">
+                           <font>
+                              <Font name="Calibri Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </bottom>
             </BorderPane>
          </children>
