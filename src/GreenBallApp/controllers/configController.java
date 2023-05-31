@@ -210,8 +210,7 @@ public class configController
         profileImage = GreenBallApp.getMember().getImage();
         creditCard = GreenBallApp.getMember().getCreditCard();
         cvv = GreenBallApp.getMember().getSvc();
-        //imprime todos los datos
-        System.out.println("name:" + name+"\n" + "surname:" + surname+"\n" + "phone:" + phone+"\n" + "userName:" + userName+"\n" + "password:" + password+"\n" + "profileImage:" + profileImage+"\n" + "creditCard:" + creditCard+"\n" + "cvv:" + cvv+"\n");
+
     }
 
     private boolean saveData() {
