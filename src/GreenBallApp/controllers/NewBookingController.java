@@ -176,7 +176,7 @@ public class NewBookingController
                                     alerta.setTitle("Confirmar acción");
                                     //Si no ha introducido los datos bancarios le salta un mensaje de advertencia
                                     if(GreenBallApp.getMember().getCreditCard() == null || GreenBallApp.getMember().getCreditCard().equals("")){
-                                        alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera  en las instalaciones");
+                                        alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera abonarlo en las instalaciones");
                                     }else{
                                         alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
                                     }
@@ -329,8 +329,11 @@ public class NewBookingController
                         try{
                             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                             alerta.setTitle("Confirmar acción");
-                            alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
-
+                            if(GreenBallApp.getMember().getCreditCard() == null || GreenBallApp.getMember().getCreditCard().equals("")){
+                                alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?. Como no ha introducido los datos de pago lo debera abonarlo en las instalaciones");
+                            }else{
+                                alerta.setHeaderText("¿Está seguro de que desea realizar la reserva?");
+                            }
                             Optional<ButtonType> resultado = alerta.showAndWait();
                             //Comprueba si se puede hacer una reserva en las columnas donde no hay ninguna reserva
                             if (resultado.get() == ButtonType.OK){
