@@ -249,10 +249,11 @@ public class NewBookingController
                                                 }
                                         }
                                         if(aux1){
-                                            if(GreenBallApp.getMember().getCreditCard() == null){
+                                            if(GreenBallApp.getMember().getCreditCard().equals("")){
                                                 Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
                                                 courtBookings.add(b);
                                                 printTable();
+                                                System.out.println("No tiene tarjeta de credito");
                                             }
                                             Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                             courtBookings.add(b);
@@ -394,6 +395,12 @@ public class NewBookingController
                                         }
                                 }
                                 if(aux1){
+                                    if(GreenBallApp.getMember().getCreditCard().equals("")){
+                                        Booking b = Club.getInstance().registerBooking(date1, date, time, false, court, mem);
+                                        courtBookings.add(b);
+                                        printTable();
+                                        System.out.println("No tiene tarjeta de credito");
+                                    }
                                     Booking b = Club.getInstance().registerBooking(date1, date, time, true, court, mem);
                                     courtBookings.add(b);
                                     printTable();
