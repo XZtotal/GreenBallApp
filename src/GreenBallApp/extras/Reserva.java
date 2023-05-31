@@ -18,9 +18,9 @@ public class Reserva extends Booking {
         userName = b.getMember().getName();
         booking = b;
         if (b.getPaid()){
-            paid = "Pagado";
+            paid = "SI";
         }else{
-            paid = "No Pagado";
+            paid = "NO";
         }
     }
     public String getName(){
