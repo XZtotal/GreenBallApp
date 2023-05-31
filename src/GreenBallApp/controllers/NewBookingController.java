@@ -53,6 +53,10 @@ public class NewBookingController
     private DatePicker date;
     @FXML
     private Button btnReturn;
+    @FXML
+    private Button btnPreDay;
+    @FXML
+    private Button btnNextDay;
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {

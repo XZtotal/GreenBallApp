@@ -26,6 +26,10 @@ public class publicReservesController
     private DatePicker date;
     @FXML
     private GridPane board;
+    @FXML
+    private Button btnPreDay;
+    @FXML
+    private Button btnNextDay;
 
     @FXML
      public void initialize() throws ClubDAOException, IOException {
